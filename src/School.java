@@ -44,7 +44,11 @@ public class School {
 		this.socialScale = socialScale;
 		this.QOLScale = QOLScale;
 	}
-				
+	
+	public String viewSchoolDetails(School s){
+		return "Name: " + name + "\tState:"+ state +"\tLocation"+location
 	}
+	
+	
 	
 }
