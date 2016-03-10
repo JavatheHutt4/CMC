@@ -11,12 +11,4 @@ public class User extends Member{
 		super(firstName, lastName, userName, password, type, status);
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
