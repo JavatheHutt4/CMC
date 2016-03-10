@@ -7,7 +7,9 @@
  *
  */
 public class SchoolHome {
-
+	
+	
+	private School school;
 	/**
 	 * 
 	 */
