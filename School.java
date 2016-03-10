@@ -25,4 +25,26 @@ public class School {
 	private int socialScale;
 	private int QOLScale;
 	
+	private School(String name, String state, String location, String control, int numStudents,
+			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
+			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
+		this.name = name;
+		this.state = state;
+		this.location = location;
+		this.control = control;
+		this.numStudents = numStudents;
+		this.perFemale = perFemale;
+		this.satVerbal = satVerbal;
+		this.satMath = satMath;
+		this.expenses = expenses;
+		this.perFinancial = perFinancial;
+		this.numApplicants = numApplicants;
+		this.perEnrolled = perEnrolled;
+		this.acadScale = acadScale;
+		this.socialScale = socialScale;
+		this.QOLScale = QOLScale;
+	}
+				
+	}
+	
 }
