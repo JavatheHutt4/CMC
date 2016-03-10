@@ -7,14 +7,8 @@
  *
  */
 public class Admin extends Member {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println("damnit");
-		// TODO Auto-generated method stub
-
+	public Admin(String firstName, String lastName, String userName, String password, String type, String status) {
+		super(firstName, lastName, userName, password, type, status);
 	}
 
 }

@@ -22,7 +22,6 @@ public abstract class Member {
 	 * @param status
 	 */
 	public Member(String firstName, String lastName, String userName, String password, String type, String status) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -103,6 +102,7 @@ public abstract class Member {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	/**
 	 *Returns the members type
 	 */
