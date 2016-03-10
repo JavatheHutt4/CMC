@@ -30,6 +30,7 @@ public abstract class Member {
 		this.type = type;
 		this.status = status;
 	}
+	
 	/**
 	 * @return the firstName
 	 */
@@ -102,6 +103,15 @@ public abstract class Member {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-
+	/**
+	 *Returns the members type
+	 */
+	public String findMemberType(){
+			return status;
+		}
+	 /** Deactivates the Memeber by setting its type to "N"
+	   */
+	public void deactivateMember() {
+		this.type = "N";
+	} 
 }
