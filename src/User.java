@@ -3,10 +3,10 @@
  */
 
 /**
- * @author jcblomquist
+ * @author tdrichmond
  *
  */
-public class Admin extends Member {
+public class User extends Member{
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -21,8 +21,16 @@ public class Admin extends Member {
 	 * @param type
 	 * @param status
 	 */
-	public Admin(String firstName, String lastName, String userName, String password, String type, String status) {
+	public User(String firstName, String lastName, String userName, String password, String type, String status) {
 		super(firstName, lastName, userName, password, type, status);
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

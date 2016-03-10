@@ -24,6 +24,7 @@ public class School {
 	private int acadScale;
 	private int socialScale;
 	private int QOLScale;
+	private SchoolHome home;
 	
 	private School(String name, String state, String location, String control, int numStudents,
 			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
