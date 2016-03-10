@@ -3,19 +3,11 @@
  */
 
 /**
- * @author tdrichmond
+ * @author jcblomquist
  *
  */
 public class SchoolHome {
-	
-	
-	private School school;
-	/**
-	 * 
-	 */
-	public SchoolHome() {
-		// TODO Auto-generated constructor stub
-	}
+	public School school;
 
 	/**
 	 * @param args
