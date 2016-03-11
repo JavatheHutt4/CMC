@@ -8,7 +8,7 @@
  */
 public class AdminHome {
 	public Admin admin;
-	
+	public DatabaseController databasecontroller;
 	/**
 	 * @param args
 	 */
@@ -26,11 +26,11 @@ public class AdminHome {
 	/*
 	 * adds a new member with all the information provided in the parameter
 	 */
-	public void addNewMember(String u, String f, String l, String p, String t, String s){
-		if(t != "a" && t != "u" && s != "Y" && s != "N"){
+	public void addNewMember(String u, String f, String l, String p, Char t,){
+		if(t != 'a' && t != 'u'){
 			System.out.print("Invalid new member information");
 		}
-			Member member = new Member(f, l, u, p, t, s);
+		databasecontroller.user_addUser(f, l, u, p, t);
 	}
 	/*
 	 *  edits the members info in occordance to the information in the parameters
