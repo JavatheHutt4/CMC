@@ -47,7 +47,7 @@ public class School {
 	//Access to the SchoolHome class
 	private SchoolHome home;
 	
-	/**
+	/**;
 	 * Constructor method for School
 	 * @param name
 	 * @param state
