@@ -26,7 +26,7 @@ public class AdminHome {
 	/*
 	 * adds a new member with all the information provided in the parameter
 	 */
-	public void addNewMember(String u, String f, String l, String p, Char t,){
+	public void addNewMember(String u, String f, String l, String p, char t,){
 		if(t != 'a' && t != 'u'){
 			System.out.print("Invalid new member information");
 		}
