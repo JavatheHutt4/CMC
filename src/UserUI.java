@@ -8,7 +8,7 @@
  */
 public class UserUI {
 	
-	private UserHome user; 
+	private UserHome user;
 	
 	/**
 	 * @param args
@@ -40,25 +40,33 @@ public class UserUI {
 	{
 		
 	}
+	/*
+	 * save school
+	 */
 	public void saveSchool(String s)
 	{
-		
+		user.saveSchool(s);
 	}
 	public void confirmSave()
 	{
-		
+		/*
+		 * Prompt?
+		 */
 	}
 	public void viewSpecificSchool(String n)
 	{
-		
+		user.viewSavedSchool(n);
 	}
-	public void logoff()
+	public void logOff()
 	{
-		
+		user.logOff()
 	}
+	/*
+	 * removes saved school
+	 */
 	public void removeSavedSchool(String n)
 	{
-		
+		user.removeSavedSchool();
 	}
 	public void confirmChanges()
 	{
