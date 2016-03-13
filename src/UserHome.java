@@ -9,21 +9,13 @@
 public class UserHome {
 	public DatabaseController databasecontroller;
 	private User user;
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-	}
 	/*
 	 * Uses the databasecontroller to get all of the users and there information returned un a 2-D 
 	 * array of strings 
 	 */
 	public String[][] getAllUsers()
 	{
-		return databasecontroller.user_getUsers();
+		return databasecontroller.getUsers();
 	}
 	/*
 	 * Searches the database for a user by username and then returns all of its information
@@ -43,11 +35,5 @@ public class UserHome {
 			}
 		}
 	}
-	public void addNewUser()
-	{
-		/*
-		 * 
-		 *  TODO
-		 */
-	}
+	
 }

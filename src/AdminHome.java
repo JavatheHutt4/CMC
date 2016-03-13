@@ -9,13 +9,7 @@
 public class AdminHome {
 	public Admin admin;
 	public DatabaseController databasecontroller;
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
 	/**
 	 * Deactivates the member by setting its type to "N"
 	 */
@@ -30,17 +24,17 @@ public class AdminHome {
 		if(t != 'a' && t != 'u'){
 			System.out.print("Invalid new member information");
 		}
-		databasecontroller.user_addUser(f, l, u, p, t);
+		databasecontroller.addNewMember(f, l, u, p, t);
 	}
 	/*
 	 *  edits the members info in occordance to the information in the parameters
 	 */
-	public void editMemberInformation(String f, String l, String u, String p, String t, String s){
-		this.setFirstName(f);
-		this.setLastName(l);
-		this.setUserName(u);
-		this.setPassword(p);
-		this.setType(t);
-		this.setStatus(s);
+	public void editMemberInformation(String f, String l, String u, String p, char t, String s)
+	{
+		if(t != 'a' || t != 'u' && s != "N" || s != "A"){
+			System.out.print("Invalid new member information");
+		}
+		databasecontroller.editUser(f, l, u, p, t, s);
+	}
 	}
 }

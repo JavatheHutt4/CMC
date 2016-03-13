@@ -8,15 +8,8 @@
  */
 public class UserUI {
 	
-	private UserHome user;
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	private UserHome userhome;
+	private User user;
 	/*
 	 * updates the users info through the user opbject
 	 */
@@ -26,8 +19,7 @@ public class UserUI {
 	}
 	public void search(String sn, String s, String l, String c, String ns, Sting pf, String satv, String satm, String e, String fa, String na, String pa, String pe, String ac, String ss, String qls, String em)
 	{
-		/*
-		 * TODO implement search function
+		/*		 * TODO implement search function
 		 */
 	}
 	public School recommendSchool(School s)
@@ -38,20 +30,27 @@ public class UserUI {
 	}
 	public void manageSavedSchools()
 	{
-		
+		/*
+		 * lists schools and user is given the option to view or remove the school
+		 */
 	}
 	/*
 	 * save school
 	 */
 	public void saveSchool(String s)
-	{
-		user.saveSchool(s);
+	{	
+		if(confirmSave())
+		{
+			user.saveSchool(s);
+		}
+		else
+		{
+			System.out.print("Confirmation denied");
+		}
 	}
-	public void confirmSave()
+	public boolean confirmSave()
 	{
-		/*
-		 * Prompt?
-		 */
+		return confirm("Are you sure you want to save the School?")
 	}
 	public void viewSpecificSchool(String n)
 	{
@@ -64,13 +63,20 @@ public class UserUI {
 	/*
 	 * removes saved school
 	 */
-	public void removeSavedSchool(String n)
+	public void removeSavedSchool(School s)
 	{
-		user.removeSavedSchool();
+		if(confirmChanges())
+		{ 
+			user.removeSavedSchool(s);
+		}
+		else
+		{
+			System.out.print("Confirmation denied");
+		}
 	}
-	public void confirmChanges()
+	public boolean confirmChanges()
 	{
-		
+		return confirm("Are you sure you want to remove School?")
 	}
 	public void cancelChanges()
 	{
