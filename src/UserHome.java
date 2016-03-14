@@ -18,7 +18,6 @@ public class UserHome {
 	{
 		return databasecontroller.getUsers();
 	}
-<<<<<<< HEAD
 	/*
 	 * Searches the database for a user by userName and then returns all of its information
 =======
@@ -26,11 +25,10 @@ public class UserHome {
 	 * Searches the database for a user by username and then returns all of its information
 	 * @param the username of the user you are searching for
 	 * @return the user you searched for
->>>>>>> branch 'master' of https://github.com/JavatheHutt4/CMC.git
 	 */
 	public String findByName(String u)
 	{
-		String[][] index = databasecontroller.user_getUsers();
+		String[][] index = null; //databasecontroller.user_getUsers();
 		
 		for(int i = 0; i < index.length; i++)
 		{
@@ -42,6 +40,7 @@ public class UserHome {
 				}
 			}
 		}
+		return null;
 	}
 	public void viewSavedSchool(School s)
 	{

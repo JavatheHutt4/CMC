@@ -31,19 +31,15 @@ public class AdminHome {
 		}
 		databasecontroller.addNewMember(f, l, u, p, t);
 	}
-<<<<<<< HEAD
 	/*
 	 *  edits the members info in accordance to the information in the parameters
-=======
-	/**
-	 *  edits the members info in occordance to the information in the parameters
 	 *  @param first name
 	 *  @param last name
 	 *  @param username
 	 *  @param password
 	 *  @param type
 	 *  @param status
->>>>>>> branch 'master' of https://github.com/JavatheHutt4/CMC.git
+	 * 
 	 */
 	public void editMemberInformation(String f, String l, String u, String p, char t, char s)
 	{

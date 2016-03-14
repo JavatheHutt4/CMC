@@ -40,7 +40,7 @@ public class LogonController {
 	 * @param String password
 	 */
 	public void logon(String user, String pass){
-		Member temp = DB.findByName(user);
+		Member temp = null; //DB.findByName(user);
 		if (DB.isValid(user, pass)){
 			member = temp;
 			System.out.println("Logon Successful");
