@@ -36,7 +36,7 @@ public class LogonController {
 	}
 	
 	/**
-	 * logs on a user with the username and password passed as parameters
+	 * logs on a user with the userName and password passed as parameters
 	 * @param String user
 	 * @param String password
 	 */
@@ -57,6 +57,10 @@ public class LogonController {
 		member = null;
 		System.out.println("Log Off Successful");
 	}
-	
+	public String toString(){
+		if (member.equals(null))
+			return "No member is currently logged on.";
+		return "The Member currently logged in is user " +member.getUserName();
+	}
 
 }
