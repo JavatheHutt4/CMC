@@ -43,7 +43,7 @@ public class User extends Member{
 	 * @param school, the school to be saved
 	 */
 	public void saveSchool(School school){
-		int i = db.saveSchool(userName, school);
+		int i = db.saveSchool(this.getUserName(), school);
 		if(i == 1){
 			System.out.println("School was saved successfully");
 		}
@@ -57,7 +57,7 @@ public class User extends Member{
 	 * @param school, the school to be removed
 	 */
 	public void removeSavedSchool(School school){
-		int i = db.removeSchool(userName, school);
+		int i = db.removeSchool(this.getUserName(), school);
 		if(i == 1){
 			System.out.println("School was successfully removed");
 		}
@@ -69,10 +69,10 @@ public class User extends Member{
 	 * @return the list of saved schools
 	 */
 	public ArrayList<School> getSavedSchools(){
-		ArrayList<String> schools = new ArrayList();
+		ArrayList<School> schools = new ArrayList<School>();
 		String[][] all = db.getUsernamesWithSavedSchools();
-		for(int i=0;i<all.length();i++){
-			if(all[i][0] == userName){
+		for(int i=0;i<all.length;i++){
+			if(all[i][0] == this.getUserName()){
 				schools.add(all[i][1]);
 			}
 		}

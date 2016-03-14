@@ -34,8 +34,8 @@ public class SchoolHome {
 	public void editUniversity(String name, String state, String location, String control, int numStudents,
 			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
 			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
-		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
-				numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		//db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
+			//	numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class SchoolHome {
 	public School findByName(String school){
 		String[][] all = db.getSchools();
 		String[] emphasis;
-		for(int i=0;i<all.length();i++){
+		for(int i=0;i<all.length;i++){
 			if(all[i][0] == school){
 				School s = new School(all[i][0], all[i][1], all[i][2], all[i][3], Integer.parseInt(all[i][4]), 
 						Integer.parseInt(all[i][5]), Integer.parseInt(all[i][6]), Integer.parseInt(all[i][7]), 
