@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/f14/tdrichmond/workspace/CMC/csci230databaselibrary.jar"/>
+	<classpathentry kind="lib" path="/usr/people/classes/CS230/handouts/project/csci230databaselibrary.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
