@@ -3,15 +3,18 @@
  */
 
 /**
- * @author tdrichmond
- *
+ * @author jffritz
+ * @verson 3/13/16
  */
 public class UserUI {
 	
 	private UserHome userhome;
 	private User user;
-	/*
+	/**
 	 * updates the users info through the user opbject
+	 * @param first name
+	 * @param last name
+	 * @param password
 	 */
 	public void manageMyProfile(String f, String l, String p)
 	{
@@ -34,8 +37,9 @@ public class UserUI {
 		 * lists schools and user is given the option to view or remove the school
 		 */
 	}
-	/*
+	/**
 	 * save school
+	 * @param string name of school to be saved
 	 */
 	public void saveSchool(String s)
 	{	
@@ -52,6 +56,10 @@ public class UserUI {
 	{
 		return confirm("Are you sure you want to save the School?")
 	}
+	/**
+	 * Views the specified school
+	 * @param the string name of school to be viewed
+	 */
 	public void viewSpecificSchool(String n)
 	{
 		user.viewSavedSchool(n);
@@ -60,8 +68,9 @@ public class UserUI {
 	{
 		user.logOff()
 	}
-	/*
+	/**
 	 * removes saved school
+	 * @param school to be removed
 	 */
 	public void removeSavedSchool(School s)
 	{
@@ -74,6 +83,10 @@ public class UserUI {
 			System.out.print("Confirmation denied");
 		}
 	}
+	/**
+	 * confirms if user wants to change selected
+	 * @return a prompt what confirms the users decision
+	 */
 	public boolean confirmChanges()
 	{
 		return confirm("Are you sure you want to remove School?")

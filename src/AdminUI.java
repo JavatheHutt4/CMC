@@ -27,13 +27,23 @@ public class AdminUI {
 		 * pulls up list of all users and is given the option to deactivate or edit them
 		 */
 	}
+	/**
+	 * deactivates member
+	 * @param name of member to be deactivated
+	 */
 	public void deactivateMember(String n)
 	{
 		adminHome.deactivateMember(n);
 	}
+	/**
+	 * adds new member
+	 */
 	public void addMember()
 	{
 		adminHome.addNewMember(u,f,l,p,t)
+	/**
+	 * edits member
+	 */
 	}
 	public void editMember()
 	{
