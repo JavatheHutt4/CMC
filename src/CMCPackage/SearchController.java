@@ -1,23 +1,61 @@
 package CMCPackage;
 /**
- * 
- */
-/**
+ * SearchController is a class that has two primary uses:
+ * 1. Returning a list of schools that match search criteria from a user
+ * 2. Finding the five most similar schools to a certain school.
  * @author jcblomquist
- *
+ * @version 3-14-16
  */
 public class SearchController {
 	public String[][] matchingSchools, temp, schoolsInLibrary, recommendedSchools, schoolsWithDistance;
-	public String[] schoolString, schoolEmphasis, temporaryString;
+	public String[] schoolString, schoolEmphasis, temporaryString, listofSchoolsWithEmphasis;
 	public DatabaseController db;
 	public int count, distance, max, min, tempInt;
 	public String viewedSchool;
 	
 	
-	public SearchController(){}
+	public SearchController(){
+		
+	}
 	
-	// still need to search for the emphasis
-	public String[][] search(CharSequence name, CharSequence state, String location, String control, int minNumStudents, int maxNumStudents, int lowPerFemale, int highPerFemale, 
+	/**
+	 * search finds the schools that match the given criteria from a user's search
+	 * @param name - sequence of characters user is searching for in a school's name
+	 * @param state - sequence of characters user is searching for in a school's state
+	 * @param location - sequence of characters user is searching for in a school's location
+	 * @param control - sequence of characters user is searching for in a school's control
+	 * @param lowNumStudents - lower bound for parameter
+	 * @param highNumStudents - upper bound for parameter
+	 * @param lowPerFemale - lower bound for parameter
+	 * @param highPerFemale - upper bound for parameter
+	 * @param lowSatVerbal - lower bound for parameter
+	 * @param highSatVerbal - upper bound for parameter
+	 * @param lowSatMath - lower bound for parameter
+	 * @param highSatMath - upper bound for parameter
+	 * @param lowExpenses - lower bound for parameter
+	 * @param highExpenses - upper bound for parameter
+	 * @param lowPerFinancial - lower bound for parameter
+	 * @param highPerFinancial - upper bound for parameter
+	 * @param lowNumApplicants - lower bound for parameter
+	 * @param highNumApplicants - upper bound for parameter
+	 * @param lowPerAdmitted - lower bound for parameter
+	 * @param highPerAdmitted - upper bound for parameter
+	 * @param lowPerEnrolled - lower bound for parameter
+	 * @param highPerEnrolled - upper bound for parameter
+	 * @param lowAcadScale - lower bound for parameter
+	 * @param highAcadScale - upper bound for parameter
+	 * @param lowSocialScale - lower bound for parameter
+	 * @param highSocialScale - upper bound for parameter
+	 * @param lowQOLScale - lower bound for parameter
+	 * @param highQOLScale - upper bound for parameter
+	 * @param emph1 - emphasis being searched for
+	 * @param emph2 - emphasis being searched for
+	 * @param emph3 - emphasis being searched for
+	 * @param emph4 - emphasis being searched for
+	 * @param emph5 - emphasis being searched for
+	 * @return the schools that match the search
+	 */
+	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
 			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
 			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
@@ -29,10 +67,10 @@ public class SearchController {
 				if(schoolsInLibrary[i][1].contains(state) || state == null)
 					if(schoolsInLibrary[i][2] == location || location == null)
 						if(schoolsInLibrary[i][3] == control || control == null)
-							if(minNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && Integer.parseInt(schoolsInLibrary[i][4]) <= maxNumStudents || 
-							minNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && maxNumStudents == -1 ||
-							maxNumStudents >= Integer.parseInt(schoolsInLibrary[i][4]) && minNumStudents == -1 || 
-							minNumStudents == -1 && maxNumStudents == -1)
+							if(lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && Integer.parseInt(schoolsInLibrary[i][4]) <= highNumStudents || 
+							lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && highNumStudents == -1 ||
+							highNumStudents >= Integer.parseInt(schoolsInLibrary[i][4]) && lowNumStudents == -1 || 
+							lowNumStudents == -1 && highNumStudents == -1)
 								if(lowPerFemale <= Integer.parseInt(schoolsInLibrary[i][5]) && Integer.parseInt(schoolsInLibrary[i][5]) <= highPerFemale || 
 								lowPerFemale <= Integer.parseInt(schoolsInLibrary[i][5]) && highPerFemale == -1 ||
 								highPerFemale >= Integer.parseInt(schoolsInLibrary[i][5]) && lowPerFemale == -1 || 
@@ -77,21 +115,36 @@ public class SearchController {
 																		lowQOLScale <= Integer.parseInt(schoolsInLibrary[i][15]) && highQOLScale == -1 ||
 																		highQOLScale >= Integer.parseInt(schoolsInLibrary[i][15]) && lowQOLScale == -1 || 
 																		lowQOLScale == -1 && highQOLScale == -1){
-																			temp = matchingSchools;
-																			matchingSchools = new String[count+1][18];
-																			for(int k = 0; k < count; k++){
-																				for(int l = 0; l < 18; l++){
-																					matchingSchools[k][l] = temp[k][l];
+																			listofSchoolsWithEmphasis = db.university_getNamesWithEmphases();
+																			for(int m = 0; m < listOfSchoolsWithEmphasis.length; m++){
+																				if(listOfSchoolsWithEmphasis[m][0].contains(name)){
+																					if(listOfSchoolsWithEmphasis[m][1] == emph1 ||
+																					listOfSchoolsWithEmphasis[m][1] == emph2 ||
+																					listOfSchoolsWithEmphasis[m][1] == emph3 ||
+																					listOfSchoolsWithEmphasis[m][1] == emph4 ||
+																					listOfSchoolsWithEmphasis[m][1] == emph5){
+																						temp = matchingSchools;
+																						matchingSchools = new String[count+1][18];
+																						for(int k = 0; k < count; k++){
+																							for(int l = 0; l < 18; l++){
+																								matchingSchools[k][l] = temp[k][l];
+																							}
+																						}
+																						for(int j = 0; j < schoolsInLibrary[i].length; j++)
+																							matchingSchools[count][j] = schoolsInLibrary[i][i];
+																						count++;
+																					}
 																				}
 																			}
-																			for(int j = 0; j < schoolsInLibrary[i].length; j++)
-																				matchingSchools[count][j] = schoolsInLibrary[i][i];
-																			count++;
 																		}								
 		return matchingSchools;
 		}
 	
-	//need to figure out how to get max and min of different fields for algorithm (highest and lowest satMath in database, etc.)
+	/**
+	 * getMax finds the maximum value of a certain attribute in all of the schools
+	 * @param i - the index to look in for the specific attribute
+	 * @return the maximum value of the attribute
+	 */
 	public int getMax(int i){
 		schoolsInLibrary = db.getSchools();
 		max = Integer.parseInt(schoolsInLibrary[0][i]);
@@ -102,7 +155,11 @@ public class SearchController {
 		}
 		return max;
 		}
-	
+	/**
+	 * getMin finds the minimum value of a certain attribute in all of the schools
+	 * @param i - the index to look in for the specific attribute
+	 * @return the minimum value of the attribute
+	 */
 	public int getMin(int i){
 		schoolsInLibrary = db.getSchools();
 		min = Integer.parseInt(schoolsInLibrary[0][i]);
@@ -114,6 +171,11 @@ public class SearchController {
 		return min;
 		}
 	
+	/**
+	 * getRecommendedSchools compares a given school with schools in the database to find the most similar ones.
+	 * @param s - the school that is being given for CMC to compare the other schools to
+	 * @return a 2D array with the 5 most similar schools
+	 */
 	public String[][] getRecommendedSchools(School s){
 		distance = 0;
 		schoolsInLibrary = db.getSchools();
@@ -137,7 +199,9 @@ public class SearchController {
 		schoolString[14] = Integer.toString(s.getSocialScale());
 		schoolString[15] = Integer.toString(s.getQOLScale());
 		for(int i = 0; i < schoolsInLibrary.length; i++){
-			//names will obviously be different, so they are ignored
+			//names will obviously be different, so they are ignored. If it is the school itself, we skip it.
+			if(schoolString[0] == schoolsInLibrary[i][0])
+				continue;
 			if(schoolString[1] != schoolsInLibrary[i][1])
 				distance += 1;
 			if(schoolString[2] != schoolsInLibrary[i][2])
@@ -148,9 +212,12 @@ public class SearchController {
 				distance += (Math.abs(Integer.parseInt(schoolString[j]) - Integer.parseInt(schoolsInLibrary[i][j]))
 						/(getMax(j)-getMin(j)));
 			}
+			//the distances are now obtained, so we create a new array with one more column, for distance
 			for(int k = 0; k < 16; k++){
 				schoolsWithDistance[i][k] = schoolsInLibrary[i][k];
 			}
+			//we need to 'manually' sort the first five schools, because attempting to sort
+			//them with an empty array would not insert them in (distance > 0 for all schools)
 			schoolsWithDistance[i][16] = Integer.toString(distance);
 			if(i == 0){
 				recommendedSchools[0] = schoolsWithDistance[i];
@@ -222,7 +289,39 @@ public class SearchController {
 				else
 					recommendedSchools[4] = schoolsWithDistance[i];	
 			}
-			if(i > 4){
+			//this case is used in the instance that one one the fist five schools in the library is being compared against
+			if(i == 5){
+				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+					recommendedSchools[4] = recommendedSchools[3];
+					recommendedSchools[3] = recommendedSchools[2];
+					recommendedSchools[2] = recommendedSchools[1];
+					recommendedSchools[1] = recommendedSchools[0];
+					recommendedSchools[0] = schoolsWithDistance[i];	
+				}
+				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+					recommendedSchools[4] = recommendedSchools[3];
+					recommendedSchools[3] = recommendedSchools[2];
+					recommendedSchools[2] = recommendedSchools[1];
+					recommendedSchools[1] = schoolsWithDistance[i];
+				}
+				else if(distance < Integer.parseInt(recommendedSchools[2][16])){
+					recommendedSchools[4] = recommendedSchools[3];
+					recommendedSchools[3] = recommendedSchools[2];
+					recommendedSchools[2] = schoolsWithDistance[i];
+				}
+				else if(distance < Integer.parseInt(recommendedSchools[3][16])){
+					recommendedSchools[4] = recommendedSchools[3];
+					recommendedSchools[3] = schoolsWithDistance[i];
+				}
+				else if(distance < Integer.parseInt(recommendedSchools[4][16])){
+					recommendedSchools[4] = schoolsWithDistance[i];
+				}
+				else if(Integer.parseInt(recommendedSchools[4][16]) == 0){
+					recommendedSchools[4] = schoolsWithDistance[i];
+				}
+			}
+			//this if loop goes through the remaining schools, sorting them as necessary
+			if(i > 5){
 				if(distance < Integer.parseInt(recommendedSchools[0][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
@@ -253,6 +352,10 @@ public class SearchController {
 		return recommendedSchools;
 	}
 		
+<<<<<<< HEAD
 }
 				
 	
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/JavatheHutt4/CMC.git

@@ -3,13 +3,14 @@ import java.util.ArrayList;
 
 
 /**
+ * Class to represent a user in the CMC system
  * @author tdrichmond, jrfolkerds
- *
+ * @version 3/13/2016
  */
 public class User extends Member{
 	
-	//Arraylist containing the User's saved schools
-	ArrayList<School> schools = new ArrayList();
+	//Access to the database controller
+	private DatabaseController db;
 	
 	/**
 	 * Constructor method for User
@@ -22,6 +23,7 @@ public class User extends Member{
 	 */
 	public User(String firstName, String lastName, String userName, String password, char status) {
 		super(firstName, lastName, userName, password, 'u', status);
+		db = new DatabaseController();
 	}
 	
 	/**
@@ -37,32 +39,52 @@ public class User extends Member{
 	}
 	
 	/**
-	 * 
+	 * Add the specified school to the User's list of saved schools
+	 * @param school, the school to be saved
 	 */
 	public void saveSchool(School school){
-		schools.add(school);
+		int i = db.saveSchool(this.getUserName(), school);
+		if(i == 1){
+			System.out.println("School was saved successfully");
+		}
+		else{
+			System.out.println("School has already been saved");
+		}
 	}
 	
 	/**
-	 * 
+	 * Remove a school from the User's list
+	 * @param school, the school to be removed
 	 */
 	public void removeSavedSchool(School school){
-		schools.remove(school);
+		int i = db.removeSchool(this.getUserName(), school);
+		if(i == 1){
+			System.out.println("School was successfully removed");
+		}
 	}
 	
 		
 	/**
-	 * 
+	 * View the list of saved schools
+	 * @return the list of saved schools
 	 */
-	public ArrayList<School> getSavedSchools(){
+	public ArrayList<String> getSavedSchools(){
+		ArrayList<String> schools = new ArrayList<String>();
+		String[][] all = db.getUsernamesWithSavedSchools();
+		for(int i=0;i<all.length;i++){
+			if(all[i][0] == this.getUserName()){
+				schools.add(all[i][1]);
+			}
+		}
 		return schools;
 	}
 	
 	/**
-	 * 
+	 * View the details of a saved school
+	 * @param the saved school
+	 * @return the specified saved school
 	 */
-	public School viewSavedSchool(School school){
-		school.viewSchoolDetails();
-		return school;
+	public String viewSavedSchool(School school){
+		return school.toString();
 	}
 }
