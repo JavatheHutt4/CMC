@@ -86,7 +86,6 @@ public class DatabaseController {
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 		return 1;
 	}
-	
 	/**
 	 * addNewMember adds a new member to the CMC system. It checks to see if there is already a member
 	 * with the desired username- if there is not, the new member is added to the system.
@@ -141,6 +140,11 @@ public class DatabaseController {
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		return usersFromLibrary;
 		
+	}
+	
+	public String[][] getSchools(){
+		schoolsFromLibrary = databaseLibrary.university_getUniversities();
+		return schoolsFromLibrary;
 	}
 	
 	public Member findByName(String user){

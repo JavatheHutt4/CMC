@@ -36,5 +36,8 @@ public class UserHome {
 	{
 		user.removeSavedSchool(s);
 	}
-	
+	public void saveSchool(School s)
+	{
+		user.saveSchool(s);
+	}
 }
