@@ -1,24 +1,28 @@
 /**
- * 
- */
-
-/**
- * @author jcblomquist
- *
+ * @author jffritz
+ * @version 3/13/3
  */
 public class AdminHome {
+	// admin object
 	public Admin admin;
+	// databasecontroller object to access the datbase
 	public DatabaseController databasecontroller;
 
 	/**
 	 * Deactivates the member by setting its type to "N"
+	 * @param member to be deactivated
 	 */
 	public void deactivateMember(Member m)
 	{
 		m.deactivateMember();
 	}
-	/*
+	/**
 	 * adds a new member with all the information provided in the parameter
+	 * @param username
+	 * @param first name
+	 * @param last name
+	 * @param password
+	 * @param type
 	 */
 	public void addNewMember(String u, String f, String l, String p, char t)
 	{
@@ -27,8 +31,19 @@ public class AdminHome {
 		}
 		databasecontroller.addNewMember(f, l, u, p, t);
 	}
+<<<<<<< HEAD
 	/*
 	 *  edits the members info in accordance to the information in the parameters
+=======
+	/**
+	 *  edits the members info in occordance to the information in the parameters
+	 *  @param first name
+	 *  @param last name
+	 *  @param username
+	 *  @param password
+	 *  @param type
+	 *  @param status
+>>>>>>> branch 'master' of https://github.com/JavatheHutt4/CMC.git
 	 */
 	public void editMemberInformation(String f, String l, String u, String p, char t, char s)
 	{
