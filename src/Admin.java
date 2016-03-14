@@ -5,9 +5,17 @@
  */
 
 public class Admin extends Member {
-	public Admin(String firstName, String lastName, String userName, String password, String status) {
-		super(firstName, lastName, userName, password, "a", status);
-		
+	
+	
+	/**
+	 * Constructor method for Admin
+	 * @param firstName
+	 * @param lastName
+	 * @param userName
+	 * @param password
+	 * @param status
+	 */
+	public Admin(String firstName, String lastName, String userName, String password, char status) {
+		super(firstName, lastName, userName, password, 'a', status);
 	}
-
 }

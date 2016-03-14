@@ -141,6 +141,10 @@ public class DatabaseController {
 		return usersFromLibrary;
 		
 	}
+	
+	public boolean isValid(String user, String pass){
+		return false;
+	}
 				
 		
 		

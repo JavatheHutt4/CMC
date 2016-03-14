@@ -18,9 +18,9 @@ public class UserHome {
 		return databasecontroller.getUsers();
 	}
 	/*
-	 * Searches the database for a user by username and then returns all of its information
+	 * Searches the database for a user by userName and then returns all of its information
 	 */
-	public User findByName(String u)
+	public String findByName(String u)
 	{
 		String[][] index = databasecontroller.user_getUsers();
 		
@@ -30,10 +30,18 @@ public class UserHome {
 			{
 				if(index[i][j] == u)
 				{
-					return index[i];
+					return index[i][1];
 				}
 			}
 		}
+	}
+	public void viewSavedSchool(School s)
+	{
+		user.viewSavedSchool(s);
+	}
+	public void removeSavedSchool(School s)
+	{
+		user.removeSavedSchool(s);
 	}
 	
 }

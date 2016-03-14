@@ -9,13 +9,6 @@ public class User extends Member{
 	
 	//Arraylist containing the User's saved schools
 	ArrayList<School> schools = new ArrayList();
-	//First name
-	String firstName;
-	//Last name
-	String lastName;
-	//User password
-	String password;
-	
 	
 	/**
 	 * Constructor method for User
@@ -26,53 +19,20 @@ public class User extends Member{
 	 * @param type
 	 * @param status
 	 */
-	public User(String firstName, String lastName, String userName, String password, String type, String status) {
-		super(firstName, lastName, userName, password, "u", status);
+	public User(String firstName, String lastName, String userName, String password, char status) {
+		super(firstName, lastName, userName, password, 'u', status);
 	}
 	
 	/**
 	 * Method to update the User's password, first and last name
-	 * 
+	 * @param firstname
+	 * @param lastname
+	 * @param password
 	 */
 	public void updateInformation(String first, String last, String password){
-		firstName = first;
-		lastName = last;
-		password = password;
-	}
-	
-	/**
-	 * 
-	 */
-	public void logOn(String username, String password){
-		
-	}
-	
-	/**
-	 * 
-	 */
-	public void logOff()
-		
-	}	
-	
-	/**
-	 * 
-	 */
-	public String getFirst(){
-		return firstName;
-	}
-	
-	/**
-	 * 
-	 */
-	public String getLast(){
-		return lastName;
-	}
-	
-	/**
-	 * 
-	 */
-	public String getPassword(){
-		return password;
+		this.setFirstName(first);
+		this.setLastName(last);
+		this.setPassword(password);
 	}
 	
 	/**
@@ -86,7 +46,7 @@ public class User extends Member{
 	 * 
 	 */
 	public void removeSavedSchool(School school){
-		schools.remove(School);
+		schools.remove(school);
 	}
 	
 		
@@ -102,5 +62,6 @@ public class User extends Member{
 	 */
 	public School viewSavedSchool(School school){
 		school.viewSchoolDetails();
+		return school;
 	}
 }

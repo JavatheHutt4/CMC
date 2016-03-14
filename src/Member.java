@@ -16,7 +16,7 @@ public abstract class Member {
 	 */
 	private String lastName;
 	/**
-	 * String representing username of the Member
+	 * String representing userName of the Member
 	 */
 	private String userName;
 	/**

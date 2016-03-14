@@ -8,6 +8,7 @@
  */
 public class AdminUI {
 	public AdminHome adminHome;
+	public LogonController log;
 	
 	public void manageMyProfile()
 	{
@@ -27,21 +28,20 @@ public class AdminUI {
 		 * pulls up list of all users and is given the option to deactivate or edit them
 		 */
 	}
-	public void deactivateMember(String n)
+	public void deactivateMember(Member m)
 	{
-		adminHome.deactivateMember(n);
+		adminHome.deactivateMember(m);
 	}
-	public void addMember()
+	public void addMember(String f, String l, String u, String p, char s, char t)
 	{
-		adminHome.addNewMember(u,f,l,p,t)
+		adminHome.addNewMember(u,f,l,p,t);
 	}
-	public void editMember()
+	public void editMember(String f, String l, String u, String p, char s, char t)
 	{
-		
-		adminHome.editMemberInformation()
+		adminHome.editMemberInformation(f, l, u, p, s, t);
 	}
-	public void logOff()
+	public void logoff()
 	{
-		
+		log.logoff();
 	}
 }

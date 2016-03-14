@@ -8,16 +8,17 @@
  */
 public class UserUI {
 	
-	private UserHome userhome;
-	private User user;
+	private UserHome userHome;
+	public LogonController log;
+	
 	/*
-	 * updates the users info through the user opbject
+	 * updates the users info through the user object
 	 */
 	public void manageMyProfile(String f, String l, String p)
 	{
-		user.updateInformation(f,l,p);
+		userHome.updateInformation(f,l,p);
 	}
-	public void search(String sn, String s, String l, String c, String ns, Sting pf, String satv, String satm, String e, String fa, String na, String pa, String pe, String ac, String ss, String qls, String em)
+	public void search(String sn, String s, String l, String c, String ns, String pf, String satv, String satm, String e, String fa, String na, String pa, String pe, String ac, String ss, String qls, String em)
 	{
 		/*		 * TODO implement search function
 		 */
@@ -27,6 +28,7 @@ public class UserUI {
 		/*
 		 * TODO implement search Function
 		 */
+		return null;
 	}
 	public void manageSavedSchools()
 	{
@@ -38,41 +40,30 @@ public class UserUI {
 	 * save school
 	 */
 	public void saveSchool(String s)
-	{	
-		if(confirmSave())
-		{
-			user.saveSchool(s);
-		}
-		else
-		{
-			System.out.print("Confirmation denied");
-		}
+	{
+		userHome.saveSchool(s);
 	}
+	
 	public boolean confirmSave()
 	{
 		return confirm("Are you sure you want to save the School?")
 	}
+	
 	public void viewSpecificSchool(String n)
 	{
-		user.viewSavedSchool(n);
+		userHome.viewSavedSchool(n);
 	}
-	public void logOff()
+	
+	public void logoff()
 	{
-		user.logOff()
+		log.logoff();
 	}
 	/*
 	 * removes saved school
 	 */
 	public void removeSavedSchool(School s)
 	{
-		if(confirmChanges())
-		{ 
-			user.removeSavedSchool(s);
-		}
-		else
-		{
-			System.out.print("Confirmation denied");
-		}
+		userHome.removeSavedSchool(s);
 	}
 	public boolean confirmChanges()
 	{
