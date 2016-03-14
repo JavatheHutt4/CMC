@@ -41,8 +41,8 @@ public class LogonController {
 	 * @param String password
 	 */
 	public void logon(String user, String pass){
-		Member temp = null; //DB.findByName(user);
-		if (DB.isValid(user, pass)){
+		Member temp = DB.findByName(user);
+		if (temp != null){
 			member = temp;
 			System.out.println("Logon Successful");
 		}
