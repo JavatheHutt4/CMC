@@ -29,9 +29,9 @@ public class AdminHome {
 	/*
 	 *  edits the members info in occordance to the information in the parameters
 	 */
-	public void editMemberInformation(String f, String l, String u, String p, char t, String s)
+	public void editMemberInformation(String f, String l, String u, String p, char t, char s)
 	{
-		if(t != 'a' || t != 'u' && s != "N" || s != "A"){
+		if(t != 'a' || t != 'u' && s != 'N' || s != 'A'){
 			System.out.print("Invalid new member information");
 		}
 		databasecontroller.editUser(f, l, u, p, t, s);
