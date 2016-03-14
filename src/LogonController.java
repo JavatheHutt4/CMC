@@ -21,9 +21,15 @@ public class LogonController {
 	}
 	public void logon(String user, String pass){
 		Member temp = DB.findByName(user);
-		if (temp.isValid()){
+		if (DB.isValid(user, pass)){
 			member = temp;
+			System.out.println("Logon Successful");
 		}
 	}
+	public void logoff(){
+		member = null;
+		System.out.println("Log Off Successful");
+	}
+	
 
 }
