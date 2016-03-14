@@ -68,8 +68,8 @@ public class User extends Member{
 	 * View the list of saved schools
 	 * @return the list of saved schools
 	 */
-	public ArrayList<School> getSavedSchools(){
-		ArrayList<School> schools = new ArrayList<School>();
+	public ArrayList<String> getSavedSchools(){
+		ArrayList<String> schools = new ArrayList<String>();
 		String[][] all = db.getUsernamesWithSavedSchools();
 		for(int i=0;i<all.length;i++){
 			if(all[i][0] == this.getUserName()){

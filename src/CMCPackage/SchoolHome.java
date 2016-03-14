@@ -34,8 +34,8 @@ public class SchoolHome {
 	public void editUniversity(String name, String state, String location, String control, int numStudents,
 			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
 			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
-		//db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
-			//	numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
+				numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 	}
 	
 	/**
