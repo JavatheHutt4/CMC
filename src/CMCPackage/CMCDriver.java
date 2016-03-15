@@ -31,7 +31,7 @@ public class CMCDriver {
 		userUI.manageMyProfile("John", "User", "user");
 		//tests search method
 		userUI.search('BARUCH', null, null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, "BUSINESS-ADMINISTRATION", null, null, null, null)
-		
+		 
 		
 		System.out.println("\n********************************Tests for admin agent uses********************************");
 		// testing admin logon with invalid username and password
