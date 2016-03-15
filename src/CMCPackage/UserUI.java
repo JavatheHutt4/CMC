@@ -1,7 +1,5 @@
 package CMCPackage;
 
-import java.util.ArrayList;
-
 /**
  * UserUI class, accessed by the agent, used to control the UserHome class
  * @author jffritz
@@ -18,11 +16,6 @@ public class UserUI {
 	 * LogonController object to manage Member and the login status
 	 */
 	private LogonController log;
-	
-	/**
-	 * UserUI constructor to create both UserHome and LogonController instances
-	 */
-	private User user;
 	
 	/**
 	 * UserUI constructor to create both UserHome and LogonController instances
@@ -97,14 +90,14 @@ public class UserUI {
 	 */
 	public void manageMyProfile(String f, String l, String p)
 	{
-		user.updateInformation(f, l, p);
+		//userHome.updateInformation(f,l,p);
 	}
-		/**
-		 * lists schools and user is given the option to view or remove the school
-		 */
+
 	public void manageSavedSchools()
 	{
-		ArrayList<String> savedSchools = userHome.getSavedSchools(log.getMember().getUserName());
+		/*
+		 * lists schools and user is given the option to view or remove the school
+		 */
 	}
 	/**
 	 * save school
@@ -134,7 +127,7 @@ public class UserUI {
 	 * @param username
 	 * @param password
 	 */
-	public void logon(String user, String pass){
+	public void logon(String user, String pass){ 
 		log.logon(user, pass);
 	}
 	
