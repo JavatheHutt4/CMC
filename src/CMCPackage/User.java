@@ -38,21 +38,21 @@ public class User extends Member{
 		this.setPassword(password);
 	}
 	
-	/**
+/**	/**
 	 * Add the specified school to the User's list of saved schools
 	 * @param school, the school to be saved
-	 */
+	 *
 	public void saveSchool(String school){
 		uh.saveSchool(this.getUserName(), school);
-	}
+	} */
 	
-	/**
+/**	/**
 	 * Remove a school from the User's list
 	 * @param school, the school to be removed
-	 */
+	 *
 	public void removeSavedSchool(String school){
 		uh.removeSavedSchool(this.getUserName(), school);
-	}
+	} */
 		
 	/**
 	 * View the list of saved schools
