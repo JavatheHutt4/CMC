@@ -121,15 +121,16 @@ public class DatabaseController {
 	 * @param password
 	 * @param type
 	 */
-	public void addNewMember(String firstName, String lastName, String username, String password, char type){
+	public int addNewMember(String firstName, String lastName, String username, String password, char type){
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2].equals(username))
-				return;
+				return -1;
 			else
 				continue;
 		}
 		databaseLibrary.user_addUser(firstName, lastName, username, password, type);
+		return 1;
 		
 	}
 	
