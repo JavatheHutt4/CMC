@@ -52,8 +52,7 @@ public class UserHome {
 	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void removeSavedSchool(String s)
-	{
+	public void removeSavedSchool(String s){
 		int i = db.removeSchool(user.getUserName(), s);
 		if(i != -1){
 			System.out.println("School was successfully removed");
@@ -83,8 +82,7 @@ public class UserHome {
 	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void saveSchool(String s)
-	{
+	public void saveSchool(String s){
 		int i = db.saveSchool(user.getUserName(), s);
 		if(i != -1){
 			System.out.println("School was successfully saved");
