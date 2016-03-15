@@ -109,7 +109,7 @@ public class UserUI {
 	 */
 	public String viewSpecificSchool(String n)
 	{
-		return n;
+		return null;
 	}
 	
 	/**
