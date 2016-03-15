@@ -26,7 +26,6 @@ public class UserHome {
 	private UserUI userUI;
 	
 	public UserHome(){
-		userUI = new user
 	}
 	
 	/**
@@ -164,5 +163,13 @@ public class UserHome {
 	 */
 	public void setMember(Member member) {
 		this.user = (User) member;
+	}
+	
+	public User getMember(){
+		return user;
+	}
+	
+	public void editUserInfo(String f, String l, String p){
+		db.editUser(f, l, user.getUserName(), p, user.getType(), user.getStatus());
 	}
 }

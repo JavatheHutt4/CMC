@@ -22,8 +22,6 @@ public class UserUI {
 	/**
 	 * UserUI constructor to create both UserHome and LogonController instances
 	 */
-	private User user;
-	
 	public UserUI(){
 		userHome = new UserHome();
 		log = new LogonController();
@@ -94,7 +92,7 @@ public class UserUI {
 	 */
 	public void manageMyProfile(String f, String l, String p)
 	{
-		user.updateInformation(f, l, p);
+		userHome.getMember().updateInformation(f, l, p);
 	}
 	/**
 	 * lists schools and user is given the option to view or remove the school
@@ -156,6 +154,14 @@ public class UserUI {
 	 * confirms if user wants to change selected
 	 * @return a prompt what confirms the users decision
 	 */
+	
+	public LogonController getLog(){
+		return log;
+	}
+	
+	public String viewMemberInfo(){
+		return getLog().getMember().toString();
+	}
 //	public boolean confirmChanges()
 //	{
 //		return confirm("Are you sure you want to remove School?")
