@@ -125,7 +125,7 @@ public class UserHome {
 	 * @param emph5 - emphasis being searched for
 	 * @return the schools that match the search
 	 */
-	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
 			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
 			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
