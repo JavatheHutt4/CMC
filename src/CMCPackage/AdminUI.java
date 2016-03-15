@@ -17,24 +17,23 @@ public class AdminUI {
 		adminHome = new AdminHome();
 		log = new LogonController();
 	}
-	
+	/**
+	 *  pulls up profile and is given the option to edit it 
+	*/
 	public void manageMyProfile()
-	{
-		/*
-		 *  pulls up profile and is given the option to edit it 
-		 */
+	{		
 	}
+	/**
+	 * pulls up saved universities and is given the option to view or edit them
+	 */
 	public void manageUniversities()
 	{
-		/*
-		 * pulls up saved universities and is given the option to view or edit them
-		 */
 	}
+	/**
+	 * pulls up list of all users and is given the option to deactivate or edit them
+	 */
 	public void manageUsers()
 	{
-		/*
-		 * pulls up list of all users and is given the option to deactivate or edit them
-		 */
 	}
 	
 	/**

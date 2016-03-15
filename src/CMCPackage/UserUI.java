@@ -14,11 +14,66 @@ public class UserUI {
 		userHome = new UserHome();
 		log = new LogonController();
 	}
-	
-	/*
-	 * updates the users info through the user object
 	/**
-	 * updates the users info through the user object
+	 * search finds the schools that match the given criteria from a user's search // UserUI contacts UserHome what contacts SeachController to get the search
+	 * @param name - sequence of characters user is searching for in a school's name
+	 * @param state - sequence of characters user is searching for in a school's state
+	 * @param location - sequence of characters user is searching for in a school's location
+	 * @param control - sequence of characters user is searching for in a school's control
+	 * @param lowNumStudents - lower bound for parameter
+	 * @param highNumStudents - upper bound for parameter
+	 * @param lowPerFemale - lower bound for parameter
+	 * @param highPerFemale - upper bound for parameter
+	 * @param lowSatVerbal - lower bound for parameter
+	 * @param highSatVerbal - upper bound for parameter
+	 * @param lowSatMath - lower bound for parameter
+	 * @param highSatMath - upper bound for parameter
+	 * @param lowExpenses - lower bound for parameter
+	 * @param highExpenses - upper bound for parameter
+	 * @param lowPerFinancial - lower bound for parameter
+	 * @param highPerFinancial - upper bound for parameter
+	 * @param lowNumApplicants - lower bound for parameter
+	 * @param highNumApplicants - upper bound for parameter
+	 * @param lowPerAdmitted - lower bound for parameter
+	 * @param highPerAdmitted - upper bound for parameter
+	 * @param lowPerEnrolled - lower bound for parameter
+	 * @param highPerEnrolled - upper bound for parameter
+	 * @param lowAcadScale - lower bound for parameter
+	 * @param highAcadScale - upper bound for parameter
+	 * @param lowSocialScale - lower bound for parameter
+	 * @param highSocialScale - upper bound for parameter
+	 * @param lowQOLScale - lower bound for parameter
+	 * @param highQOLScale - upper bound for parameter
+	 * @param emph1 - emphasis being searched for
+	 * @param emph2 - emphasis being searched for
+	 * @param emph3 - emphasis being searched for
+	 * @param emph4 - emphasis being searched for
+	 * @param emph5 - emphasis being searched for
+	 * @return the schools that match the search
+	 */
+	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
+			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
+			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
+			String emph1, String emph2, String emph3, String emph4, String emph5)
+	{
+		String[][] search = userHome.search(name, state, location, control, lowNumStudents, highNumStudents, lowPerFemale, highPerFemale, lowSatVerbal, highSatVerbal, lowSatMath, highSatMath, lowExpenses, highExpenses, lowPerFinancial, highPerFinancial, lowNumApplicants, highNumApplicants, lowPerAdmitted, highPerAdmitted, lowPerEnrolled, highPerEnrolled, lowAcadScale, highAcadScale, lowSocialScale, highSocialScale, lowQOLScale, highQOLScale, emph1, emph2, emph3, emph4, emph5);
+		return search;
+	}
+	
+	/**
+	 * getRecommendedSchools compares a given school with schools in the database to find the most similar ones.
+	 * @param s - the school that is being given for CMC to compare the other schools to
+	 * @return a 2D array with the 5 most similar schools
+	 */
+	public String[][] recommendSchool(School s)
+	{
+		String[][] school = userHome.recommendSchool(s);
+		return school;
+	}
+	
+	/**
+	 * updates the users info through userHome object
 	 * @param first name
 	 * @param last name
 	 * @param password
@@ -27,18 +82,7 @@ public class UserUI {
 	{
 		//userHome.updateInformation(f,l,p);
 	}
-	public void search(String sn, String s, String l, String c, String ns, String pf, String satv, String satm, String e, String fa, String na, String pa, String pe, String ac, String ss, String qls, String em)
-	{
-		/*		 * TODO implement search function
-		 */
-	}
-	public School recommendSchool(School s)
-	{
-		/*
-		 * TODO implement search Function
-		 */
-		return null;
-	}
+
 	public void manageSavedSchools()
 	{
 		/*
