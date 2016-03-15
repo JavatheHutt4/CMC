@@ -25,6 +25,7 @@ public class LogonController {
 	 */
 	public LogonController() {
 		DB = new DatabaseController();
+		member = null;
 	}
 	
 	/**

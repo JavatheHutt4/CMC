@@ -7,9 +7,19 @@ package CMCPackage;
  */
 public class UserUI {
 	
+	/**
+	 * UserHome object to be used by UI
+	 */
 	private UserHome userHome;
+	
+	/**
+	 * LogonController object to manage Member and the login status
+	 */
 	private LogonController log;
 	
+	/**
+	 * UserUI constructor to create both UserHome and LogonController instances
+	 */
 	public UserUI(){
 		userHome = new UserHome();
 		log = new LogonController();

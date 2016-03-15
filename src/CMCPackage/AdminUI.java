@@ -10,30 +10,35 @@ package CMCPackage;
  *
  */
 public class AdminUI {
+	
+	/**
+	 * AdminHome object to be used by UI
+	 */
 	public AdminHome adminHome;
+	
+	/**
+	 * LogonController object to manage Member and the login status
+	 */
 	public LogonController log;
 	
+	/**
+	 * AdminUI constructor to create both AdminHome and LogonController instances
+	 */
 	public AdminUI(){
 		adminHome = new AdminHome();
 		log = new LogonController();
 	}
-	/**
-	 *  pulls up profile and is given the option to edit it 
-	*/
-	public void manageMyProfile(){
-		
-	}
+	
 	/**
 	 * pulls up saved universities and is given the option to view or edit them
 	 */
-	public void manageUniversities()
-	{
+	public void manageUniversities(){
 	}
+	
 	/**
 	 * pulls up list of all users and is given the option to deactivate or edit them
 	 */
-	public void manageUsers()
-	{
+	public void manageUsers(){
 	}
 	
 	/**
