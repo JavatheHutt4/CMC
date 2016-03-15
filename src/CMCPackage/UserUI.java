@@ -132,7 +132,7 @@ public class UserUI {
 	 * @param password
 	 */
 	public void logon(String user, String pass){
-		log.logon(user, pass);
+		userHome.setMember(log.logon(user, pass));
 	}
 	
 	/**
@@ -141,6 +141,7 @@ public class UserUI {
 	public void logoff()
 	{
 		log.logoff();
+		userHome.setMember(null);
 	}
 	
 	/**
