@@ -121,8 +121,8 @@ public class DatabaseController {
 			}
 			else
 				return -1;
-				
 		}
+		return -1;
 	}
 	/**
 	 * addNewMember adds a new member to the CMC system. It checks to see if there is already a member
@@ -249,5 +249,6 @@ public class DatabaseController {
 				return -1;
 			}
 		}
+		return 0;
 	}
 }
