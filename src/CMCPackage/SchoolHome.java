@@ -89,7 +89,7 @@ public class SchoolHome {
 		String[][] all = db.getSchools();
 		String[] emphasis = this.getSchoolEmphases(school);
 		for(int i=0;i<all.length;i++){
-			if(all[i][0] == school){
+			if(all[i][0].equals(school)){
 				School s = new School(all[i][0], all[i][1], all[i][2], all[i][3], Integer.parseInt(all[i][4]), 
 						Integer.parseInt(all[i][5]), Integer.parseInt(all[i][6]), Integer.parseInt(all[i][7]), 
 						Integer.parseInt(all[i][8]), Integer.parseInt(all[i][9]), Integer.parseInt(all[i][10]), 
@@ -111,7 +111,7 @@ public class SchoolHome {
 		String[] emphases = new String[5];
 		int j=0;
 		for(int i=0;i<all.length;i++){
-			if(all[i][0]==school){
+			if(all[i][0].equals(school)){
 				emphases[j] = all[i][1];
 				j++;
 			}
