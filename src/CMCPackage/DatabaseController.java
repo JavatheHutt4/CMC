@@ -1,5 +1,5 @@
 package CMCPackage;
-import dblibrary.project.csci230.UniversityDBLibrary; 
+import dblibrary.project.csci230.*; 
 
 
 /**
@@ -204,6 +204,7 @@ public class DatabaseController {
 					return new User(usersFromLibrary[i][2], usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][3],'Y');
 			}
 		}
+		System.out.println("No user with this username exists");
 		return null;
 	}
 	
