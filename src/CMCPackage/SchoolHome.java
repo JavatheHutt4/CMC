@@ -7,8 +7,14 @@ package CMCPackage;
  */
 public class SchoolHome {
 	
+	/**
+	 * Instance of School to be used
+	 */ 
 	public School school;
-	//Access to the Database
+	
+	/**
+	 * DatabaseController object to access the database
+	 */
 	public DatabaseController db;
 
 	/**

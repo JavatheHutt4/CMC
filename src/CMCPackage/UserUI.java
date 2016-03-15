@@ -63,7 +63,7 @@ public class UserUI {
 	 * @param emph5 - emphasis being searched for
 	 * @return the schools that match the search
 	 */
-	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
 			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
 			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
@@ -110,11 +110,6 @@ public class UserUI {
 		userHome.saveSchool(s);
 	}
 	
-//	public boolean confirmSave()
-//	{
-//		return confirm("Are you sure you want to save the School?")
-//	}
-	
 	/**
 	 * Views the specified school
 	 * @param the string name of school to be viewed
@@ -150,26 +145,28 @@ public class UserUI {
 	{
 		userHome.removeSavedSchool(s);
 	}
-	/**
-	 * confirms if user wants to change selected
-	 * @return a prompt what confirms the users decision
-	 */
 	
+	/**
+	 * gets the instance of LogonController
+	 * @return log
+	 */ 
 	public LogonController getLog(){
 		return log;
 	}
 	
+	/**
+	 * gets the instance of UserHome
+	 * @return userHome
+	 */ 
+	public UserHome getUserHome(){
+		return userHome;
+	}
+	
+	/**
+	 * view the member information of user
+	 * @return String of member info
+	 */ 
 	public String viewMemberInfo(){
 		return getLog().getMember().toString();
 	}
-//	public boolean confirmChanges()
-//	{
-//		return confirm("Are you sure you want to remove School?")
-//	}
-//	public void cancelChanges()
-//	{	
-//	}
-//	public void requestConfirmation()
-//	{		
-//	}
 }

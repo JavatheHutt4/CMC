@@ -68,10 +68,10 @@ public class SearchController {
 	
 	/**
 	 * search finds the schools that match the given criteria from a user's search
-	 * @param name - sequence of characters user is searching for in a school's name
-	 * @param state - sequence of characters user is searching for in a school's state
-	 * @param location - sequence of characters user is searching for in a school's location
-	 * @param control - sequence of characters user is searching for in a school's control
+	 * @param name - substring user is searching for in a school's name
+	 * @param state - substring user is searching for in a school's state
+	 * @param location - string user is searching for in a school's location
+	 * @param control - string user is searching for in a school's control
 	 * @param lowNumStudents - lower bound for parameter
 	 * @param highNumStudents - upper bound for parameter
 	 * @param lowPerFemale - lower bound for parameter
@@ -103,7 +103,7 @@ public class SearchController {
 	 * @param emph5 - emphasis being searched for
 	 * @return the schools that match the search
 	 */
-	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
 			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
 			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
@@ -170,7 +170,8 @@ public class SearchController {
 																					listofSchoolsWithEmphasis[m][1].equals(emph2) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph3) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph4) ||
-																					listofSchoolsWithEmphasis[m][1].equals(emph5)){
+																					listofSchoolsWithEmphasis[m][1].equals(emph5) ||
+																					((emph1 == null) && (emph2 == null) && (emph3 == null) && (emph4 == null) && (emph5 == null))){
 																						temp = matchingSchools;
 																						matchingSchools = new String[count+1][18];
 																						for(int k = 0; k < count; k++){
