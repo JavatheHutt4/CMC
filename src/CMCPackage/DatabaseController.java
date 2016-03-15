@@ -13,11 +13,25 @@ import dblibrary.project.csci230.*;
  */
 public class DatabaseController {
 
+	/**
+	 * the database library that will be used to retrieve, add, remove, and update information
+	 */
 	public UniversityDBLibrary databaseLibrary;
-	public School[][] matchingSchools;
+	/**
+	 * a 2D array of all of the schools from the database
+	 */
 	public String[][] schoolsFromLibrary;
+	/**
+	 * a 2D array of all of the users from the database
+	 */
 	public String[][] usersFromLibrary;
+	/**
+	 * a 2D array of all of the schools from the database, with their emphasis
+	 */
 	public String[][] schoolsWithEmphasis;
+	/**
+	 * a 2D array of all of the usernames with their saved schools
+	 */
 	public String[][] usernamesWithSavedSchools;
 	
 	/**
@@ -26,35 +40,6 @@ public class DatabaseController {
 	public DatabaseController(){
 		databaseLibrary = new UniversityDBLibrary("javathehut", "javathehut", "jjjt4");
 	}
-	
-	/**
-	 * search finds schools that match the desired values of the parameters and returns them to the user
-	 * 
-	 * @param name
-	 * @param state
-	 * @param location
-	 * @param control
-	 * @param numStudents
-	 * @param perFemale
-	 * @param satVerbal
-	 * @param satMath
-	 * @param expenses
-	 * @param perFinancial
-	 * @param numApplicants
-	 * @param perAdmitted
-	 * @param perEnrolled
-	 * @param acadScale
-	 * @param socialScale
-	 * @param QOLScale
-	 * @return Schools that matched the search
-	 */
-	public School[][] search(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
-			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
-		schoolsFromLibrary = databaseLibrary.university_getUniversities();
-		for(int i = 0; i < schoolsFromLibrary.length; i++){
-		}
-		return matchingSchools;
-		}
 	
 	/**
 	 * addSchool allows a new school to be added to the UniversityDBLibrary. It first checks to see

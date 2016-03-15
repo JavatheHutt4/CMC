@@ -7,15 +7,63 @@ package CMCPackage;
  * @version 3-14-16
  */
 public class SearchController {
-	public String[][] matchingSchools, temp, schoolsInLibrary, recommendedSchools, schoolsWithDistance, listofSchoolsWithEmphasis;
-	public String[] schoolString, schoolEmphasis, temporaryString;
+	/**
+	 * 2D array of the schools that match the search
+	 */
+	public String[][] matchingSchools;
+	/**
+	 * 2D array of the schools that match the search, before adding another matched school
+	 */
+	public String[][] temp;
+	/**
+	 * 2D array of the schools that are within the database
+	 */
+	public String[][] schoolsInLibrary;
+	/**
+	 * 2D array of the 5 schools that are most similar to the school that is being viewed
+	 */
+	public String[][] recommendedSchools;
+	/**
+	 * 2D array of the schools in the database with a distance value derived from their similarity to the viewed school
+	 */
+	public String[][] schoolsWithDistance; 
+	/**
+	 * 2D array of the schools with emphasis given
+	 */
+	public String[][] listofSchoolsWithEmphasis;
+	/**
+	 * array of information for a particular school that will be used in finding related schools
+	 */
+	public String[] schoolString;
+	/**
+	 * the database that will be initialized for pulling data
+	 */
 	public DatabaseController db;
-	public int count, distance, max, min, tempInt;
-	public String viewedSchool, schoolName, schoolEmph1, schoolEmph2, schoolEmph3, schoolEmph4, schoolEmph5;
+	/**
+	 * keeps track of the number of matching schools to deliver an accurate sized array of matching schools
+	 */
+	public int count;
+	/**
+	 * value given to a school based on similarities to a searched school
+	 */
+	public int distance;
+	/**
+	 * maximum value of a certain attribute within the database
+	 */
+	public int max;
+	/**
+	 * minimum value of a certain attribute within the database
+	 */
+	public int min;
+	/**
+	 * holds temporary max/min value while the new value is checked against it
+	 */
+	public int tempInt;
 	
-	
+	/**
+	 * Constructor for a SearchController object
+	 */
 	public SearchController(){
-		
 	}
 	
 	/**
@@ -225,9 +273,8 @@ public class SearchController {
 			}
 			if(i == 1){
 				if(distance < Integer.parseInt(recommendedSchools[0][16])){
-					temporaryString = recommendedSchools[0];
+					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];
-					recommendedSchools[1] = temporaryString;
 				}
 				else
 					recommendedSchools[1] = schoolsWithDistance[i];
