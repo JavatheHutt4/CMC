@@ -1,12 +1,19 @@
 package CMCPackage;
 /**
+ * AdminHome class used to control the Admin class
  * @author jffritz
  * @version 3/13/3
  */
 public class AdminHome {
-	// admin object
+	
+	/**
+	 * Admin object representing the admin using interface
+	 */
 	public Admin admin;
-	// databasecontroller object to access the datbase
+
+	/**
+	 * DatabaseController object to access the database
+	 */
 	public DatabaseController databasecontroller;
 
 	/**
@@ -32,15 +39,15 @@ public class AdminHome {
 		}
 		databasecontroller.addNewMember(f, l, u, p, t);
 	}
-	/*
-	 *  edits the members info in accordance to the information in the parameters
+	
+	/**
+	 * edits the members info in accordance to the information in the parameters
 	 *  @param first name
 	 *  @param last name
 	 *  @param username
 	 *  @param password
 	 *  @param type
 	 *  @param status
-	 * 
 	 */
 	public void editMemberInformation(String f, String l, String u, String p, char t, char s)
 	{

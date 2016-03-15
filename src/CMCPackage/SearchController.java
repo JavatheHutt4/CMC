@@ -115,7 +115,7 @@ public class SearchController {
 																		lowQOLScale <= Integer.parseInt(schoolsInLibrary[i][15]) && highQOLScale == -1 ||
 																		highQOLScale >= Integer.parseInt(schoolsInLibrary[i][15]) && lowQOLScale == -1 || 
 																		lowQOLScale == -1 && highQOLScale == -1){
-																			listofSchoolsWithEmphasis = db.university_getNamesWithEmphases();
+																			listofSchoolsWithEmphasis = db.getSchoolsWithEmphases();
 																			for(int m = 0; m < listOfSchoolsWithEmphasis.length; m++){
 																				if(listOfSchoolsWithEmphasis[m][0].contains(name)){
 																					if(listOfSchoolsWithEmphasis[m][1] == emph1 ||
@@ -351,11 +351,4 @@ public class SearchController {
 		}
 		return recommendedSchools;
 	}
-		
-<<<<<<< HEAD
 }
-				
-	
-=======
-	}
->>>>>>> branch 'master' of https://github.com/JavatheHutt4/CMC.git

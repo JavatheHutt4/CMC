@@ -1,10 +1,7 @@
-
 package CMCPackage;
-/**
- * 
- */
 
 /**
+ * UserUI class, accessed by the agent, used to control the UserHome class
  * @author jffritz
  * @version 3/13/16
  */

@@ -4,12 +4,15 @@ package CMCPackage;
  */
 
 /**
+ * AdminUI class, accessed by the agent, used to control the AdminHome class
  * @author jcblomquist
+ * @version 03/09/16
  *
  */
 public class AdminUI {
 	public AdminHome adminHome;
 	public LogonController log;
+	
 	
 	public void manageMyProfile()
 	{
@@ -29,6 +32,7 @@ public class AdminUI {
 		 * pulls up list of all users and is given the option to deactivate or edit them
 		 */
 	}
+	
 	/**
 	 * deactivates member
 	 * @param name of member to be deactivated
@@ -37,19 +41,37 @@ public class AdminUI {
 	{
 		adminHome.deactivateMember(m);
 	}
+	
 	/**
-	 * adds new member
+	 * Adds a new member using the adminHome method addNewMethod
+	 * @param first name of member
+	 * @param last name of member
+	 * @param username of member
+	 * @param password of member
+	 * @param char representing the status of member
+	 * @param char representing the type of member
 	 */
 	public void addMember(String f, String l, String u, String p, char s, char t){
 		adminHome.addNewMember(u,f,l,p,t);
 	}
+	
 	/**
-	 * edits member
+	 * Edits the information of a member
+	 * @param first name of member
+	 * @param last name of member
+	 * @param username of member
+	 * @param password of member
+	 * @param char representing the status of member
+	 * @param char representing the type of member
 	 */
 	public void editMember(String f, String l, String u, String p, char s, char t)
 	{
 		adminHome.editMemberInformation(f, l, u, p, s, t);
 	}
+	
+	/**
+	 * Runs the logoff method from the LogonController class
+	 */
 	public void logoff()
 	{
 		log.logoff();

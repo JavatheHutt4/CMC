@@ -142,11 +142,22 @@ public class DatabaseController {
 		
 	}
 	
+	/**
+	 * getSchools fetches all of the schools stored in the database and provides them to the user
+	 * 
+	 * @return all of the users in the library
+	 */
 	public String[][] getSchools(){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		return schoolsFromLibrary;
 	}
 	
+	/**
+	 * findByName fetches the information for a user based on a userName parameter
+	 * 
+	 * @param user representing userName to search for
+	 * @return Member object of the user found, or null if no member exists
+	 */
 	public Member findByName(String user){
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2] == user){
@@ -157,5 +168,15 @@ public class DatabaseController {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * getSchoolsWithEmphases fetches the information for all schools and their emphases
+	 * 
+	 * @param user representing userName to search for
+	 * @return 2D string array with the school emphases
+	 */
+	public String[][] getSchoolsWithEmphases(){
+		return databaseLibrary.university_getNamesWithEmphases();
 	}
 }
