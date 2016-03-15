@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Class to represent a user in the CMC system
  * @author tdrichmond, jrfolkerds
- * @version 3/13/2016
+ * @version 3/14/2016
  */
 public class User extends Member{
 	
@@ -38,22 +38,6 @@ public class User extends Member{
 		this.setPassword(password);
 	}
 	
-/**	/**
-	 * Add the specified school to the User's list of saved schools
-	 * @param school, the school to be saved
-	 *
-	public void saveSchool(String school){
-		uh.saveSchool(this.getUserName(), school);
-	} */
-	
-/**	/**
-	 * Remove a school from the User's list
-	 * @param school, the school to be removed
-	 *
-	public void removeSavedSchool(String school){
-		uh.removeSavedSchool(this.getUserName(), school);
-	} */
-		
 	/**
 	 * View the list of saved schools
 	 * @return the list of saved schools

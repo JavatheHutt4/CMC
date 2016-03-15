@@ -2,12 +2,9 @@ package CMCPackage;
 import java.util.Arrays;
 
 /**
- * 
- */
-
-/**
+ * Class to represent a school
  * @author tdrichmond (Jon helped too), jrfolkerds
- *
+ * @version 3/14/2016
  */
 public class School {
 	
@@ -131,6 +128,7 @@ public class School {
 	}
 	
 	/**
+	 * Get the name
 	 * @return the name
 	 */
 	public String getName() {
@@ -138,6 +136,7 @@ public class School {
 	}
 
 	/**
+	 * Get the state
 	 * @return the state
 	 */
 	public String getState() {
@@ -145,6 +144,7 @@ public class School {
 	}
 
 	/**
+	 * Get the location
 	 * @return the location
 	 */
 	public String getLocation() {
@@ -152,6 +152,7 @@ public class School {
 	}
 
 	/**
+	 * Get the control
 	 * @return the control
 	 */
 	public String getControl() {
@@ -159,6 +160,7 @@ public class School {
 	}
 
 	/**
+	 * Get the number of students
 	 * @return the numStudents
 	 */
 	public int getNumStudents() {
@@ -166,6 +168,7 @@ public class School {
 	}
 
 	/**
+	 * Get the percentage of female students
 	 * @return the perFemale
 	 */
 	public int getPerFemale() {
@@ -173,6 +176,7 @@ public class School {
 	}
 
 	/**
+	 * Get the average SAT Verbal score
 	 * @return the satVerbal
 	 */
 	public int getSatVerbal() {
@@ -180,6 +184,7 @@ public class School {
 	}
 
 	/**
+	 * Get the average SAT Math score
 	 * @return the satMath
 	 */
 	public int getSatMath() {
@@ -187,6 +192,7 @@ public class School {
 	}
 
 	/**
+	 * Get the cost of tuition
 	 * @return the expenses
 	 */
 	public int getExpenses() {
@@ -194,6 +200,7 @@ public class School {
 	}
 
 	/**
+	 * Get the percent of students on financial aid
 	 * @return the perFinancial
 	 */
 	public int getPerFinancial() {
@@ -201,6 +208,7 @@ public class School {
 	}
 
 	/**
+	 * Get the number of applicants
 	 * @return the numApplicants
 	 */
 	public int getNumApplicants() {
@@ -208,6 +216,7 @@ public class School {
 	}
 
 	/**
+	 * Get the percent of applicants admitted
 	 * @return the perAdmitted
 	 */
 	public int getPerAdmitted() {
@@ -215,6 +224,7 @@ public class School {
 	}
 
 	/**
+	 * Get the percent of admitted applicants enrolled
 	 * @return the perEnrolled
 	 */
 	public int getPerEnrolled() {
@@ -222,6 +232,7 @@ public class School {
 	}
 
 	/**
+	 * Get the academic scale (1-5; 5 is best)
 	 * @return the acadScale
 	 */
 	public int getAcadScale() {
@@ -229,6 +240,7 @@ public class School {
 	}
 
 	/**
+	 * Get the social scale (1-5)
 	 * @return the socialScale
 	 */
 	public int getSocialScale() {
@@ -236,6 +248,7 @@ public class School {
 	}
 
 	/**
+	 * Get the quality of life scale (1-5)
 	 * @return the qOLScale
 	 */
 	public int getQOLScale() {
@@ -243,6 +256,7 @@ public class School {
 	}
 	
 	/**
+	 * Get an array of the emphases for the school
 	 * @return the String array of emphasis'
 	 */
 	public String[] getEmphasis(){
@@ -250,6 +264,7 @@ public class School {
 	}
 
 	/**
+	 * Get the school home
 	 * @return the home
 	 */
 	public SchoolHome getHome() {
