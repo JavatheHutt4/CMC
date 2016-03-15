@@ -13,7 +13,7 @@ public class UserUI {
 	/*
 	 * updates the users info through the user object
 	/**
-	 * updates the users info through the user opbject
+	 * updates the users info through the user object
 	 * @param first name
 	 * @param last name
 	 * @param password
@@ -44,7 +44,7 @@ public class UserUI {
 	 * save school
 	 * @param string name of school to be saved
 	 */
-	public void saveSchool(School s)
+	public void saveSchool(String s)
 	{
 		userHome.saveSchool(s);
 	}
@@ -58,9 +58,9 @@ public class UserUI {
 	 * Views the specified school
 	 * @param the string name of school to be viewed
 	 */
-	public void viewSpecificSchool(School s)
+	public String viewSpecificSchool(String n)
 	{
-		userHome.viewSavedSchool(s);
+		return n;
 	}
 	
 	public void logoff()
@@ -71,7 +71,7 @@ public class UserUI {
 	 * removes saved school
 	 * @param school to be removed
 	 */
-	public void removeSavedSchool(School s)
+	public void removeSavedSchool(String s)
 	{
 		userHome.removeSavedSchool(s);
 	}
