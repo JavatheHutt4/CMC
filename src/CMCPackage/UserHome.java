@@ -1,8 +1,9 @@
 package CMCPackage;
+import java.util.ArrayList;
 
 /**
  * UserHome class used to control the USer class
- * @author jffritz
+ * @author jffritz, jrfolkerds
  * @version 3/13/16
  */
 public class UserHome {
