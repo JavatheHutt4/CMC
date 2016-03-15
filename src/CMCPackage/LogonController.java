@@ -57,6 +57,11 @@ public class LogonController {
 		member = null;
 		System.out.println("Log Off Successful");
 	}
+	
+	public Member getMember(){
+		return member;
+	}
+	
 	public String toString(){
 		if (member.equals(null))
 			return "No member is currently logged on.";
