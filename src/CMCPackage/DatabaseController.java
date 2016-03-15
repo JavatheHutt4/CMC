@@ -217,6 +217,28 @@ public class DatabaseController {
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		return schoolsWithEmphasis;
 	}
+
+	/**
+	 * saveSchool calls the user_saveSchool method from the UniversityDBLibrary class
+	 * 
+	 * @param userName of the agent
+	 * @param school name
+	 * @return int representing number of schools added, -1 if the operation failed
+	 */
+	public int saveSchool(String userName, String school) {
+		return databaseLibrary.user_saveSchool(userName,school);
+	}
+
+	/**
+	 * removeSchool calls the user_removeSchool method from the UniversityDBLibrary class
+	 * 
+	 * @param userName of the agent
+	 * @param school name
+	 * @return int representing number of schools removed, -1 if the operation failed
+	 */
+	public int removeSchool(String userName, String school) {
+		return databaseLibrary.user_removeSchool(userName, school);
+	}
 	
 	/**
 	 * addUniversityEmphasis adds an emphasis, paired with a school, to the database
@@ -235,4 +257,3 @@ public class DatabaseController {
 		return 1;
 	}
 }
-

@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class User extends Member{
 	
-	//Access to the database controller
-	private DatabaseController db;
+	//Access to the UserHome class
+	private UserHome uh;
 	
 	/**
 	 * Constructor method for User
@@ -23,7 +23,7 @@ public class User extends Member{
 	 */
 	public User(String firstName, String lastName, String userName, String password, char status) {
 		super(firstName, lastName, userName, password, 'u', status);
-		db = new DatabaseController();
+		uh = new UserHome();
 	}
 	
 	/**
@@ -43,13 +43,7 @@ public class User extends Member{
 	 * @param school, the school to be saved
 	 */
 	public void saveSchool(School school){
-		int i = db.saveSchool(this.getUserName(), school);
-		if(i == 1){
-			System.out.println("School was saved successfully");
-		}
-		else{
-			System.out.println("School has already been saved");
-		}
+		uh.saveSchool(this.getUserName(), school);
 	}
 	
 	/**
@@ -57,26 +51,15 @@ public class User extends Member{
 	 * @param school, the school to be removed
 	 */
 	public void removeSavedSchool(School school){
-		int i = db.removeSchool(this.getUserName(), school);
-		if(i == 1){
-			System.out.println("School was successfully removed");
-		}
+		uh.removeSavedSchool(this.getUserName(), school);
 	}
-	
 		
 	/**
 	 * View the list of saved schools
 	 * @return the list of saved schools
 	 */
 	public ArrayList<String> getSavedSchools(){
-		ArrayList<String> schools = new ArrayList<String>();
-		String[][] all = db.getUsernamesWithSavedSchools();
-		for(int i=0;i<all.length;i++){
-			if(all[i][0] == this.getUserName()){
-				schools.add(all[i][1]);
-			}
-		}
-		return schools;
+		return uh.getSavedSchools();
 	}
 	
 	/**

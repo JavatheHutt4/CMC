@@ -29,6 +29,16 @@ public class SchoolHome {
 	}
 	
 	/**
+	 * Method to add an emphasis to a school
+	 * @param school the String name of the school
+	 * @param emphasis the emphasis to be added
+	 * @returns -1 if school already has the emphasis
+	 */
+	public int addSchoolEmphasis(String school, String emphasis){
+		return db.addUniversityEmphasis(school, emphasis);
+	}
+	
+	/**
 	 * Method to edit an existing university
 	 */
 	public void editUniversity(String name, String state, String location, String control, int numStudents,
@@ -45,7 +55,7 @@ public class SchoolHome {
 	 */
 	public School findByName(String school){
 		String[][] all = db.getSchools();
-		String[] emphasis;
+		String[] emphasis = new String();
 		for(int i=0;i<all.length;i++){
 			if(all[i][0] == school){
 				School s = new School(all[i][0], all[i][1], all[i][2], all[i][3], Integer.parseInt(all[i][4]), 
