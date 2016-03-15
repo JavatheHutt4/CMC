@@ -12,7 +12,7 @@ public class UserHome {
 	 * User object representing the User using interface
 	 */
 	private User user;
-	
+	private SearchController sc;
 	/**
 	 * DatabaseController object to access the database
 	 */
@@ -79,6 +79,22 @@ public class UserHome {
 		return schools;
 	}
 	
+	
+	public String[][] search(CharSequence name, CharSequence state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
+			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
+			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
+			String emph1, String emph2, String emph3, String emph4, String emph5)
+	{
+		String[][] search = sc.search(name, state, location, control, lowNumStudents, highNumStudents, lowPerFemale, highPerFemale, lowSatVerbal, highSatVerbal, lowSatMath, highSatMath, lowExpenses, highExpenses, lowPerFinancial, highPerFinancial, lowNumApplicants, highNumApplicants, lowPerAdmitted, highPerAdmitted, lowPerEnrolled, highPerEnrolled, lowAcadScale, highAcadScale, lowSocialScale, highSocialScale, lowQOLScale, highQOLScale, emph1, emph2, emph3, emph4, emph5);
+		return search;
+	}
+	
+	public String[][] recommendSchool(School s)
+	{
+		String[][] school = sc.getRecommendedSchools(s);
+		return school;
+	}
 	/**
 	 * Runs the saveSchool method from User class
 	 * @param String school name to be saved
