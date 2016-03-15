@@ -19,68 +19,6 @@ public class SchoolHome {
 	}
 
 	/**
-	 * Method to add a new university to the system
-	 * @param name
-	 * @param state
-	 * @param location
-	 * @param control
-	 * @param numStudents
-	 * @param perFemale
-	 * @param satVerbal
-	 * @param satMath
-	 * @param expenses
-	 * @param perFinancial
-	 * @param numApplicants
-	 * @param perAdmitted
-	 * @param perEnrolled
-	 * @param acadScale
-	 * @param socialScale
-	 * @param QOLScale
-	 */
-	public void addNewUniversity(String name, String state, String location, String control, int numStudents,
-			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
-			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
-		db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
-				numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-	}
-	
-	/**
-	 * Method to add an emphasis to a school
-	 * @param school the String name of the school
-	 * @param emphasis the emphasis to be added
-	 * @returns -1 if school already has the emphasis
-	 */
-	public int addSchoolEmphasis(String school, String emphasis){
-		return db.addUniversityEmphasis(school, emphasis);
-	}
-	
-	/**
-	 * Method to edit an existing university
-	 * @param name
-	 * @param state
-	 * @param location
-	 * @param control
-	 * @param numStudents
-	 * @param perFemale
-	 * @param satVerbal
-	 * @param satMath
-	 * @param expenses
-	 * @param perFinancial
-	 * @param numApplicants
-	 * @param perAdmitted
-	 * @param perEnrolled
-	 * @param acadScale
-	 * @param socialScale
-	 * @param QOLScale
-	 */
-	public void editUniversity(String name, String state, String location, String control, int numStudents,
-			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
-			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
-		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, 
-				numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-	}
-	
-	/**
 	 * Method that constructs and returns a school object from the String name of the school
 	 * @param the school name as a string
 	 * @return the school as a School object
