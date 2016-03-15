@@ -148,7 +148,7 @@ public class UserUI {
 	/**
 	 * confirms if user wants to change selected
 	 * @return a prompt what confirms the users decision
-	 */
+	 */ 
 	
 	public LogonController getLog(){
 		return log;
