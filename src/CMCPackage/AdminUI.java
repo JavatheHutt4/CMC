@@ -70,6 +70,15 @@ public class AdminUI {
 	}
 	
 	/**
+	 * Runs the logon method from the LogonController class
+	 * @param username
+	 * @param password
+	 */
+	public void logon(String user, String pass){
+		log.logon(user, pass);
+	}
+	
+	/**
 	 * Runs the logoff method from the LogonController class
 	 */
 	public void logoff()
