@@ -42,7 +42,7 @@ public class User extends Member{
 	 * Add the specified school to the User's list of saved schools
 	 * @param school, the school to be saved
 	 */
-	public void saveSchool(School school){
+	public void saveSchool(String school){
 		uh.saveSchool(this.getUserName(), school);
 	}
 	
@@ -50,7 +50,7 @@ public class User extends Member{
 	 * Remove a school from the User's list
 	 * @param school, the school to be removed
 	 */
-	public void removeSavedSchool(School school){
+	public void removeSavedSchool(String school){
 		uh.removeSavedSchool(this.getUserName(), school);
 	}
 		
