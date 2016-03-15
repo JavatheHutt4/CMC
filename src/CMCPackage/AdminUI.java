@@ -20,8 +20,8 @@ public class AdminUI {
 	/**
 	 *  pulls up profile and is given the option to edit it 
 	*/
-	public void manageMyProfile()
-	{		
+	public void manageMyProfile(){
+		
 	}
 	/**
 	 * pulls up saved universities and is given the option to view or edit them

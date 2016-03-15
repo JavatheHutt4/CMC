@@ -256,7 +256,7 @@ public class DatabaseController {
 		for(int i = 0; i < schoolsWithEmphasis.length; i++){
 			if(schoolsWithEmphasis[i][0].equals(school) && schoolsWithEmphasis[i][1].equals(emphasis)){
 				return -1;
-			}
+			} 
 		}
 		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
 		return 1;
