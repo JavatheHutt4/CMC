@@ -2,7 +2,7 @@ package CMCPackage;
 /**
  * SearchController is a class that has two primary uses:
  * 1. Returning a list of schools that match search criteria from a user
- * 2. Finding the five most similar schools to a certain school.
+ * 2. Finding the five most similar schools to a certain school. 
  * @author jcblomquist
  * @version 3-14-16
  */
