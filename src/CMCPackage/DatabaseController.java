@@ -83,7 +83,7 @@ public class DatabaseController {
 			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
-			if(schoolsFromLibrary[i][0] == name)
+			if(schoolsFromLibrary[i][0].equals(name))
 				return -1;
 			else
 				continue;
@@ -118,7 +118,7 @@ public class DatabaseController {
 			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
-			if(schoolsFromLibrary[i][0] == name){
+			if(schoolsFromLibrary[i][0].equals(name)){
 				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 				return 1;
@@ -139,7 +139,7 @@ public class DatabaseController {
 	public void addNewMember(String firstName, String lastName, String username, String password, char type){
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			if(usersFromLibrary[i][2] == username)
+			if(usersFromLibrary[i][2].equals(username))
 				return;
 			else
 				continue;
@@ -163,7 +163,7 @@ public class DatabaseController {
 	public void editUser(String firstName, String lastName, String username, String password, char type, char status){
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			if(usersFromLibrary[i][2] == username)
+			if(usersFromLibrary[i][2].equals(username))
 				databaseLibrary.user_editUser(username, firstName, lastName, password, type, status);
 			else
 				continue;
@@ -254,7 +254,7 @@ public class DatabaseController {
 	public int addUniversityEmphasis(String school, String emphasis){
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		for(int i = 0; i < schoolsWithEmphasis.length; i++){
-			if(schoolsWithEmphasis[i][0] == school && schoolsWithEmphasis[i][1] == emphasis){
+			if(schoolsWithEmphasis[i][0].equals(school) && schoolsWithEmphasis[i][1].equals(emphasis)){
 				return -1;
 			}
 		}
@@ -269,6 +269,6 @@ public class DatabaseController {
 	 */
 	 public String[][] getUsernamesWithSavedSchools(){
 	 	usernamesWithSavedSchools = databaseLibrary.user_getUsernamesWithSavedSchools();
-	 	return usernamesWithSavedSchools;
+	 	return usernamesWithSavedSchools; 
 	 }
 }
