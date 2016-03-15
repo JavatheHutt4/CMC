@@ -48,19 +48,45 @@ public class UserHome {
 	
 	/**
 	 * Runs the removeSavedSchool method from User class
+	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void removeSavedSchool(School s)
+	public void removeSavedSchool(String username, School s)
 	{
-		user.removeSavedSchool(s);
+		int i = db.removeSchool(username, s);
+		if(i == 1){
+			System.out.println("School was successfully removed");
+		}
+	}
+	
+	/**
+	 * View the list of saved schools
+	 * @return the list of saved schools
+	 */
+	public ArrayList<String> getSavedSchools(){
+		ArrayList<String> schools = new ArrayList<String>();
+		String[][] all = db.getUsernamesWithSavedSchools();
+		for(int i=0;i<all.length;i++){
+			if(all[i][0] == this.getUserName()){
+				schools.add(all[i][1]);
+			}
+		}
+		return schools;
 	}
 	
 	/**
 	 * Runs the saveSchool method from User class
+	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void saveSchool(School s)
+	public void saveSchool(String username, School s)
 	{
-		user.saveSchool(s);
+		int i = db.saveSchool(username, s);
+		if(i == 1){
+			System.out.println("School was saved successfully");
+		}
+		else{
+			System.out.println("School has already been saved");
+		}
 	}
 }
