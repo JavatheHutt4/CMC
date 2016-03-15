@@ -54,9 +54,12 @@ public class UserHome {
 	 */
 	public void removeSavedSchool(String username, School s)
 	{
-		int i = db.removeSchool(username, s);
-		if(i == 1){
+		int i = db.removeSchool(this.getUserName(), school);
+		if(i != -1){
 			System.out.println("School was successfully removed");
+		}
+		else{
+			System.out.println("School is not in saved school list");
 		}
 	}
 	
@@ -82,9 +85,9 @@ public class UserHome {
 	 */
 	public void saveSchool(String username, School s)
 	{
-		int i = db.saveSchool(username, s);
-		if(i == 1){
-			System.out.println("School was saved successfully");
+		int i = db.saveSchool(this.getUserName(), school);
+		if(i != -1){
+			System.out.println("School was successfully saved");
 		}
 		else{
 			System.out.println("School has already been saved");

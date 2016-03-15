@@ -1,5 +1,5 @@
 package CMCPackage;
-import dblibrary.project.csci230.UniversityDBLibrary;
+import dblibrary.project.csci230.UniversityDBLibrary; 
 
 
 /**
@@ -118,11 +118,9 @@ public class DatabaseController {
 				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 				return 1;
-			}
-			else
-				return -1;
-				
+			}			
 		}
+		return -1;
 	}
 	/**
 	 * addNewMember adds a new member to the CMC system. It checks to see if there is already a member
@@ -219,7 +217,35 @@ public class DatabaseController {
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		return schoolsWithEmphasis;
 	}
+
+	/**
+	 * saveSchool calls the user_saveSchool method from the UniversityDBLibrary class
+	 * 
+	 * @param userName of the agent
+	 * @param school name
+	 * @return int representing number of schools added, -1 if the operation failed
+	 */
+	public int saveSchool(String userName, String school) {
+		return databaseLibrary.user_saveSchool(userName,school);
+	}
+
+	/**
+	 * removeSchool calls the user_removeSchool method from the UniversityDBLibrary class
+	 * 
+	 * @param userName of the agent
+	 * @param school name
+	 * @return int representing number of schools removed, -1 if the operation failed
+	 */
+	public int removeSchool(String userName, String school) {
+		return databaseLibrary.user_removeSchool(userName, school);
+	}
 	
+	/**
+	 * addUniversityEmphasis adds an emphasis, paired with a school, to the database
+	 * @param school
+	 * @param emphasis
+	 * @return 1 if successful, -1 if the school/emphasis pair already existed
+	 */
 	public int addUniversityEmphasis(String school, String emphasis){
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		for(int i = 0; i < schoolsWithEmphasis.length; i++){
@@ -227,6 +253,7 @@ public class DatabaseController {
 				return -1;
 			}
 		}
+		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
+		return 1;
 	}
 }
-
