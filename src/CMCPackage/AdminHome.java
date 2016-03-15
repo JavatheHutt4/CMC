@@ -63,4 +63,8 @@ public class AdminHome {
 	public void setMember(Member member) {
 		this.admin = (Admin) member;
 	}
+	
+	public Admin getMember(){
+		return admin;
+	}
 }

@@ -96,4 +96,8 @@ public class AdminUI {
 		log.logoff();
 		adminHome.setMember(null);
 	}
+	
+	public LogonController getLog(){
+		return log;
+	}
 }

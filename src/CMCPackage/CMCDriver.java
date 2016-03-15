@@ -14,18 +14,20 @@ public class CMCDriver {
 	public static void main(String[] args) {
 		AdminUI adminUI = new AdminUI();
 		UserUI userUI = new UserUI();
-		DatabaseController db = new DatabaseController();
 		
+		System.out.println("********************************Tests for user agent uses********************************");
 		// testing user logon with invalid username and password
 		userUI.logon("invalid", "invalid");
 		// testing user logon with valid username and password
 		userUI.logon("juser", "user");
+		System.out.println(userUI.getLog().getMember());
 		
-		
+		System.out.println("\n********************************Tests for admin agent uses********************************");
 		// testing admin logon with invalid username and password
 		adminUI.logon("invalid", "invalid");
 		// testing admin logon with valid username and password
 		adminUI.logon("nadmin", "admin");
+		System.out.println(adminUI.getLog().getMember());
 	}
 
 }
