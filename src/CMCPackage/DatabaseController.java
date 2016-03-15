@@ -219,7 +219,6 @@ public class DatabaseController {
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		return schoolsWithEmphasis;
 	}
-<<<<<<< HEAD
 
 	/**
 	 * saveSchool calls the user_saveSchool method from the UniversityDBLibrary class
