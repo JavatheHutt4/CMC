@@ -72,7 +72,7 @@ public class UserHome {
 		ArrayList<String> schools = new ArrayList<String>();
 		String[][] all = db.getUsernamesWithSavedSchools();
 		for(int i=0;i<all.length;i++){
-			if(all[i][0] == username){
+			if(all[i][0].equals(username)){
 				schools.add(all[i][1]);
 			}
 		}
