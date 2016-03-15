@@ -170,7 +170,8 @@ public class SearchController {
 																					listofSchoolsWithEmphasis[m][1].equals(emph2) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph3) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph4) ||
-																					listofSchoolsWithEmphasis[m][1].equals(emph5)){
+																					listofSchoolsWithEmphasis[m][1].equals(emph5) ||
+																					((emph1 == null) && (emph2 == null) && (emph3 == null) && (emph4 == null) && (emph5 == null))){
 																						temp = matchingSchools;
 																						matchingSchools = new String[count+1][18];
 																						for(int k = 0; k < count; k++){
