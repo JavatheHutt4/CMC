@@ -26,12 +26,35 @@ public class CMCDriver {
 		//prints the info for current user
 		System.out.println(userUI.viewMemberInfo());
 		//tests the users ability to manage own profile
+		System.out.println("\nUsing manage profile to change name and password of user:");
 		userUI.manageMyProfile("Stanley", "Steamer", "CarpetCleaner");
-		System.out.println("\n"+userUI.viewMemberInfo());
+		System.out.println(userUI.viewMemberInfo());
 		userUI.manageMyProfile("John", "User", "user");
-		//tests search method
-		userUI.search('BARUCH', null, null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, "BUSINESS-ADMINISTRATION", null, null, null, null)
-		 
+		//tests search method for BARUCH college
+		System.out.println("\nSearching for college BARUCH in NEW YORK...");
+		School[] searchResults = userUI.search("BARUCH", "NEW YORK", null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
+		for(int i =0; i < searchResults.length;i++){
+			System.out.println(searchResults[i]);
+		}
+		//tests the view specific search results
+		System.out.println("\nViewing specific details for ST JOHNS UNIVERSITY:");
+		System.out.println(userUI.viewSpecificSchool("ST JOHNS UNIVERSITY"));
+		System.out.println("\nSearching for recommended schools related to SMITH college:");
+		String[][] recommendedSchools = userUI.recommendSchool(schoolHome.findByName("SMITH"));
+		for(int i = 0; i < recommendedSchools.length;i++){
+			System.out.println(schoolHome.findByName(recommendedSchools[i][0]));
+		}
+		//testing the save school function
+		System.out.println("\nTesting if save school works with invalid and valid cases");
+		userUI.saveSchool("RAHAL UNIVERSITY");
+		userUI.saveSchool("BARUCH");
+		System.out.println(userUI.viewSavedSchools());
+		//testing the remove saved school function
+		System.out.println("Removing BARUCH from saved schools\n");
+		userUI.removeSavedSchool("BARUCH");
+		
+		//test logoff function for user entity
+		userUI.logoff();
 		
 		System.out.println("\n********************************Tests for admin agent uses********************************");
 		// testing admin logon with invalid username and password
@@ -50,6 +73,7 @@ public class CMCDriver {
 		adminUI.editMember("moreNew", "member", "newMember", "password", 'u', 'Y');
 		System.out.println(userUI.getUserHome().findByName("newMember"));
 		adminUI.deactivateMember(adminUI.getAdminHome().findByName("newMember"));
+		adminUI.editMember("new", "member", "newMember", "password", 'u', 'Y');
 		System.out.println("\nDeactivating User...\nStatus of user after deactivation: "+ adminUI.getAdminHome().findByName("newMember").getStatus());
 		System.out.println("\nTesting manipulation of universites by admin -");
 		//tests the add new university case
@@ -59,6 +83,8 @@ public class CMCDriver {
 		//tests the edit university case, changing the state to Maryland
 		adminUI.editUniversity("myUniversity", "Maryland", "Small-City", "Private", 9001, 50, 50, 50, 50000, 90, 12, 100, 2, 4, 5, 5);
 		System.out.println("Editing myUniversity to be in Maryland:");
-		System.out.println(schoolHome.findByName("myUniversity"));
+		System.out.println(schoolHome.findByName("myUniversity")+"\n");
+		//test logoff function for admin entity
+		adminUI.logoff();
 	}
 }

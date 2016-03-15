@@ -31,6 +31,7 @@ public class UserHome {
 	 */
 	public UserHome(){
 		db = new DatabaseController();
+		sc = new SearchController();
 	}
 	
 	/**
@@ -159,7 +160,14 @@ public class UserHome {
 			System.out.println("School was successfully saved");
 		}
 		else{
-			System.out.println("School has already been saved");
+			String[][] all = db.getSchools();
+			for(int j=0;j<all.length;j++){
+				if(all[j][0].equals(s)){
+					System.out.println("School has already been saved");
+					return;
+				}
+			}
+			System.out.println("School does not exist");
 		}
 	}
 	

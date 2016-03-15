@@ -20,12 +20,19 @@ public class UserUI {
 	private LogonController log;
 	
 	/**
+	 * SchoolHome object to manage saved schools
+	 */
+	private SchoolHome sh;
+	
+	/**
 	 * UserUI constructor to create both UserHome and LogonController instances
 	 */
 	public UserUI(){
 		userHome = new UserHome();
 		log = new LogonController();
+		sh = new SchoolHome();
 	}
+	
 	/**
 	 * search finds the schools that match the given criteria from a user's search // UserUI contacts UserHome what contacts SeachController to get the search
 	 * @param name - sequence of characters user is searching for in a school's name
@@ -63,14 +70,18 @@ public class UserUI {
 	 * @param emph5 - emphasis being searched for
 	 * @return the schools that match the search
 	 */
-	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
+	public School[] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
 			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
 			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
 			String emph1, String emph2, String emph3, String emph4, String emph5)
 	{
 		String[][] search = userHome.search(name, state, location, control, lowNumStudents, highNumStudents, lowPerFemale, highPerFemale, lowSatVerbal, highSatVerbal, lowSatMath, highSatMath, lowExpenses, highExpenses, lowPerFinancial, highPerFinancial, lowNumApplicants, highNumApplicants, lowPerAdmitted, highPerAdmitted, lowPerEnrolled, highPerEnrolled, lowAcadScale, highAcadScale, lowSocialScale, highSocialScale, lowQOLScale, highQOLScale, emph1, emph2, emph3, emph4, emph5);
-		return search;
+		School[] myschools = new School[search.length];
+		for(int i =0; i<search.length;i++){
+			myschools[i] = sh.findByName(search[i][0]);
+		}
+		return myschools;
 	}
 	
 	/**
@@ -94,13 +105,15 @@ public class UserUI {
 	{
 		userHome.getMember().updateInformation(f, l, p);
 	}
+	
 	/**
 	 * lists schools and user is given the option to view or remove the school
 		 */
-	public void manageSavedSchools()
+	public ArrayList<String> viewSavedSchools()
 	{
-		ArrayList<String> savedSchools = userHome.getSavedSchools(log.getMember().getUserName());
+		return userHome.getSavedSchools(log.getMember().getUserName());
 	}
+	//turn into manageSavedSchools
 	/**
 	 * save school
 	 * @param string name of school to be saved
@@ -114,9 +127,9 @@ public class UserUI {
 	 * Views the specified school
 	 * @param the string name of school to be viewed
 	 */
-	public String viewSpecificSchool(String n)
+	public School viewSpecificSchool(String n)
 	{
-		return null;
+		return sh.findByName(n);
 	}
 	
 	/**

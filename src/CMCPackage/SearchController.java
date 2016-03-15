@@ -64,6 +64,7 @@ public class SearchController {
 	 * Constructor for a SearchController object
 	 */
 	public SearchController(){
+		db = new DatabaseController();
 	}
 	
 	/**
@@ -111,7 +112,7 @@ public class SearchController {
 		schoolsInLibrary = db.getSchools();
 		count = 0;
 		for(int i = 0; i < schoolsInLibrary.length; i++){
-			if(schoolsInLibrary[i][0].contains(name) || name == null)
+			if(schoolsInLibrary[i][0].contains(name) || name.equals(""))
 				if(schoolsInLibrary[i][1].contains(state) || state == null)
 					if(schoolsInLibrary[i][2].equals(location) || location == null)
 						if(schoolsInLibrary[i][3].equals(control) || control == null)
@@ -165,7 +166,7 @@ public class SearchController {
 																		lowQOLScale == -1 && highQOLScale == -1){
 																			listofSchoolsWithEmphasis = db.getSchoolsWithEmphases();
 																			for(int m = 0; m < listofSchoolsWithEmphasis.length; m++){
-																				if(listofSchoolsWithEmphasis[m][0].contains(name)){
+																				if(listofSchoolsWithEmphasis[m][0].equals(schoolsInLibrary[i][0])){
 																					if(listofSchoolsWithEmphasis[m][1].equals(emph1) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph2) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph3) ||
@@ -180,10 +181,11 @@ public class SearchController {
 																							}
 																						}
 																						for(int j = 0; j < schoolsInLibrary[i].length; j++)
-																							matchingSchools[count][j] = schoolsInLibrary[i][i];
+																							matchingSchools[count][j] = schoolsInLibrary[i][j];
 																						count++;
 																					}
 																				}
+																				// must resolve the emphases issues
 																			}
 																		}
 		}
@@ -227,7 +229,6 @@ public class SearchController {
 	 * @return a 2D array with the 5 most similar schools
 	 */
 	public String[][] getRecommendedSchools(School s){
-		distance = 0;
 		schoolsInLibrary = db.getSchools();
 		recommendedSchools = new String[5][17];
 		schoolString = new String[16];
@@ -250,6 +251,7 @@ public class SearchController {
 		schoolString[15] = Integer.toString(s.getQOLScale());
 		for(int i = 0; i < schoolsInLibrary.length; i++){
 			//names will obviously be different, so they are ignored. If it is the school itself, we skip it.
+			distance = 0;
 			if(schoolString[0] == schoolsInLibrary[i][0])
 				continue;
 			if(schoolString[1] != schoolsInLibrary[i][1])
