@@ -20,14 +20,15 @@ public class CMCDriver {
 		userUI.logon("invalid", "invalid");
 		// testing user logon with valid username and password
 		userUI.logon("juser", "user");
-		System.out.println(userUI.getLog().getMember());
+		//prints the info for current user
+		System.out.println(userUI.viewMemberInfo());
 		
 		System.out.println("\n********************************Tests for admin agent uses********************************");
 		// testing admin logon with invalid username and password
 		adminUI.logon("invalid", "invalid");
 		// testing admin logon with valid username and password
 		adminUI.logon("nadmin", "admin");
-		System.out.println(adminUI.getLog().getMember());
+		System.out.println(adminUI.viewMemberInfo());
 	}
 
 }

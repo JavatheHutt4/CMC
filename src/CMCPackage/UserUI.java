@@ -158,6 +158,10 @@ public class UserUI {
 	public LogonController getLog(){
 		return log;
 	}
+	
+	public String viewMemberInfo(){
+		return getLog().getMember().toString();
+	}
 //	public boolean confirmChanges()
 //	{
 //		return confirm("Are you sure you want to remove School?")

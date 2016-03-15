@@ -100,4 +100,8 @@ public class AdminUI {
 	public LogonController getLog(){
 		return log;
 	}
+	
+	public String viewMemberInfo(){
+		return getLog().getMember().toString();
+	}
 }
