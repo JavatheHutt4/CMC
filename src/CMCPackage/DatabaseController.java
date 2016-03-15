@@ -270,6 +270,6 @@ public class DatabaseController {
 	 */
 	 public String[][] getUsernamesWithSavedSchools(){
 	 	usernamesWithSavedSchools = databaseLibrary.user_getUsernamesWithSavedSchools();
-	 	return usernamesWithSavedSchools;
+	 	return usernamesWithSavedSchools; 
 	 }
 }

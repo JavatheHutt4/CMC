@@ -350,6 +350,6 @@ public class SearchController {
 				}
 			}
 		}
-		return recommendedSchools;
+		return recommendedSchools; 
 	}
 }
