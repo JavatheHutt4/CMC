@@ -9,13 +9,14 @@ package CMCPackage;
  */
 public class CMCDriver {
 
-	public AdminUI adminUI;
-	public UserUI userUI;
-	public static DatabaseController db;
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		AdminUI adminUI = new AdminUI();
+		UserUI userUI = new UserUI();
+		DatabaseController db= new DatabaseController();
 		System.out.println(db.getUsers());
 	}
 }

@@ -1,5 +1,5 @@
 package CMCPackage;
-import dblibrary.project.csci230.UniversityDBLibrary;
+import dblibrary.project.csci230.UniversityDBLibrary; 
 
 
 /**
@@ -121,7 +121,7 @@ public class DatabaseController {
 			}
 			else
 				return -1;
-		}
+			}	
 		return -1;
 	}
 	/**
@@ -242,6 +242,12 @@ public class DatabaseController {
 		return databaseLibrary.user_removeSchool(userName, school);
 	}
 	
+	/**
+	 * addUniversityEmphasis adds an emphasis, paired with a school, to the database
+	 * @param school
+	 * @param emphasis
+	 * @return 1 if successful, -1 if the school/emphasis pair already existed
+	 */
 	public int addUniversityEmphasis(String school, String emphasis){
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		for(int i = 0; i < schoolsWithEmphasis.length; i++){
@@ -249,6 +255,7 @@ public class DatabaseController {
 				return -1;
 			}
 		}
-		return 0;
+		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
+		return 1;
 	}
 }
