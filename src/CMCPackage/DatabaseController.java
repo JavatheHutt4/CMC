@@ -202,7 +202,6 @@ public class DatabaseController {
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			System.out.println(usersFromLibrary[i][2]);
 			if(usersFromLibrary[i][2].equals(user)){
 				if (usersFromLibrary[i][4].charAt(0) == 'a')
 					return new Admin(usersFromLibrary[i][2], usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][3],'Y');
