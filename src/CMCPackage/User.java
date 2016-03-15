@@ -59,7 +59,7 @@ public class User extends Member{
 	 * @return the list of saved schools
 	 */
 	public ArrayList<String> getSavedSchools(){
-		return uh.getSavedSchools();
+		return uh.getSavedSchools(this.getUserName());
 	}
 	
 	/**

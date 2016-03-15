@@ -55,7 +55,7 @@ public class SchoolHome {
 	 */
 	public School findByName(String school){
 		String[][] all = db.getSchools();
-		String[] emphasis = new String();
+		String[] emphasis = this.getSchoolEmphases(school);
 		for(int i=0;i<all.length;i++){
 			if(all[i][0] == school){
 				School s = new School(all[i][0], all[i][1], all[i][2], all[i][3], Integer.parseInt(all[i][4]), 
@@ -66,6 +66,24 @@ public class SchoolHome {
 				return s;
 			}
 		}
+		return null;
+	}
+	
+	/**
+	 * Method to return the emphases for a specified school
+	 * @param school the name of the school as a String
+	 */
+	public String[] getSchoolEmphases(String school){
+		String[][] all = db.getSchoolsWithEmphases();
+		String[] emphases = new String[5];
+		int j=0;
+		for(int i=0;i<all.length;i++){
+			if(all[i][0]==school){
+				emphases[j] = all[i][1];
+				j++;
+			}
+		}
+		return emphases;
 	}
 	
 	/**
