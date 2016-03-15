@@ -41,14 +41,15 @@ public class LogonController {
 	 * @param String user
 	 * @param String password
 	 */
-	public void logon(String user, String pass){
+	public Member logon(String user, String pass){
 		Member temp = DB.findByName(user);
 		if (temp != null){
 			member = temp;
 			System.out.println("Logon Successful! Welcome "+member.getFirstName()+ " "+member.getLastName()+".");
+			return member;
 		}
-		else
-			System.out.println("Logon Unsuccessful. Please check your username and password!");
+		System.out.println("Logon Unsuccessful. Please check your username and password!");
+		return null;
 	}
 	
 	/**

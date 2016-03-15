@@ -56,4 +56,11 @@ public class AdminHome {
 		}
 		databasecontroller.editUser(f, l, u, p, t, s);
 	}
+	
+	/**
+	 * sets the instance of the Admin to the logged on user
+	 */
+	public void setMember(Member member) {
+		this.admin = (Admin) member;
+	}
 }

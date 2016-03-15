@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author jffritz
  * @version 3/13/16
  */
-public class UserUI { 
+public class UserUI {
 	
 	/**
 	 * UserHome object to be used by UI
@@ -24,9 +24,6 @@ public class UserUI {
 	 */
 	private User user;
 	
-	/**
-	 * UserUI constructor to create both UserHome and LogonController instances
-	 */
 	public UserUI(){
 		userHome = new UserHome();
 		log = new LogonController();
@@ -99,8 +96,8 @@ public class UserUI {
 	{
 		user.updateInformation(f, l, p);
 	}
-		/**
-		 * lists schools and user is given the option to view or remove the school
+	/**
+	 * lists schools and user is given the option to view or remove the school
 		 */
 	public void manageSavedSchools()
 	{
@@ -162,12 +159,10 @@ public class UserUI {
 //	{
 //		return confirm("Are you sure you want to remove School?")
 //	}
-	public void cancelChanges()
-	{
-		
-	}
-	public void requestConfirmation()
-	{
-		
-	}
+//	public void cancelChanges()
+//	{	
+//	}
+//	public void requestConfirmation()
+//	{		
+//	}
 }
