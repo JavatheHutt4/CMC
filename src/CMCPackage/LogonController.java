@@ -24,7 +24,7 @@ public class LogonController {
 	 * Constructor for a LogonController
 	 */
 	public LogonController() {
-		// TODO Auto-generated constructor stub
+		DB = new DatabaseController();
 	}
 	
 	/**

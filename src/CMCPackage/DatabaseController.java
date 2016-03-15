@@ -1,5 +1,5 @@
-package CMCPackage;
-import dblibrary.project.csci230.UniversityDBLibrary; 
+package CMCPackage; 
+import dblibrary.project.csci230.*; 
 
 
 /**
@@ -200,14 +200,16 @@ public class DatabaseController {
 	 */
 	public Member findByName(String user){
 		usersFromLibrary = databaseLibrary.user_getUsers();
+		
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			if(usersFromLibrary[i][2] == user){
+			if(usersFromLibrary[i][2].equals(user)){
 				if (usersFromLibrary[i][4].charAt(0) == 'a')
 					return new Admin(usersFromLibrary[i][2], usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][3],'Y');
 				else
 					return new User(usersFromLibrary[i][2], usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][3],'Y');
 			}
 		}
+		System.out.println("No user with this username exists");
 		return null;
 	}
 	

@@ -3,7 +3,7 @@ package CMCPackage;
 /**
  * SchoolHome class to control the Schools in the CMC system
  * @author jrfolkerds
- * @version 3/13/2016
+ * @version 3/14/2016
  */
 public class SchoolHome {
 	
@@ -20,6 +20,22 @@ public class SchoolHome {
 
 	/**
 	 * Method to add a new university to the system
+	 * @param name
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numStudents
+	 * @param perFemale
+	 * @param satVerbal
+	 * @param satMath
+	 * @param expenses
+	 * @param perFinancial
+	 * @param numApplicants
+	 * @param perAdmitted
+	 * @param perEnrolled
+	 * @param acadScale
+	 * @param socialScale
+	 * @param QOLScale
 	 */
 	public void addNewUniversity(String name, String state, String location, String control, int numStudents,
 			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
@@ -40,6 +56,22 @@ public class SchoolHome {
 	
 	/**
 	 * Method to edit an existing university
+	 * @param name
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numStudents
+	 * @param perFemale
+	 * @param satVerbal
+	 * @param satMath
+	 * @param expenses
+	 * @param perFinancial
+	 * @param numApplicants
+	 * @param perAdmitted
+	 * @param perEnrolled
+	 * @param acadScale
+	 * @param socialScale
+	 * @param QOLScale
 	 */
 	public void editUniversity(String name, String state, String location, String control, int numStudents,
 			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
@@ -72,6 +104,7 @@ public class SchoolHome {
 	/**
 	 * Method to return the emphases for a specified school
 	 * @param school the name of the school as a String
+	 * @returns String array containing every emphasis of the School
 	 */
 	public String[] getSchoolEmphases(String school){
 		String[][] all = db.getSchoolsWithEmphases();

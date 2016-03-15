@@ -1,10 +1,10 @@
-package CMCPackage;
+package CMCPackage; 
 import java.util.ArrayList;
 
 /**
  * UserHome class used to control the USer class
  * @author jffritz, jrfolkerds
- * @version 3/13/16
+ * @version 3/14/16
  */
 public class UserHome {
 	
@@ -51,8 +51,7 @@ public class UserHome {
 	
 	/**
 	 * Runs the removeSavedSchool method from User class
-	 * @param the username for the specified user
-	 * @param School object that is being searched for
+	 * @param String school name to be saved
 	 */
 	public void removeSavedSchool(String s){
 		int i = db.removeSchool(user.getUserName(), s);
@@ -66,6 +65,7 @@ public class UserHome {
 	
 	/**
 	 * View the list of saved schools
+	 * @param username the specified user's username
 	 * @return the list of saved schools
 	 */
 	public ArrayList<String> getSavedSchools(String username){
@@ -138,8 +138,7 @@ public class UserHome {
 	}
 	/**
 	 * Runs the saveSchool method from User class
-	 * @param the username for the specified user
-	 * @param School object that is being searched for
+	 * @param String school name to be saved
 	 */
 	public void saveSchool(String s){
 		int i = db.saveSchool(user.getUserName(), s);
