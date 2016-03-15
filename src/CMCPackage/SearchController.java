@@ -65,8 +65,8 @@ public class SearchController {
 		for(int i = 0; i < schoolsInLibrary.length; i++){
 			if(schoolsInLibrary[i][0].contains(name) || name == null)
 				if(schoolsInLibrary[i][1].contains(state) || state == null)
-					if(schoolsInLibrary[i][2] == location || location == null)
-						if(schoolsInLibrary[i][3] == control || control == null)
+					if(schoolsInLibrary[i][2].equals(location) || location == null)
+						if(schoolsInLibrary[i][3].equals(control) || control == null)
 							if(lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && Integer.parseInt(schoolsInLibrary[i][4]) <= highNumStudents || 
 							lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && highNumStudents == -1 ||
 							highNumStudents >= Integer.parseInt(schoolsInLibrary[i][4]) && lowNumStudents == -1 || 
@@ -118,11 +118,11 @@ public class SearchController {
 																			listofSchoolsWithEmphasis = db.getSchoolsWithEmphases();
 																			for(int m = 0; m < listofSchoolsWithEmphasis.length; m++){
 																				if(listofSchoolsWithEmphasis[m][0].contains(name)){
-																					if(listofSchoolsWithEmphasis[m][1] == emph1 ||
-																					listofSchoolsWithEmphasis[m][1] == emph2 ||
-																					listofSchoolsWithEmphasis[m][1] == emph3 ||
-																					listofSchoolsWithEmphasis[m][1] == emph4 ||
-																					listofSchoolsWithEmphasis[m][1] == emph5){
+																					if(listofSchoolsWithEmphasis[m][1].equals(emph1) ||
+																					listofSchoolsWithEmphasis[m][1].equals(emph2) ||
+																					listofSchoolsWithEmphasis[m][1].equals(emph3) ||
+																					listofSchoolsWithEmphasis[m][1].equals(emph4) ||
+																					listofSchoolsWithEmphasis[m][1].equals(emph5)){
 																						temp = matchingSchools;
 																						matchingSchools = new String[count+1][18];
 																						for(int k = 0; k < count; k++){
