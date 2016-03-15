@@ -44,10 +44,10 @@ public class LogonController {
 		Member temp = DB.findByName(user);
 		if (temp != null){
 			member = temp;
-			System.out.println("Logon Successful");
+			System.out.println("Logon Successful! Welcome "+member.getFirstName()+ " "+member.getLastName()+".");
 		}
 		else
-			System.out.println("Logon unsuccessful");
+			System.out.println("Logon Unsuccessful. Please check your username and password!");
 	}
 	
 	/**
