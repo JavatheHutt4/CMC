@@ -10,7 +10,10 @@ public class UserUI {
 	private UserHome userHome;
 	private LogonController log;
 	
-	
+	public UserUI(){
+		userHome = new UserHome();
+		log = new LogonController();
+	}
 	
 	/*
 	 * updates the users info through the user object

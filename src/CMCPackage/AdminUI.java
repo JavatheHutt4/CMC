@@ -13,6 +13,10 @@ public class AdminUI {
 	public AdminHome adminHome;
 	public LogonController log;
 	
+	public AdminUI(){
+		adminHome = new AdminHome();
+		log = new LogonController();
+	}
 	
 	public void manageMyProfile()
 	{
