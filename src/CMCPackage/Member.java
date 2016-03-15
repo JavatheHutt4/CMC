@@ -153,4 +153,13 @@ public abstract class Member {
 	public void deactivateMember() {
 		this.type = 'N';
 	} 
+	
+	/**
+	 * prints a string representation of the member information (i.e. "View Member Information)
+	 */
+	public String toString(){
+		return "First name: "+ this.getFirstName() + "/nLast Name: "+ this.getLastName()
+		+ "/nUsername: "+ this.getUserName() + "/nPassword: "+ this.getPassword() 
+		+ "/nType: " + this.getType() + "/nStatus: " + this.getStatus();
+	}
 }
