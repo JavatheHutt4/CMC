@@ -15,9 +15,10 @@ public class CMCDriver {
 		AdminUI adminUI = new AdminUI();
 		UserUI userUI = new UserUI();
 		DatabaseController db = new DatabaseController();
-		System.out.println(db.getUsers());
 		userUI.logon("invalid", "invalid");
+		userUI.logon("juser", "user");
 		adminUI.logon("invalid", "invalid");
+		adminUI.logon("nadmin", "admin");
 	}
 
 }
