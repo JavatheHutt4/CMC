@@ -52,9 +52,8 @@ public class UserHome {
 	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void removeSavedSchool(String username, String school)
-	{
-		int i = db.removeSchool(username, school);
+	public void removeSavedSchool(String s){
+		int i = db.removeSchool(user.getUserName(), s);
 		if(i != -1){
 			System.out.println("School was successfully removed");
 		}
@@ -67,11 +66,11 @@ public class UserHome {
 	 * View the list of saved schools
 	 * @return the list of saved schools
 	 */
-	public ArrayList<String> getSavedSchools(){
+	public ArrayList<String> getSavedSchools(String username){
 		ArrayList<String> schools = new ArrayList<String>();
 		String[][] all = db.getUsernamesWithSavedSchools();
 		for(int i=0;i<all.length;i++){
-			if(all[i][0] == this.getUserName()){
+			if(all[i][0] == username){
 				schools.add(all[i][1]);
 			}
 		}
@@ -83,9 +82,8 @@ public class UserHome {
 	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void saveSchool(String username, String school)
-	{
-		int i = db.saveSchool(username, school);
+	public void saveSchool(String s){
+		int i = db.saveSchool(user.getUserName(), s);
 		if(i != -1){
 			System.out.println("School was successfully saved");
 		}

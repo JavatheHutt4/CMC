@@ -8,7 +8,9 @@ package CMCPackage;
 public class UserUI {
 	
 	private UserHome userHome;
-	public LogonController log;
+	private LogonController log;
+	
+	
 	
 	/*
 	 * updates the users info through the user object

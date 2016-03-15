@@ -118,10 +118,8 @@ public class DatabaseController {
 				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 				return 1;
-			}
-			else
-				return -1;
-			}	
+			}			
+		}
 		return -1;
 	}
 	/**

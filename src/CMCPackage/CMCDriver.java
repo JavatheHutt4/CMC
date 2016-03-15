@@ -9,7 +9,6 @@ package CMCPackage;
  */
 public class CMCDriver {
 
-	
 	/**
 	 * @param args
 	 */
@@ -23,4 +22,5 @@ public class CMCDriver {
 		
 		adminUI.logon("invalid", "invalid");
 	}
+
 }
