@@ -7,11 +7,11 @@ package CMCPackage;
  * @version 3-14-16
  */
 public class SearchController {
-	public String[][] matchingSchools, temp, schoolsInLibrary, recommendedSchools, schoolsWithDistance;
-	public String[] schoolString, schoolEmphasis, temporaryString, listofSchoolsWithEmphasis;
+	public String[][] matchingSchools, temp, schoolsInLibrary, recommendedSchools, schoolsWithDistance, listofSchoolsWithEmphasis;
+	public String[] schoolString, schoolEmphasis, temporaryString;
 	public DatabaseController db;
 	public int count, distance, max, min, tempInt;
-	public String viewedSchool;
+	public String viewedSchool, schoolName, schoolEmph1, schoolEmph2, schoolEmph3, schoolEmph4, schoolEmph5;
 	
 	
 	public SearchController(){
@@ -62,7 +62,7 @@ public class SearchController {
 			String emph1, String emph2, String emph3, String emph4, String emph5){
 		schoolsInLibrary = db.getSchools();
 		count = 0;
-		for(int i = 0; i < schoolsInLibrary.length; i++)
+		for(int i = 0; i < schoolsInLibrary.length; i++){
 			if(schoolsInLibrary[i][0].contains(name) || name == null)
 				if(schoolsInLibrary[i][1].contains(state) || state == null)
 					if(schoolsInLibrary[i][2] == location || location == null)
@@ -116,13 +116,13 @@ public class SearchController {
 																		highQOLScale >= Integer.parseInt(schoolsInLibrary[i][15]) && lowQOLScale == -1 || 
 																		lowQOLScale == -1 && highQOLScale == -1){
 																			listofSchoolsWithEmphasis = db.getSchoolsWithEmphases();
-																			for(int m = 0; m < listOfSchoolsWithEmphasis.length; m++){
-																				if(listOfSchoolsWithEmphasis[m][0].contains(name)){
-																					if(listOfSchoolsWithEmphasis[m][1] == emph1 ||
-																					listOfSchoolsWithEmphasis[m][1] == emph2 ||
-																					listOfSchoolsWithEmphasis[m][1] == emph3 ||
-																					listOfSchoolsWithEmphasis[m][1] == emph4 ||
-																					listOfSchoolsWithEmphasis[m][1] == emph5){
+																			for(int m = 0; m < listofSchoolsWithEmphasis.length; m++){
+																				if(listofSchoolsWithEmphasis[m][0].contains(name)){
+																					if(listofSchoolsWithEmphasis[m][1] == emph1 ||
+																					listofSchoolsWithEmphasis[m][1] == emph2 ||
+																					listofSchoolsWithEmphasis[m][1] == emph3 ||
+																					listofSchoolsWithEmphasis[m][1] == emph4 ||
+																					listofSchoolsWithEmphasis[m][1] == emph5){
 																						temp = matchingSchools;
 																						matchingSchools = new String[count+1][18];
 																						for(int k = 0; k < count; k++){
@@ -136,7 +136,8 @@ public class SearchController {
 																					}
 																				}
 																			}
-																		}								
+																		}
+		}
 		return matchingSchools;
 		}
 	

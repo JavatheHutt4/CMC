@@ -118,11 +118,9 @@ public class DatabaseController {
 				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 				return 1;
-			}
-			else
-				return -1;
-				
+			}			
 		}
+		return -1;
 	}
 	/**
 	 * addNewMember adds a new member to the CMC system. It checks to see if there is already a member
@@ -220,6 +218,12 @@ public class DatabaseController {
 		return schoolsWithEmphasis;
 	}
 	
+	/**
+	 * addUniversityEmphasis adds an emphasis, paired with a school, to the database
+	 * @param school
+	 * @param emphasis
+	 * @return 1 if successful, -1 if the school/emphasis pair already existed
+	 */
 	public int addUniversityEmphasis(String school, String emphasis){
 		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
 		for(int i = 0; i < schoolsWithEmphasis.length; i++){
@@ -227,6 +231,8 @@ public class DatabaseController {
 				return -1;
 			}
 		}
+		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
+		return 1;
 	}
 }
 
