@@ -4,6 +4,9 @@ import dblibrary.project.csci230.UniversityDBLibrary;
 
 /**
  * This class is the DatabaseController class--the one that will be getting our data from our database.
+ * For any method that is called by the controller classes that needs information from the database,
+ * DatabaseController will retrieve that information and pass it along to the desired controller
+ * 
  * @author jcblomquist
  * @version 3/10/2016
  *
