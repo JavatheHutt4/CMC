@@ -23,8 +23,12 @@ public class UserHome {
 	 */
 	public DatabaseController db;
 	
-	private UserUI userUI;
 	
+	//private UserUI userUI;
+	
+	/**
+	 * Constructor for UserHome object which instantiates database
+	 */
 	public UserHome(){
 		db = new DatabaseController();
 	}

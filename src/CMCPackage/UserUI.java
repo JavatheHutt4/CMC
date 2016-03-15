@@ -145,30 +145,28 @@ public class UserUI {
 	{
 		userHome.removeSavedSchool(s);
 	}
-	/**
-	 * confirms if user wants to change selected
-	 * @return a prompt what confirms the users decision
-	 */ 
 	
+	/**
+	 * gets the instance of LogonController
+	 * @return log
+	 */ 
 	public LogonController getLog(){
 		return log;
 	}
 	
+	/**
+	 * gets the instance of UserHome
+	 * @return userHome
+	 */ 
 	public UserHome getUserHome(){
 		return userHome;
 	}
 	
+	/**
+	 * view the member information of user
+	 * @return String of member info
+	 */ 
 	public String viewMemberInfo(){
 		return getLog().getMember().toString();
 	}
-//	public boolean confirmChanges()
-//	{
-//		return confirm("Are you sure you want to remove School?")
-//	}
-//	public void cancelChanges()
-//	{	
-//	}
-//	public void requestConfirmation()
-//	{		
-//	}
 }

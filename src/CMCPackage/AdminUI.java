@@ -108,15 +108,28 @@ public class AdminUI {
 		adminHome.setMember(null);
 	}
 	
+	/**
+	 * gets the instance of LogonController
+	 * @return log
+	 */ 
 	public LogonController getLog(){
 		return log;
 	}
+
+	/**
+	 * gets the instance of AdminHome
+	 * @return userHome
+	 */ 
+	public AdminHome getAdminHome(){
+		return adminHome;
+	}
 	
+	/**
+	 * view the member information of admin
+	 * @return String of member info
+	 */ 
 	public String viewMemberInfo(){
 		return getLog().getMember().toString();
 	}
 	
-	public AdminHome getAdminHome(){
-		return adminHome;
-	}
 }

@@ -1,4 +1,5 @@
 package CMCPackage;
+
 /**
  * AdminHome class used to control the Admin class
  * @author jffritz
@@ -15,8 +16,10 @@ public class AdminHome {
 	 * DatabaseController object to access the database
 	 */
 	public DatabaseController db;
-
 	
+	/**
+	 * Constructor for AdminHome object which instantiates database
+	 */
 	public AdminHome(){
 		db = new DatabaseController();
 	}
@@ -61,12 +64,52 @@ public class AdminHome {
 		db.editUser(f, l, u, p, t, s);
 	}
 	
+	/**
+	 * adds university to database using DatabaseController object
+	 * * @param name
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numStudents
+	 * @param perFemale
+	 * @param satVerbal
+	 * @param satMath
+	 * @param expenses
+	 * @param perFinancial
+	 * @param numApplicants
+	 * @param perAdmitted
+	 * @param perEnrolled
+	 * @param acadScale
+	 * @param socialScale
+	 * @param QOLScale
+	 * @param emphasis
+	 */
 	public void addUniversity(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
 			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale)
 	{
 		db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 	}
 	
+	/**
+	 * edits university in database using DatabaseController object
+	 * * @param name
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numStudents
+	 * @param perFemale
+	 * @param satVerbal
+	 * @param satMath
+	 * @param expenses
+	 * @param perFinancial
+	 * @param numApplicants
+	 * @param perAdmitted
+	 * @param perEnrolled
+	 * @param acadScale
+	 * @param socialScale
+	 * @param QOLScale
+	 * @param emphasis
+	 */
 	public void editUniversity(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
 			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale)
 	{
@@ -79,6 +122,10 @@ public class AdminHome {
 		this.admin = (Admin) member;
 	}
 	
+	/**
+	 * gets the Admin object
+	 * @return admin
+	 */
 	public Admin getMember(){
 		return admin;
 	}
