@@ -5,7 +5,7 @@ package CMCPackage;
  * @author jffritz
  * @version 3/13/16
  */
-public class UserUI {
+public class UserUI { 
 	
 	/**
 	 * UserHome object to be used by UI
