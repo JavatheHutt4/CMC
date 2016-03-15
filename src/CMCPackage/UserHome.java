@@ -12,13 +12,22 @@ public class UserHome {
 	 * User object representing the User using interface
 	 */
 	private User user;
+	
+	/**
+	 * SearchController object to manage search functions
+	 */
 	private SearchController sc;
+	
 	/**
 	 * DatabaseController object to access the database
 	 */
 	public DatabaseController db;
 	
+	private UserUI userUI;
 	
+	public UserHome(){
+		userUI = new user
+	}
 	
 	/**
 	 * Uses the db to get all of the users and there information returned un a 2-D 
@@ -148,5 +157,12 @@ public class UserHome {
 		else{
 			System.out.println("School has already been saved");
 		}
+	}
+	
+	/**
+	 * sets the instance of the User to the logged on user
+	 */
+	public void setMember(Member member) {
+		this.user = (User) member;
 	}
 }

@@ -32,13 +32,15 @@ public class AdminUI {
 	/**
 	 * pulls up saved universities and is given the option to view or edit them
 	 */
-	public void manageUniversities(){
+	public void editUniversity(String f, String l, String u, String p, char t, char s){
+		
 	}
 	
 	/**
 	 * pulls up list of all users and is given the option to deactivate or edit them
 	 */
-	public void manageUsers(){
+	public void editUser(String f, String l, String u, String p, char t, char s){
+		adminHome.editMemberInformation(f, l, u, p, t, s);
 	}
 	
 	/**
@@ -83,7 +85,7 @@ public class AdminUI {
 	 * @param password
 	 */
 	public void logon(String user, String pass){
-		log.logon(user, pass);
+		adminHome.setMember(log.logon(user, pass));
 	}
 	
 	/**
@@ -92,5 +94,6 @@ public class AdminUI {
 	public void logoff()
 	{
 		log.logoff();
+		adminHome.setMember(null);
 	}
 }
