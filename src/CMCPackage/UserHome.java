@@ -18,6 +18,8 @@ public class UserHome {
 	 */
 	public DatabaseController db;
 	
+	
+	
 	/**
 	 * Uses the db to get all of the users and there information returned un a 2-D 
 	 * array of strings 

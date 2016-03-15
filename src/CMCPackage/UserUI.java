@@ -8,7 +8,12 @@ package CMCPackage;
 public class UserUI {
 	
 	private UserHome userHome;
-	public LogonController log;
+	private LogonController log;
+	
+	public UserUI(){
+		userHome = new UserHome();
+		log = new LogonController();
+	}
 	
 	/*
 	 * updates the users info through the user object
@@ -63,10 +68,23 @@ public class UserUI {
 		return n;
 	}
 	
+	/**
+	 * Runs the logon method from the LogonController class
+	 * @param username
+	 * @param password
+	 */
+	public void logon(String user, String pass){
+		log.logon(user, pass);
+	}
+	
+	/**
+	 * Runs the logoff method from the LogonController class
+	 */
 	public void logoff()
 	{
 		log.logoff();
 	}
+	
 	/**
 	 * removes saved school
 	 * @param school to be removed

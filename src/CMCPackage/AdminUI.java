@@ -13,6 +13,10 @@ public class AdminUI {
 	public AdminHome adminHome;
 	public LogonController log;
 	
+	public AdminUI(){
+		adminHome = new AdminHome();
+		log = new LogonController();
+	}
 	
 	public void manageMyProfile()
 	{
@@ -67,6 +71,15 @@ public class AdminUI {
 	public void editMember(String f, String l, String u, String p, char s, char t)
 	{
 		adminHome.editMemberInformation(f, l, u, p, s, t);
+	}
+	
+	/**
+	 * Runs the logon method from the LogonController class
+	 * @param username
+	 * @param password
+	 */
+	public void logon(String user, String pass){
+		log.logon(user, pass);
 	}
 	
 	/**
