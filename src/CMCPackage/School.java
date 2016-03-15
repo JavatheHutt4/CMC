@@ -290,7 +290,7 @@ public class School {
 				+ ", satMath=" + satMath + ", expenses=" + expenses + ", perFinancial=" + perFinancial
 				+ ", numApplicants=" + numApplicants + ", perAdmitted=" + perAdmitted + ", perEnrolled=" + perEnrolled
 				+ ", acadScale=" + acadScale + ", socialScale=" + socialScale + ", QOLScale=" + QOLScale + ", emphasis="
-				+ Arrays.toString(emphasis) + ", home=" + home + "]";
+				+ Arrays.toString(emphasis) + "]";
 	}
 	
 	
