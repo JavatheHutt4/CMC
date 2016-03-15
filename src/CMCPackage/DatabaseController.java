@@ -73,9 +73,8 @@ public class DatabaseController {
 			else
 				continue;
 		}
-		databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
+		return databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		return 1;
 	}
 	/**
 	 * editSchool checks to see that a school exists within the database, then updates its information when
@@ -104,9 +103,8 @@ public class DatabaseController {
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0].equals(name)){
-				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
+				return databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-				return 1;
 			}			
 		}
 		return -1;
@@ -120,6 +118,7 @@ public class DatabaseController {
 	 * @param username
 	 * @param password
 	 * @param type
+	 * @return 1 if successful, -1 if unsuccessful
 	 */
 	public int addNewMember(String firstName, String lastName, String username, String password, char type){
 		usersFromLibrary = databaseLibrary.user_getUsers();
@@ -129,8 +128,7 @@ public class DatabaseController {
 			else
 				continue;
 		}
-		databaseLibrary.user_addUser(firstName, lastName, username, password, type);
-		return 1;
+		return databaseLibrary.user_addUser(firstName, lastName, username, password, type);
 		
 	}
 	
@@ -145,15 +143,18 @@ public class DatabaseController {
 	 * @param password
 	 * @param type
 	 * @param status
+	 * @return 1 if successful, -1 if unsuccessful
 	 */
-	public void editUser(String firstName, String lastName, String username, String password, char type, char status){
+	public int editUser(String firstName, String lastName, String username, String password, char type, char status){
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			if(usersFromLibrary[i][2].equals(username))
-				databaseLibrary.user_editUser(username, firstName, lastName, password, type, status);
+			if(usersFromLibrary[i][2].equals(username)){
+				return databaseLibrary.user_editUser(username, firstName, lastName, password, type, status);
+			}
 			else
 				continue;
 		}
+		return -1;
 				
 	}
 	
@@ -244,8 +245,7 @@ public class DatabaseController {
 				return -1;
 			} 
 		}
-		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
-		return 1;
+		return databaseLibrary.university_addUniversityEmphasis(school, emphasis);
 	}
 	
 	
