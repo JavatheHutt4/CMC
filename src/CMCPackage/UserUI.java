@@ -15,7 +15,7 @@ public class UserUI {
 	private UserHome userHome;
 	
 	/**
-	 * LononController object to manage Member and the login status
+	 * LogonController object to manage Member and the login status
 	 */
 	private LogonController log;
 	
