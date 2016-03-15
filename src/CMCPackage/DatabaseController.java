@@ -15,6 +15,7 @@ public class DatabaseController {
 	public String[][] schoolsFromLibrary;
 	public String[][] usersFromLibrary;
 	public String[][] schoolsWithEmphasis;
+	public String[][] usernamesWithSavedSchools;
 	
 	/**
 	 * DatabaseController constructor
@@ -243,7 +244,7 @@ public class DatabaseController {
 	/**
 	 * addUniversityEmphasis adds an emphasis, paired with a school, to the database
 	 * @param school
-	 * @param emphasis
+	 * @param emphasis 
 	 * @return 1 if successful, -1 if the school/emphasis pair already existed
 	 */
 	public int addUniversityEmphasis(String school, String emphasis){
@@ -256,4 +257,14 @@ public class DatabaseController {
 		databaseLibrary.university_addUniversityEmphasis(school, emphasis);
 		return 1;
 	}
+	
+	
+	/**
+	 * getUsernamesWithSavedSchools fetches a 2d array of the users with their saved schools from the database
+	 * @return users with their saved schools
+	 */
+	 public String[][] getUsernamesWithSavedSchools(){
+	 	usernamesWithSavedSchools = databaseLibrary.user_getUsernamesWithSavedSchools();
+	 	return usernamesWithSavedSchools;
+	 }
 }
