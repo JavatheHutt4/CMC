@@ -263,14 +263,6 @@ public class School {
 		return emphasis;
 	}
 
-	/**
-	 * Get the school home
-	 * @return the home
-	 */
-	public SchoolHome getHome() {
-		return home;
-	}
-
 	
 	/**
 	 * Method that returns a String with the School name, state, and location.
