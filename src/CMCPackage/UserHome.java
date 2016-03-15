@@ -1,8 +1,9 @@
 package CMCPackage;
+import java.util.ArrayList;
 
 /**
  * UserHome class used to control the USer class
- * @author jffritz
+ * @author jffritz, jrfolkerds
  * @version 3/13/16
  */
 public class UserHome {
@@ -48,19 +49,48 @@ public class UserHome {
 	
 	/**
 	 * Runs the removeSavedSchool method from User class
+	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void removeSavedSchool(School s)
+	public void removeSavedSchool(String username, School s)
 	{
-		user.removeSavedSchool(s);
+		int i = db.removeSchool(this.getUserName(), school);
+		if(i != -1){
+			System.out.println("School was successfully removed");
+		}
+		else{
+			System.out.println("School is not in saved school list");
+		}
+	}
+	
+	/**
+	 * View the list of saved schools
+	 * @return the list of saved schools
+	 */
+	public ArrayList<String> getSavedSchools(){
+		ArrayList<String> schools = new ArrayList<String>();
+		String[][] all = db.getUsernamesWithSavedSchools();
+		for(int i=0;i<all.length;i++){
+			if(all[i][0] == this.getUserName()){
+				schools.add(all[i][1]);
+			}
+		}
+		return schools;
 	}
 	
 	/**
 	 * Runs the saveSchool method from User class
+	 * @param the username for the specified user
 	 * @param School object that is being searched for
 	 */
-	public void saveSchool(School s)
+	public void saveSchool(String username, School s)
 	{
-		user.saveSchool(s);
+		int i = db.saveSchool(this.getUserName(), school);
+		if(i != -1){
+			System.out.println("School was successfully saved");
+		}
+		else{
+			System.out.println("School has already been saved");
+		}
 	}
 }

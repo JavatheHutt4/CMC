@@ -14,6 +14,7 @@ public class DatabaseController {
 	public School[][] matchingSchools;
 	public String[][] schoolsFromLibrary;
 	public String[][] usersFromLibrary;
+	public String[][] schoolsWithEmphasis;
 	
 	/**
 	 * DatabaseController constructor
@@ -72,11 +73,12 @@ public class DatabaseController {
 	 * @param acadScale
 	 * @param socialScale
 	 * @param QOLScale
+	 * @return 1 if successful, -1 if unsuccessful
 	 */
 	public int addSchool(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
 			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
-		for(int i = 0; i < schoolsFromLibrary.length ; i++){
+		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0] == name)
 				return -1;
 			else
@@ -85,6 +87,42 @@ public class DatabaseController {
 		databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 		return 1;
+	}
+	/**
+	 * editSchool checks to see that a school exists within the database, then updates its information when
+	 * it is found. The parameters that will be updated are given by the user.
+	 * 
+	 * @param name
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numStudents
+	 * @param perFemale
+	 * @param satVerbal
+	 * @param satMath
+	 * @param expenses
+	 * @param perFinancial
+	 * @param numApplicants
+	 * @param perAdmitted
+	 * @param perEnrolled
+	 * @param acadScale
+	 * @param socialScale
+	 * @param QOLScale
+	 * @return 1 if successful, -1 if unsuccessful
+	 */
+	public int editSchool(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
+			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
+		schoolsFromLibrary = databaseLibrary.university_getUniversities();
+		for(int i = 0; i < schoolsFromLibrary.length; i++){
+			if(schoolsFromLibrary[i][0] == name){
+				databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
+				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+				return 1;
+			}
+			else
+				return -1;
+				
+		}
 	}
 	/**
 	 * addNewMember adds a new member to the CMC system. It checks to see if there is already a member
@@ -159,6 +197,7 @@ public class DatabaseController {
 	 * @return Member object of the user found, or null if no member exists
 	 */
 	public Member findByName(String user){
+		usersFromLibrary = databaseLibrary.user_getUsers();
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2] == user){
 				if (usersFromLibrary[i][4].charAt(0) == 'a')
@@ -177,8 +216,10 @@ public class DatabaseController {
 	 * @return 2D string array with the school emphases
 	 */
 	public String[][] getSchoolsWithEmphases(){
-		return databaseLibrary.university_getNamesWithEmphases();
+		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
+		return schoolsWithEmphasis;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * saveSchool calls the user_saveSchool method from the UniversityDBLibrary class
@@ -200,5 +241,14 @@ public class DatabaseController {
 	 */
 	public int removeSchool(String userName, String school) {
 		return databaseLibrary.user_removeSchool(userName, school);
+	}
+	
+	public int addUniversityEmphasis(String school, String emphasis){
+		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
+		for(int i = 0; i < schoolsWithEmphasis.length; i++){
+			if(schoolsWithEmphasis[i][0] == school && schoolsWithEmphasis[i][1] == emphasis){
+				return -1;
+			}
+		}
 	}
 }
