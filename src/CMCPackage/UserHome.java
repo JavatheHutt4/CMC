@@ -26,6 +26,7 @@ public class UserHome {
 	private UserUI userUI;
 	
 	public UserHome(){
+		db = new DatabaseController();
 	}
 	
 	/**

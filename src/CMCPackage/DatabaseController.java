@@ -204,9 +204,9 @@ public class DatabaseController {
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2].equals(user)){
 				if (usersFromLibrary[i][4].charAt(0) == 'a')
-					return new Admin( usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][2], usersFromLibrary[i][3],'Y');
+					return new Admin( usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][2], usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
 				else
-					return new User( usersFromLibrary[i][0], usersFromLibrary[i][1],usersFromLibrary[i][2], usersFromLibrary[i][3],'Y');
+					return new User( usersFromLibrary[i][0], usersFromLibrary[i][1],usersFromLibrary[i][2], usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
 			}
 		}
 		return null;

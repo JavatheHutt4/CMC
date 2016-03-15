@@ -8,12 +8,15 @@ package CMCPackage;
  */
 public class CMCDriver {
 
+	// MUST EDIT USER AND SCHOOL BACK TO PREVIOUS STATE
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		AdminUI adminUI = new AdminUI();
 		UserUI userUI = new UserUI();
+		SchoolHome schoolHome = new SchoolHome();
 		
 		System.out.println("********************************Tests for user agent uses********************************");
 		// testing user logon with invalid username and password
@@ -22,13 +25,38 @@ public class CMCDriver {
 		userUI.logon("juser", "user");
 		//prints the info for current user
 		System.out.println(userUI.viewMemberInfo());
+		//tests the users ability to manage own profile
+		userUI.manageMyProfile("Stanley", "Steamer", "CarpetCleaner");
+		System.out.println("\n"+userUI.viewMemberInfo());
+		userUI.manageMyProfile("John", "User", "user");
+		
 		
 		System.out.println("\n********************************Tests for admin agent uses********************************");
 		// testing admin logon with invalid username and password
 		adminUI.logon("invalid", "invalid");
 		// testing admin logon with valid username and password
 		adminUI.logon("nadmin", "admin");
+		//prints the info for current admin
 		System.out.println(adminUI.viewMemberInfo());
+		//tests the add new member case
+		System.out.println("\nTesting manipulation of members by admin -");
+		System.out.println("\nInformation of added member -");
+		adminUI.addMember("new", "member", "newMember", "password", 'u', 'Y');
+		System.out.println(userUI.getUserHome().findByName("newMember"));
+		//tests the edit new member case, changing the first name to "moreNew"
+		System.out.println("\nInformation of edited member -");
+		adminUI.editMember("moreNew", "member", "newMember", "password", 'u', 'Y');
+		System.out.println(userUI.getUserHome().findByName("newMember"));
+		adminUI.deactivateMember(adminUI.getAdminHome().findByName("newMember"));
+		System.out.println("\nDeactivating User...\nStatus of user after deactivation: "+ adminUI.getAdminHome().findByName("newMember").getStatus());
+		System.out.println("\nTesting manipulation of universites by admin -");
+		//tests the add new university case
+		adminUI.addUniversity("myUniversity", "Minnesota", "Small-City", "Private", 9001, 50, 50, 50, 50000, 90, 12, 100, 2, 4, 5, 2);
+		System.out.println("Adding new school called myUniversity:");
+		System.out.println(schoolHome.findByName("myUniversity"));
+		//tests the edit university case, changing the state to Maryland
+		adminUI.editUniversity("myUniversity", "Maryland", "Small-City", "Private", 9001, 50, 50, 50, 50000, 90, 12, 100, 2, 4, 5, 5);
+		System.out.println("Editing myUniversity to be in Maryland:");
+		System.out.println(schoolHome.findByName("myUniversity"));
 	}
-
 }

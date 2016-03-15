@@ -110,11 +110,6 @@ public class UserUI {
 		userHome.saveSchool(s);
 	}
 	
-//	public boolean confirmSave()
-//	{
-//		return confirm("Are you sure you want to save the School?")
-//	}
-	
 	/**
 	 * Views the specified school
 	 * @param the string name of school to be viewed
@@ -157,6 +152,10 @@ public class UserUI {
 	
 	public LogonController getLog(){
 		return log;
+	}
+	
+	public UserHome getUserHome(){
+		return userHome;
 	}
 	
 	public String viewMemberInfo(){

@@ -14,15 +14,19 @@ public class AdminHome {
 	/**
 	 * DatabaseController object to access the database
 	 */
-	public DatabaseController databasecontroller;
+	public DatabaseController db;
 
+	
+	public AdminHome(){
+		db = new DatabaseController();
+	}
 	/**
 	 * Deactivates the member by setting its type to "N"
 	 * @param member to be deactivated
 	 */
 	public void deactivateMember(Member m)
 	{
-		m.deactivateMember();
+		db.editUser(m.getFirstName(), m.getLastName(), m.getUserName(), m.getPassword(), m.getType(), 'N');
 	}
 	/**
 	 * adds a new member with all the information provided in the parameter
@@ -37,7 +41,7 @@ public class AdminHome {
 		if(t != 'a' && t != 'u'){
 			System.out.print("Invalid new member information");
 		}
-		databasecontroller.addNewMember(f, l, u, p, t);
+		db.addNewMember(f, l, u, p, t);
 	}
 	
 	/**
@@ -51,12 +55,23 @@ public class AdminHome {
 	 */
 	public void editMemberInformation(String f, String l, String u, String p, char t, char s)
 	{
-		if(t != 'a' || t != 'u' && s != 'N' || s != 'A'){
+		if((t != 'a' && t != 'u') || (s != 'N' && s != 'Y')){
 			System.out.print("Invalid new member information");
 		}
-		databasecontroller.editUser(f, l, u, p, t, s);
+		db.editUser(f, l, u, p, t, s);
 	}
 	
+	public void addUniversity(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
+			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale)
+	{
+		db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+	}
+	
+	public void editUniversity(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
+			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale)
+	{
+		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+	}
 	/**
 	 * sets the instance of the Admin to the logged on user
 	 */
@@ -66,5 +81,15 @@ public class AdminHome {
 	
 	public Admin getMember(){
 		return admin;
+	}
+	
+	/**
+	 * Runs the findByName method on db
+	 * @param the username of the user you are searching for
+	 * @return the user you searched for
+	 */
+	public Member findByName(String u)
+	{
+		return db.findByName(u);
 	}
 }
