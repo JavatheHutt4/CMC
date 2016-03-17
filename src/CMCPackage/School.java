@@ -42,8 +42,6 @@ public class School {
 	private int QOLScale;
 	//String array containing the School's emphasis
 	private String[] emphasis;
-	//Access to the SchoolHome class
-	private SchoolHome home;
 	
 	/**;
 	 * Constructor method for School
