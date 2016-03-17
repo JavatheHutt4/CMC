@@ -4,7 +4,7 @@
 package CMCJUnit;
 
 /**
- * @author tdrichmond
+ * @author tdrichmond 
  *
  */
 public class MemberTester {
