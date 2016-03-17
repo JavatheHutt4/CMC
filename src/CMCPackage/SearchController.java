@@ -46,15 +46,15 @@ public class SearchController {
 	/**
 	 * value given to a school based on similarities to a searched school
 	 */
-	public int distance;
+	public double distance;
 	/**
 	 * maximum value of a certain attribute within the database
 	 */
-	public int max;
+	public double max;
 	/**
 	 * minimum value of a certain attribute within the database
 	 */
-	public int min;
+	public double min;
 	/**
 	 * holds temporary max/min value while the new value is checked against it
 	 */
@@ -197,7 +197,7 @@ public class SearchController {
 	 * @param i - the index to look in for the specific attribute
 	 * @return the maximum value of the attribute
 	 */
-	public int getMax(int i){
+	public double getMax(int i){
 		schoolsInLibrary = db.getSchools();
 		max = Integer.parseInt(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){
@@ -212,7 +212,7 @@ public class SearchController {
 	 * @param i - the index to look in for the specific attribute
 	 * @return the minimum value of the attribute
 	 */
-	public int getMin(int i){
+	public double getMin(int i){
 		schoolsInLibrary = db.getSchools();
 		min = Integer.parseInt(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){
@@ -252,7 +252,7 @@ public class SearchController {
 		for(int i = 0; i < schoolsInLibrary.length; i++){
 			//names will obviously be different, so they are ignored. If it is the school itself, we skip it.
 			distance = 0;
-			if(schoolString[0] == schoolsInLibrary[i][0])
+			if(schoolString[0].equals(schoolsInLibrary[i][0]))
 				continue;
 			if(schoolString[1] != schoolsInLibrary[i][1])
 				distance += 1;
@@ -270,12 +270,12 @@ public class SearchController {
 			}
 			//we need to 'manually' sort the first five schools, because attempting to sort
 			//them with an empty array would not insert them in (distance > 0 for all schools)
-			schoolsWithDistance[i][16] = Integer.toString(distance);
+			schoolsWithDistance[i][16] = Double.toString(distance);
 			if(i == 0){
 				recommendedSchools[0] = schoolsWithDistance[i];
 			}
 			if(i == 1){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];
 				}
@@ -283,12 +283,12 @@ public class SearchController {
 					recommendedSchools[1] = schoolsWithDistance[i];
 			}
 			if(i == 2){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];	
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[1][16])){
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = schoolsWithDistance[i];	
 				}
@@ -296,18 +296,18 @@ public class SearchController {
 					recommendedSchools[2] = schoolsWithDistance[i];		
 			}
 			if(i == 3){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];	
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[1][16])){
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[2][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[2][16])){
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = schoolsWithDistance[i];
 				}
@@ -315,25 +315,25 @@ public class SearchController {
 					recommendedSchools[3] = schoolsWithDistance[i];	
 			}
 			if(i == 4){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];	
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[1][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[2][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[2][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[3][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[3][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = schoolsWithDistance[i];
 				}
@@ -342,63 +342,68 @@ public class SearchController {
 			}
 			//this case is used in the instance that one one the fist five schools in the library is being compared against
 			if(i == 5){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];	
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[1][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[2][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[2][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[3][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[3][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[4][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[4][16])){
 					recommendedSchools[4] = schoolsWithDistance[i];
 				}
-				else if(Integer.parseInt(recommendedSchools[4][16]) == 0){
+				else if(Double.parseDouble(recommendedSchools[4][16]) == 0){
 					recommendedSchools[4] = schoolsWithDistance[i];
 				}
 			}
 			//this if loop goes through the remaining schools, sorting them as necessary
 			if(i > 5){
-				if(distance < Integer.parseInt(recommendedSchools[0][16])){
+				if(distance < Double.parseDouble(recommendedSchools[0][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = recommendedSchools[0];
 					recommendedSchools[0] = schoolsWithDistance[i];	
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[1][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[1][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = recommendedSchools[1];
 					recommendedSchools[1] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[2][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[2][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = recommendedSchools[2];
 					recommendedSchools[2] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[3][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[3][16])){
 					recommendedSchools[4] = recommendedSchools[3];
 					recommendedSchools[3] = schoolsWithDistance[i];
 				}
-				else if(distance < Integer.parseInt(recommendedSchools[4][16])){
+				else if(distance < Double.parseDouble(recommendedSchools[4][16])){
 					recommendedSchools[4] = schoolsWithDistance[i];
 				}
 			}
+//			String schoolName = schoolsWithDistance[i][0];
+//			if(distance < 20.0){
+//				System.out.println(schoolName);
+//				System.out.println(distance);
+//			} //use this to check distance values of schools
 		}
 		return recommendedSchools; 
 	}

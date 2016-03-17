@@ -39,8 +39,8 @@ public class CMCDriver {
 		//tests the view specific search results
 		System.out.println("\nViewing specific details for ST JOHNS UNIVERSITY:");
 		System.out.println(userUI.viewSpecificSchool("ST JOHNS UNIVERSITY"));
-		System.out.println("\nSearching for recommended schools related to SMITH college:");
-		String[][] recommendedSchools = userUI.recommendSchool(schoolHome.findByName("SMITH"));
+		System.out.println("\nSearching for recommended schools related to WASHINGTON AND LEE college:");
+		String[][] recommendedSchools = userUI.recommendSchool(schoolHome.findByName("WASHINGTON AND LEE"));
 		for(int i = 0; i < recommendedSchools.length;i++){
 			System.out.println(schoolHome.findByName(recommendedSchools[i][0]));
 		}
