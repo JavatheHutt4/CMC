@@ -103,8 +103,8 @@ public class DatabaseController {
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0].equals(name)){
-				return databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
-				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+				return databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, 
+				satVerbal, satMath, expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
 			}			
 		}
 		return -1;
@@ -191,9 +191,11 @@ public class DatabaseController {
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2].equals(user)){
 				if (usersFromLibrary[i][4].charAt(0) == 'a')
-					return new Admin( usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][2], usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
+					return new Admin( usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][2], 
+							usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
 				else
-					return new User( usersFromLibrary[i][0], usersFromLibrary[i][1],usersFromLibrary[i][2], usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
+					return new User( usersFromLibrary[i][0], usersFromLibrary[i][1],usersFromLibrary[i][2], 
+							usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
 			}
 		}
 		return null;
