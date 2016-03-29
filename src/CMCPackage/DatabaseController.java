@@ -122,6 +122,9 @@ public class DatabaseController {
 	 */
 	public int addNewMember(String firstName, String lastName, String username, String password, char type){
 		usersFromLibrary = databaseLibrary.user_getUsers();
+		if((type != 'a') && (type != 'u')){
+			return -1;
+		}
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2].equals(username))
 				return -1;
