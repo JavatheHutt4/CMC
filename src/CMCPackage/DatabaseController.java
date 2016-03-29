@@ -64,8 +64,8 @@ public class DatabaseController {
 	 * @param QOLScale
 	 * @return 1 if successful, -1 if unsuccessful
 	 */
-	public int addSchool(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
-			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
+	public int addSchool(String name, String state, String location, String control, int numStudents, double perFemale, double satVerbal, double satMath, 
+			double expenses, double perFinancial, int numApplicants, double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0].equals(name))
@@ -98,8 +98,8 @@ public class DatabaseController {
 	 * @param QOLScale
 	 * @return 1 if successful, -1 if unsuccessful
 	 */
-	public int editSchool(String name, String state, String location, String control, int numStudents, int perFemale, int satVerbal, int satMath, 
-			int expenses, int perFinancial, int numApplicants, int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale){
+	public int editSchool(String name, String state, String location, String control, int numStudents, double perFemale, double satVerbal, double satMath, 
+			double expenses, double perFinancial, int numApplicants, double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0].equals(name)){

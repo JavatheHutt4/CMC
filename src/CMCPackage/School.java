@@ -169,7 +169,7 @@ public class School {
 	 * Get the percentage of female students
 	 * @return the perFemale
 	 */
-	public int getPerFemale() {
+	public double getPerFemale() {
 		return perFemale;
 	}
 
@@ -177,7 +177,7 @@ public class School {
 	 * Get the average SAT Verbal score
 	 * @return the satVerbal
 	 */
-	public int getSatVerbal() {
+	public double getSatVerbal() {
 		return satVerbal;
 	}
 
@@ -185,7 +185,7 @@ public class School {
 	 * Get the average SAT Math score
 	 * @return the satMath
 	 */
-	public int getSatMath() {
+	public double getSatMath() {
 		return satMath;
 	}
 
@@ -193,7 +193,7 @@ public class School {
 	 * Get the cost of tuition
 	 * @return the expenses
 	 */
-	public int getExpenses() {
+	public double getExpenses() {
 		return expenses;
 	}
 
@@ -201,7 +201,7 @@ public class School {
 	 * Get the percent of students on financial aid
 	 * @return the perFinancial
 	 */
-	public int getPerFinancial() {
+	public double getPerFinancial() {
 		return perFinancial;
 	}
 
@@ -217,7 +217,7 @@ public class School {
 	 * Get the percent of applicants admitted
 	 * @return the perAdmitted
 	 */
-	public int getPerAdmitted() {
+	public double getPerAdmitted() {
 		return perAdmitted;
 	}
 
@@ -225,7 +225,7 @@ public class School {
 	 * Get the percent of admitted applicants enrolled
 	 * @return the perEnrolled
 	 */
-	public int getPerEnrolled() {
+	public double getPerEnrolled() {
 		return perEnrolled;
 	}
 
