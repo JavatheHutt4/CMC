@@ -33,6 +33,9 @@ public class LogonController {
 	 * @param String password
 	 */
 	public void changePassword (String pass){
+		if (member == null){
+			throw new NullPointerException("Cannot change password, no user logged on.");
+		}
 		member.setPassword(pass);
 	}
 	
@@ -44,12 +47,20 @@ public class LogonController {
 	public Member logon(String user, String pass){
 		Member temp = DB.findByName(user);
 		if (temp != null){
-			member = temp;
-			System.out.println("Logon Successful! Welcome "+member.getFirstName()+ " "+member.getLastName()+".");
-			return member;
+			if(temp.getPassword().equals(pass)){
+				member = temp;
+				System.out.println("Logon Successful! Welcome, "+member.getFirstName()+ " "+member.getLastName()+".");
+				return member;
+			}
+			else{
+				System.out.println("Logon Unsuccessful. Please check your username and password!");
+				return null;
+			}
 		}
-		System.out.println("Logon Unsuccessful. Please check your username and password!");
-		return null;
+		else{
+			System.out.println("Logon Unsuccessful. Please check your username and password!");
+			return null;
+		}
 	}
 	
 	/**
@@ -61,13 +72,17 @@ public class LogonController {
 	}
 	
 	public Member getMember(){
+		if (member == null)
+			System.out.println("No member logged on");
 		return member;
 	}
 	
 	public String toString(){
-		if (member.equals(null))
+		if (member == null)
 			return "No member is currently logged on.";
-		return "The Member currently logged in is user " +member.getUserName();
+		else if (member.getType() == 'a')
+			return "The Member currently logged in is user " +member.getUserName() + " of type admin.";
+		else
+			return "The Member currently logged in is user " +member.getUserName() + " of type user.";
 	}
-
 }

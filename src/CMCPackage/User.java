@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class to represent a user in the CMC system
- * @author tdrichmond, jrfolkerds
+ * @author tdrichmond
  * @version 3/14/2016
  */
 public class User extends Member{

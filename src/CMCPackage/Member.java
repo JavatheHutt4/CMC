@@ -127,6 +127,8 @@ public abstract class Member {
 	 * @param type the type to set
 	 */
 	public void setType(char type) {
+		if (!(type == 'a' || type == 'u'))
+			throw new UnsupportedOperationException("Invalid Type");
 		this.type = type;
 	}
 	
@@ -143,6 +145,8 @@ public abstract class Member {
 	 * @param status the status to set
 	 */
 	public void setStatus(char status) {
+		if (!(status == 'Y' || status == 'N'))
+			throw new UnsupportedOperationException("Invalid STATUS");
 		this.status = status;
 	}
 
@@ -151,7 +155,10 @@ public abstract class Member {
 	  * Deactivates the Member by setting its type to 'N'
 	   */
 	public void deactivateMember() {
-		this.type = 'N';
+		if (this.status == 'Y')
+			this.status = 'N';
+		else
+			System.out.println("User is already deactivated.");
 	} 
 	
 	/**

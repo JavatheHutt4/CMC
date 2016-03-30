@@ -5,6 +5,7 @@ package CMCPackage;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,27 +15,50 @@ import org.junit.Test;
  */
 public class LogonControllerTest {
 
+	LogonController lc;
+	LogonController lc2;
+	LogonController lc3;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		lc = new LogonController();
+		lc2 = new LogonController();
+		lc3 = new LogonController();
+		lc.logon("nadmin", "admin");
+		lc3.logon("luser", "user");
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		if (lc.getMember() == null){
+			lc.logon("nadmin", "admin");
+		}
+		lc.changePassword("admin");
 	}
 
-	/**
-	 * Test method for {@link CMCPackage.LogonController#LogonController()}.
-	 */
-	@Test
-	public void testLogonController() {
-		fail("Not yet implemented");
-	}
+//	/**
+//	 * Test method for {@link CMCPackage.LogonController#LogonController()}.
+//	 */
+//	@Test
+//	public void testLogonController() {
+//		fail("Not yet implemented");
+//	}
 
 	/**
 	 * Test method for {@link CMCPackage.LogonController#changePassword(java.lang.String)}.
 	 */
 	@Test
 	public void testChangePassword() {
-		fail("Not yet implemented");
+		lc.changePassword("newPassword");
+		String expResult = "newPassword";
+		String result = lc.getMember().getPassword();
+		assertEquals("the changed password is " + expResult,expResult, result);
+	}
+	@Test(expected=NullPointerException.class)
+	public void testChangePasswordFailsNullMember() {
+		lc2.changePassword("newPassword");
 	}
 
 	/**
@@ -42,15 +66,33 @@ public class LogonControllerTest {
 	 */
 	@Test
 	public void testLogon() {
-		fail("Not yet implemented");
+		String expResult = "juser";
+		String result = lc2.logon("juser", "user").getUserName();
+		assertEquals("The logged in userName should be " + expResult,expResult, result);
 	}
+	@Test
+	public void testLogonInvalidUserName() {
+		Member expResult = null;
+		Member result = lc2.logon("fake", "user");
+		assertEquals("The logon should fail, member should be " + expResult,expResult, result);
+	}
+	@Test
+	public void testLogonInvalidPassword() {
+		Member expResult = null;
+		Member result = lc2.logon("juser", "fake");
+		assertEquals("The logon should fail, member should be " + expResult,expResult, result);
+	}
+	
 
 	/**
 	 * Test method for {@link CMCPackage.LogonController#logoff()}.
 	 */
 	@Test
 	public void testLogoff() {
-		fail("Not yet implemented");
+		lc.logoff();
+		Member expResult = null;
+		Member result = lc.getMember();
+		assertEquals("member should be " + expResult,expResult, result);
 	}
 
 	/**
@@ -58,7 +100,16 @@ public class LogonControllerTest {
 	 */
 	@Test
 	public void testGetMember() {
-		fail("Not yet implemented");
+		Member temp = lc.getMember();
+		String expResult = "Noreen";
+		String result = temp.getFirstName();
+		assertEquals("First name is " + expResult,expResult, result);
+	}
+	@Test
+	public void testGetMemberNotLoggedIn() {
+		Member expResult = null;
+		Member result = lc2.getMember();
+		assertEquals("Member should be " + expResult,expResult, result);
 	}
 
 	/**
@@ -66,7 +117,15 @@ public class LogonControllerTest {
 	 */
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		String expResult = "The Member currently logged in is user " +lc.getMember().getUserName() + " of type admin.";
+		String result = lc.toString();
+		assertEquals("Return message should be: " + expResult,expResult, result);
+		expResult = "No member is currently logged on.";
+		result = lc2.toString();
+		assertEquals("Return message should be: " + expResult,expResult, result);
+		expResult = "The Member currently logged in is user " +lc3.getMember().getUserName() + " of type user.";;
+		result = lc3.toString();
+		assertEquals("Return message should be: " + expResult,expResult, result);
 	}
 
 }

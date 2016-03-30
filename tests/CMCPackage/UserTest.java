@@ -12,26 +12,50 @@ import org.junit.Test;
  * @author tdrichmond
  * @version 3/30/2016
  */
-public class AdminTest {
+public class UserTest {
 
-	private Admin admin1;
-	private Admin admin2;
+	private User user1;
+	private User user2;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		admin1 = new Admin("first", "last", "user", "password", 'Y');
-		admin2 = new Admin("first2", "last2", "user2", "password2", 'N');
+		user1 = new User("first", "last", "user", "password", 'Y');
+		user2 = new User("first2", "last2", "user2", "password2", 'N');
 	}
 
 //	/**
-//	 * Test method for {@link CMCPackage.Admin#Admin(java.lang.String, java.lang.String, java.lang.String, java.lang.String, char)}.
+//	 * Test method for {@link CMCPackage.User#User(java.lang.String, java.lang.String, java.lang.String, java.lang.String, char)}.
 //	 */
 //	@Test
-//	public void testAdmin() {
+//	public void testUser() {
 //		fail("Not yet implemented");
 //	}
+
+	/**
+	 * Test method for {@link CMCPackage.User#updateInformation(java.lang.String, java.lang.String, java.lang.String)}.
+	 */
+	@Test
+	public void testUpdateInformation() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link CMCPackage.User#getSavedSchools()}.
+	 */
+	@Test
+	public void testGetSavedSchools() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link CMCPackage.User#viewSavedSchool(CMCPackage.School)}.
+	 */
+	@Test
+	public void testViewSavedSchool() {
+		fail("Not yet implemented");
+	}
 
 	/**
 	 * Test method for {@link CMCPackage.Member#getFirstName()}.
@@ -39,10 +63,10 @@ public class AdminTest {
 	@Test
 	public void testGetFirstName() {
 		String expResult = "first";
-		String result = admin1.getFirstName();
+		String result = user1.getFirstName();
 		assertEquals("firstName is " + expResult,expResult, result);
 		expResult = "first2";
-		result = admin2.getFirstName();
+		result = user2.getFirstName();
 		assertEquals("firstName is " + expResult,expResult, result);
 	}
 
@@ -51,9 +75,9 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetFirstName() {
-		admin1.setFirstName("newFirst");
+		user1.setFirstName("newFirst");
 		String expResult = "newFirst";
-		String result = admin1.getFirstName();
+		String result = user1.getFirstName();
 		assertEquals("firstName is " + expResult,expResult, result);
 	}
 
@@ -63,10 +87,10 @@ public class AdminTest {
 	@Test
 	public void testGetLastName() {
 		String expResult = "last";
-		String result = admin1.getLastName();
+		String result = user1.getLastName();
 		assertEquals("lastName is " + expResult,expResult, result);
 		expResult = "last2";
-		result = admin2.getLastName();
+		result = user2.getLastName();
 		assertEquals("lastName is " + expResult,expResult, result);
 	}
 
@@ -75,9 +99,9 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetLastName() {
-		admin1.setLastName("newLast");
+		user1.setLastName("newLast");
 		String expResult = "newLast";
-		String result = admin1.getLastName();
+		String result = user1.getLastName();
 		assertEquals("lastName is " + expResult,expResult, result);
 	}
 
@@ -87,10 +111,10 @@ public class AdminTest {
 	@Test
 	public void testGetUserName() {
 		String expResult = "user";
-		String result = admin1.getUserName();
+		String result = user1.getUserName();
 		assertEquals("userName is " + expResult,expResult, result);
 		expResult = "user2";
-		result = admin2.getUserName();
+		result = user2.getUserName();
 		assertEquals("userName is " + expResult,expResult, result);
 	}
 
@@ -99,9 +123,9 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetUserName() {
-		admin1.setUserName("newUser");
+		user1.setUserName("newUser");
 		String expResult = "newUser";
-		String result = admin1.getUserName();
+		String result = user1.getUserName();
 		assertEquals("userName is " + expResult,expResult, result);
 	}
 
@@ -111,10 +135,10 @@ public class AdminTest {
 	@Test
 	public void testGetPassword() {
 		String expResult = "password";
-		String result = admin1.getPassword();
+		String result = user1.getPassword();
 		assertEquals("password is " + expResult,expResult, result);
 		expResult = "password2";
-		result = admin2.getPassword();
+		result = user2.getPassword();
 		assertEquals("password is " + expResult,expResult, result);
 	}
 
@@ -123,9 +147,9 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetPassword() {
-		admin1.setPassword("newPassword");
+		user1.setPassword("newPassword");
 		String expResult = "newPassword";
-		String result = admin1.getPassword();
+		String result = user1.getPassword();
 		assertEquals("password is " + expResult,expResult, result);
 	}
 
@@ -134,8 +158,8 @@ public class AdminTest {
 	 */
 	@Test
 	public void testGetType() {
-		char expResult = 'a';
-		char result = admin1.getType();
+		char expResult = 'u';
+		char result = user1.getType();
 		assertEquals("type is " + expResult,expResult, result);
 	}
 
@@ -144,15 +168,15 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetType() {
-		admin1.setType('u');
-		char expResult = 'u';
-		char result = admin1.getType();
+		user1.setType('a');
+		char expResult = 'a';
+		char result = user1.getType();
 		assertEquals("type is " + expResult,expResult, result);
 	}
 	
 	@Test (expected=UnsupportedOperationException.class)
 	public void testSetTypeFails() {
-		admin1.setType('m');
+		user1.setType('m');
 	}
 
 	/**
@@ -161,10 +185,10 @@ public class AdminTest {
 	@Test
 	public void testGetStatus() {
 		char expResult = 'Y';
-		char result = admin1.getStatus();
+		char result = user1.getStatus();
 		assertEquals("status is " + expResult,expResult, result);
 		expResult = 'N';
-		result = admin2.getStatus();
+		result = user2.getStatus();
 		assertEquals("status is " + expResult,expResult, result);
 	}
 
@@ -173,15 +197,15 @@ public class AdminTest {
 	 */
 	@Test
 	public void testSetStatus() {
-		admin1.setStatus('N');
+		user1.setStatus('N');
 		char expResult = 'N';
-		char result = admin1.getStatus();
+		char result = user1.getStatus();
 		assertEquals("firstName is " + expResult,expResult, result);
 	}
 	
 	@Test (expected=UnsupportedOperationException.class)
 	public void testSetStatusFails() {
-		admin1.setStatus('M');
+		user1.setStatus('M');
 	}
 
 	/**
@@ -189,13 +213,13 @@ public class AdminTest {
 	 */
 	@Test
 	public void testDeactivateMember() {
-		admin1.deactivateMember();
+		user1.deactivateMember();
 		char expResult = 'N';
-		char result = admin1.getStatus();
+		char result = user1.getStatus();
 		assertEquals("status is " + expResult,expResult, result);
-		admin2.deactivateMember();
+		user2.deactivateMember();
 		expResult = 'N';
-		result = admin2.getStatus();
+		result = user2.getStatus();
 		assertEquals("status is " + expResult,expResult, result);
 	}
 
@@ -204,11 +228,11 @@ public class AdminTest {
 	 */
 	@Test
 	public void testToString() {
-		String expResult = "First name: "+ admin1.getFirstName() + "\nLast Name: "+ admin1.getLastName()
-				+ "\nUsername: "+ admin1.getUserName() + "\nPassword: "+ admin1.getPassword() 
-				+ "\nType: " + admin1.getType() + "\nStatus: " + admin1.getStatus();
-		String result = admin1.toString();
-		assertEquals("admin1 toString is: " + expResult,expResult, result);
+		String expResult = "First name: "+ user1.getFirstName() + "\nLast Name: "+ user1.getLastName()
+					+ "\nUsername: "+ user1.getUserName() + "\nPassword: "+ user1.getPassword() 
+					+ "\nType: " + user1.getType() + "\nStatus: " + user1.getStatus();
+		String result = user1.toString();
+		assertEquals("user1 toString is: " + expResult,expResult, result);
 	}
 
 }
