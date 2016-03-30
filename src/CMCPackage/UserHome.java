@@ -184,8 +184,6 @@ public class UserHome {
 	
 	public void editUserInfo(String f, String l, String p){
 		db.editUser(f, l, user.getUserName(), p, user.getType(), user.getStatus());
-		user.setFirstName(f);
-		user.setLastName(l);
-		user.setPassword(p);
+		user.updateInformation(f,l,p);
 	}
 }
