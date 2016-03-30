@@ -58,7 +58,7 @@ public class SearchController {
 	/**
 	 * holds temporary max/min value while the new value is checked against it
 	 */
-	public int tempInt;
+	public double tempDouble;
 	
 	/**
 	 * Constructor for a SearchController object
@@ -104,9 +104,9 @@ public class SearchController {
 	 * @param emph5 - emphasis being searched for
 	 * @return the schools that match the search
 	 */
-	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, int lowPerFemale, int highPerFemale, 
-			int lowSatVerbal, int highSatVerbal, int lowSatMath, int highSatMath, int lowExpenses, int highExpenses, int lowPerFinancial, int highPerFinancial,
-			int lowNumApplicants, int highNumApplicants, int lowPerAdmitted, int highPerAdmitted, int lowPerEnrolled, int highPerEnrolled,
+	public String[][] search(String name, String state, String location, String control, int lowNumStudents, int highNumStudents, double lowPerFemale, double highPerFemale, 
+			double lowSatVerbal, double highSatVerbal, double lowSatMath, double highSatMath, double lowExpenses, double highExpenses, double lowPerFinancial, double highPerFinancial,
+			int lowNumApplicants, int highNumApplicants, double lowPerAdmitted, double highPerAdmitted, double lowPerEnrolled, double highPerEnrolled,
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
 			String emph1, String emph2, String emph3, String emph4, String emph5){
 		schoolsInLibrary = db.getSchools();
@@ -120,37 +120,37 @@ public class SearchController {
 							lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && highNumStudents == -1 ||
 							highNumStudents >= Integer.parseInt(schoolsInLibrary[i][4]) && lowNumStudents == -1 || 
 							lowNumStudents == -1 && highNumStudents == -1)
-								if(lowPerFemale <= Integer.parseInt(schoolsInLibrary[i][5]) && Integer.parseInt(schoolsInLibrary[i][5]) <= highPerFemale || 
-								lowPerFemale <= Integer.parseInt(schoolsInLibrary[i][5]) && highPerFemale == -1 ||
-								highPerFemale >= Integer.parseInt(schoolsInLibrary[i][5]) && lowPerFemale == -1 || 
+								if(lowPerFemale <= Double.parseDouble(schoolsInLibrary[i][5]) && Double.parseDouble(schoolsInLibrary[i][5]) <= highPerFemale || 
+								lowPerFemale <= Double.parseDouble(schoolsInLibrary[i][5]) && highPerFemale == -1 ||
+								highPerFemale >= Double.parseDouble(schoolsInLibrary[i][5]) && lowPerFemale == -1 || 
 								lowPerFemale == -1 && highPerFemale == -1)
-									if(lowSatVerbal <= Integer.parseInt(schoolsInLibrary[i][6]) && Integer.parseInt(schoolsInLibrary[i][6]) <= highSatVerbal || 
-									lowSatVerbal <= Integer.parseInt(schoolsInLibrary[i][6]) && highSatVerbal == -1 ||
-									highSatVerbal >= Integer.parseInt(schoolsInLibrary[i][6]) && lowSatVerbal == -1 || 
+									if(lowSatVerbal <= Double.parseDouble(schoolsInLibrary[i][6]) && Double.parseDouble(schoolsInLibrary[i][6]) <= highSatVerbal || 
+									lowSatVerbal <= Double.parseDouble(schoolsInLibrary[i][6]) && highSatVerbal == -1 ||
+									highSatVerbal >= Double.parseDouble(schoolsInLibrary[i][6]) && lowSatVerbal == -1 || 
 									lowSatVerbal == -1 && highSatVerbal == -1)
-										if(lowSatMath <= Integer.parseInt(schoolsInLibrary[i][7]) && Integer.parseInt(schoolsInLibrary[i][7]) <= highSatMath || 
-										lowSatMath <= Integer.parseInt(schoolsInLibrary[i][7]) && highSatMath == -1 ||
-										highSatMath >= Integer.parseInt(schoolsInLibrary[i][7]) && lowSatMath == -1 || 
+										if(lowSatMath <= Double.parseDouble(schoolsInLibrary[i][7]) && Double.parseDouble(schoolsInLibrary[i][7]) <= highSatMath || 
+										lowSatMath <= Double.parseDouble(schoolsInLibrary[i][7]) && highSatMath == -1 ||
+										highSatMath >= Double.parseDouble(schoolsInLibrary[i][7]) && lowSatMath == -1 || 
 										lowSatMath == -1 && highSatMath == -1)
-											if(lowExpenses <= Integer.parseInt(schoolsInLibrary[i][8]) && Integer.parseInt(schoolsInLibrary[i][8]) <= highExpenses || 
-											lowExpenses <= Integer.parseInt(schoolsInLibrary[i][8]) && highExpenses == -1 ||
-											highExpenses >= Integer.parseInt(schoolsInLibrary[i][8]) && lowExpenses == -1 || 
+											if(lowExpenses <= Double.parseDouble(schoolsInLibrary[i][8]) && Double.parseDouble(schoolsInLibrary[i][8]) <= highExpenses || 
+											lowExpenses <= Double.parseDouble(schoolsInLibrary[i][8]) && highExpenses == -1 ||
+											highExpenses >= Double.parseDouble(schoolsInLibrary[i][8]) && lowExpenses == -1 || 
 											lowExpenses == -1 && highExpenses == -1)
-												if(lowPerFinancial <= Integer.parseInt(schoolsInLibrary[i][9]) && Integer.parseInt(schoolsInLibrary[i][9]) <= highPerFinancial || 
-												lowPerFinancial <= Integer.parseInt(schoolsInLibrary[i][9]) && highPerFinancial == -1 ||
-												highPerFinancial >= Integer.parseInt(schoolsInLibrary[i][9]) && lowPerFinancial == -1 || 
+												if(lowPerFinancial <= Double.parseDouble(schoolsInLibrary[i][9]) && Double.parseDouble(schoolsInLibrary[i][9]) <= highPerFinancial || 
+												lowPerFinancial <= Double.parseDouble(schoolsInLibrary[i][9]) && highPerFinancial == -1 ||
+												highPerFinancial >= Double.parseDouble(schoolsInLibrary[i][9]) && lowPerFinancial == -1 || 
 												lowPerFinancial == -1 && highPerFinancial == -1)
 													if(lowNumApplicants <= Integer.parseInt(schoolsInLibrary[i][10]) && Integer.parseInt(schoolsInLibrary[i][10]) <= highNumApplicants || 
 													lowNumApplicants <= Integer.parseInt(schoolsInLibrary[i][10]) && highNumApplicants == -1 ||
 													highNumApplicants >= Integer.parseInt(schoolsInLibrary[i][10]) && lowNumApplicants == -1 || 
 													lowNumApplicants == -1 && highNumApplicants == -1)
-														if(lowPerAdmitted <= Integer.parseInt(schoolsInLibrary[i][11]) && Integer.parseInt(schoolsInLibrary[i][11]) <= highPerAdmitted || 
-														lowPerAdmitted <= Integer.parseInt(schoolsInLibrary[i][11]) && highPerAdmitted == -1 ||
-														highPerAdmitted >= Integer.parseInt(schoolsInLibrary[i][11]) && lowPerAdmitted == -1 || 
+														if(lowPerAdmitted <= Double.parseDouble(schoolsInLibrary[i][11]) && Double.parseDouble(schoolsInLibrary[i][11]) <= highPerAdmitted || 
+														lowPerAdmitted <= Double.parseDouble(schoolsInLibrary[i][11]) && highPerAdmitted == -1 ||
+														highPerAdmitted >= Double.parseDouble(schoolsInLibrary[i][11]) && lowPerAdmitted == -1 || 
 														lowPerAdmitted == -1 && highPerAdmitted == -1)
-															if(lowPerEnrolled <= Integer.parseInt(schoolsInLibrary[i][12]) && Integer.parseInt(schoolsInLibrary[i][12]) <= highPerEnrolled || 
-															lowPerEnrolled <= Integer.parseInt(schoolsInLibrary[i][12]) && highPerEnrolled == -1 ||
-															highPerEnrolled >= Integer.parseInt(schoolsInLibrary[i][12]) && lowPerEnrolled == -1 || 
+															if(lowPerEnrolled <= Double.parseDouble(schoolsInLibrary[i][12]) && Double.parseDouble(schoolsInLibrary[i][12]) <= highPerEnrolled || 
+															lowPerEnrolled <= Double.parseDouble(schoolsInLibrary[i][12]) && highPerEnrolled == -1 ||
+															highPerEnrolled >= Double.parseDouble(schoolsInLibrary[i][12]) && lowPerEnrolled == -1 || 
 															lowPerEnrolled == -1 && highPerEnrolled == -1)
 																if(lowAcadScale <= Integer.parseInt(schoolsInLibrary[i][13]) && Integer.parseInt(schoolsInLibrary[i][13]) <= highAcadScale || 
 																lowAcadScale <= Integer.parseInt(schoolsInLibrary[i][13]) && highAcadScale == -1 ||
@@ -199,11 +199,11 @@ public class SearchController {
 	 */
 	public double getMax(int i){
 		schoolsInLibrary = db.getSchools();
-		max = Integer.parseInt(schoolsInLibrary[0][i]);
+		max = Double.parseDouble(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){
-			tempInt = Integer.parseInt(schoolsInLibrary[j][i]);
-			if(tempInt > max)
-				max = tempInt;
+			tempDouble = Double.parseDouble(schoolsInLibrary[j][i]);
+			if(tempDouble > max)
+				max = tempDouble;
 		}
 		return max;
 		}
@@ -214,11 +214,11 @@ public class SearchController {
 	 */
 	public double getMin(int i){
 		schoolsInLibrary = db.getSchools();
-		min = Integer.parseInt(schoolsInLibrary[0][i]);
+		min = Double.parseDouble(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){
-			tempInt = Integer.parseInt(schoolsInLibrary[j][i]);
-			if(tempInt < max)
-				min = tempInt;
+			tempDouble = Double.parseDouble(schoolsInLibrary[j][i]);
+			if(tempDouble < max)
+				min = tempDouble;
 		}
 		return min;
 		}
@@ -238,14 +238,14 @@ public class SearchController {
 		schoolString[2] = s.getLocation();
 		schoolString[3] = s.getControl();
 		schoolString[4] = Integer.toString(s.getNumStudents());
-		schoolString[5] = Integer.toString(s.getPerFemale());
-		schoolString[6] = Integer.toString(s.getSatVerbal());
-		schoolString[7] = Integer.toString(s.getSatMath());
-		schoolString[8] = Integer.toString(s.getExpenses());
-		schoolString[9] = Integer.toString(s.getPerFinancial());
+		schoolString[5] = Double.toString(s.getPerFemale());
+		schoolString[6] = Double.toString(s.getSatVerbal());
+		schoolString[7] = Double.toString(s.getSatMath());
+		schoolString[8] = Double.toString(s.getExpenses());
+		schoolString[9] = Double.toString(s.getPerFinancial());
 		schoolString[10] = Integer.toString(s.getNumApplicants());
-		schoolString[11] = Integer.toString(s.getPerAdmitted());
-		schoolString[12] = Integer.toString(s.getPerEnrolled());
+		schoolString[11] = Double.toString(s.getPerAdmitted());
+		schoolString[12] = Double.toString(s.getPerEnrolled());
 		schoolString[13] = Integer.toString(s.getAcadScale());
 		schoolString[14] = Integer.toString(s.getSocialScale());
 		schoolString[15] = Integer.toString(s.getQOLScale());
@@ -261,7 +261,7 @@ public class SearchController {
 			if(schoolString[3] != schoolsInLibrary[i][3])
 				distance += 1;
 			for(int j = 4; j < 16; j++){
-				distance += (Math.abs(Integer.parseInt(schoolString[j]) - Integer.parseInt(schoolsInLibrary[i][j]))
+				distance += (Math.abs(Double.parseDouble(schoolString[j]) - Double.parseDouble(schoolsInLibrary[i][j]))
 						/(getMax(j)-getMin(j)));
 			}
 			//the distances are now obtained, so we create a new array with one more column, for distance

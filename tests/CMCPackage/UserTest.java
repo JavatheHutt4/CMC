@@ -234,5 +234,4 @@ public class UserTest {
 		String result = user1.toString();
 		assertEquals("user1 toString is: " + expResult,expResult, result);
 	}
-
 }
