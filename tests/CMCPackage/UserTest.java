@@ -1,7 +1,7 @@
 /**
  * 
  */
-package CMCPackage; 
+package CMCPackage;
 
 import static org.junit.Assert.*;
 
@@ -16,13 +16,16 @@ public class UserTest {
 
 	private User user1;
 	private User user2;
+	private LogonController lc;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception { 
 		user1 = new User("first", "last", "user", "password", 'Y');
 		user2 = new User("first2", "last2", "user2", "password2", 'N');
+		lc = new LogonController();
+		lc.logon("juser", "user");
 	}
 
 //	/**
@@ -38,7 +41,16 @@ public class UserTest {
 	 */
 	@Test
 	public void testUpdateInformation() {
-		fail("Not yet implemented");
+		user1.updateInformation("newFirst", "newLast", "newPassword");
+		String expResult = "newFirst";
+		String result = user1.getFirstName();
+		assertEquals("firstName is " + expResult,expResult, result);
+		expResult = "newLast";
+		result = user1.getLastName();
+		assertEquals("lastName is " + expResult,expResult, result);
+		expResult = "newPassword";
+		result = user1.getPassword();
+		assertEquals("password is " + expResult,expResult, result);
 	}
 
 	/**
