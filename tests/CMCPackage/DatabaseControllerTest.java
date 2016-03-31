@@ -18,6 +18,8 @@ public class DatabaseControllerTest {
 		db = new DatabaseController();
 	}
 
+	//ADDSCHOOL TESTS
+	
 	@Test
 	public void testAddSchoolSuccess() { //all fields must be valid
 		String name = "AAATESTSCHOOL";
@@ -405,7 +407,8 @@ public class DatabaseControllerTest {
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale));
 	}
 
-
+	//EDITSCHOOL TESTS
+	
 	@Test
 	public void testEditSchoolSuccess() {
 		String name = "GEORGETOWN";
@@ -804,6 +807,7 @@ public class DatabaseControllerTest {
 		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
 	}
 	
+	//ADDNEWMEMBER TESTS
 	
 	@Test
 	public void testAddNewMemberSuccess() {
@@ -851,6 +855,8 @@ public class DatabaseControllerTest {
 				db.addNewMember(firstName, lastName, username, password, type));
 	}
 
+	//EDITUSER TESTS
+	
 	@Test
 	public void testEditUserSuccess() {
 		String firstName = "Taco";
@@ -894,6 +900,8 @@ public class DatabaseControllerTest {
 		assertEquals("juser is being edited improperly. A -1 should be returned.", expResult, result);
 	}
 
+	//GETUSER TEST
+	
 	@Test
 	public void testGetUsers() {
 		int numberOfUsers = db.getUsers().length;
@@ -901,6 +909,8 @@ public class DatabaseControllerTest {
 		assertEquals("The number of users should equal "+expResult,expResult,numberOfUsers);
 	}
 
+	//GETSCHOOLS TEST
+	
 	@Test
 	public void testGetSchools() {
 		int numberOfSchools = db.getSchools().length;
@@ -908,6 +918,8 @@ public class DatabaseControllerTest {
 		assertEquals("The number of schools should equal "+expResult,expResult,numberOfSchools);
 	}
 
+	//FINDBYNAME TESTS
+	
 	@Test
 	public void testFindByNameSuccess() {
 		String userName = "juser";
@@ -930,6 +942,8 @@ public class DatabaseControllerTest {
 		assertEquals("auser is being searched and doesn't exist.",expResult,member);
 	}
 
+	//GETSCHOOLSWITHEMPHASES TEST
+	
 	@Test
 	public void testGetSchoolsWithEmphases() {
 		int schoolsWithEmphases = db.getSchoolsWithEmphases().length;
@@ -937,6 +951,8 @@ public class DatabaseControllerTest {
 		assertEquals("The number of pairs of schools with emphases should equal "+expResult,expResult,schoolsWithEmphases);
 	}
 
+	//SAVESCHOOL TESTS
+	
 	@Test
 	public void testSaveSchoolSuccess() {
 		db.removeSchool("juser", "GEORGETOWN");
@@ -962,6 +978,8 @@ public class DatabaseControllerTest {
 		assertEquals("A school is being saved to nuser's account. -1 should be returned",expResult,db.saveSchool(username, school));
 	}
 
+	//REMOVESCHOOL TESTS
+	
 	@Test
 	public void testRemoveSchoolSuccess() {
 		String userName = "juser";
@@ -990,6 +1008,8 @@ public class DatabaseControllerTest {
 		assertEquals("George Washington is attempted to be removed from juser's saved schools.",expResult,result);
 	}
 
+	//ADDUNIVERSITYEMPHASIS TESTS
+	
 	@Ignore
 	@Test
 	public void testAddUniversityEmphasisSuccess() {
@@ -1016,6 +1036,8 @@ public class DatabaseControllerTest {
 		assertEquals("An emphasis is being added to Adelphi that already exists. -1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
 	}
 
+	//GETUSERNAMESWITHSAVEDSCHOOLS TESTS
+	
 	@Test
 	public void testGetUsernamesWithSavedSchools() {
 		int usernamesWithSavedSchools = db.getUsernamesWithSavedSchools().length;
