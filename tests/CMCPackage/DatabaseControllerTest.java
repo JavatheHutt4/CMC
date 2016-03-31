@@ -425,11 +425,11 @@ public class DatabaseControllerTest {
 		int socialScale = 4;
 		int QOLScale = 4; 
 		int expResult = 1;
+		//result is stored for testing
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited. If the name matches and entry and the paramenters are valid"
-				+ ", a 1 will be returned",expResult,result);
+		//information is changed back
 		state = "DISTRICT OF COLUMBIA";
 		location = "URBAN";
 		control = "PRIVATE";
@@ -447,6 +447,9 @@ public class DatabaseControllerTest {
 		QOLScale = 4;
 		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited. If the name matches and entry and the paramenters are valid"
+				+ ", a 1 will be returned",expResult,result);
+		
 				
 	}
 
@@ -454,7 +457,7 @@ public class DatabaseControllerTest {
 	public void testEditSchoolLocationFailure() {
 		String name = "GEORGETOWN";
 		String state = "MINNESOTA";
-		String location = "UNDERWATER"; //invalid location
+		String location = "URBAN";
 		String control = "PRIVATE";
 		int numStudents = 10000;
 		double perFemale = 51.8;
@@ -469,11 +472,338 @@ public class DatabaseControllerTest {
 		int socialScale = 4;
 		int QOLScale = 4; 
 		int expResult = -1;
-		assertEquals("A school is trying to be edited. If the name matches and entry and the paramenters are valid"
-				+ ", a 1 will be returned",expResult,db.editSchool(name, state,
+		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
-				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale));
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
 	}
+	
+	@Test
+	public void testEditSchoolControlFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "RAHALCORP"; //invalid control
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolNumStudentsFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = -1; //invalid number of students
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolPerFemaleFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 151.8; //invalid perFemale
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolsatVerbalFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 850.66; //invalid satVerbal score
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolsatMathFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = -30.23; //invalid satMath score
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolExpensesFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = -63456.78; //invalid expenses
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolPerFinancialFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 102.8; //invalid perFinancial
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolNumberOfApplicantsFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = -38000; //invalid number of applicants
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Ignore
+	@Test
+	public void testEditSchoolPerAdmittedFailure() { //NOT REGISTERING AS A FAILURE PROPERLY - STILL CHANGES DATA
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 115.6; //invalid percent Admitted
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolPerEnrolledFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = -7.8; //invalid perEnrolled
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolAcadScaleFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 0; //invalid acadScale score 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolSocialScaleFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = -2; //invalid socialScale score
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
+	@Test
+	public void testEditSchoolQOLScaleFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 6; //invalid QOLScale score
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+	}
+	
 	
 	@Test
 	public void testAddNewMemberSuccess() {
@@ -537,6 +867,32 @@ public class DatabaseControllerTest {
 		password = "user";
 		db.editUser(firstName, lastName, username, password, type, status);
 	}
+	
+	@Test
+	public void testEditUserTypeFailure() {
+		String firstName = "Taco";
+		String lastName = "Bell";
+		String username = "juser";
+		String password = "TACOSrGREAT";
+		char type = 'v';
+		char status = 'Y';
+		int expResult = -1;
+		int result = db.editUser(firstName, lastName, username, password, type, status);
+		assertEquals("juser is being edited improperly. A -1 should be returned.", expResult, result);
+	}
+	
+	@Test
+	public void testEditUserStatusFailure() {
+		String firstName = "Taco";
+		String lastName = "Bell";
+		String username = "juser";
+		String password = "TACOSrGREAT";
+		char type = 'u';
+		char status = 'X';
+		int expResult = -1;
+		int result = db.editUser(firstName, lastName, username, password, type, status);
+		assertEquals("juser is being edited improperly. A -1 should be returned.", expResult, result);
+	}
 
 	@Test
 	public void testGetUsers() {
@@ -599,7 +955,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testSaveSchoolUniversityFailure() {
+	public void testSaveSchoolSchoolFailure() {
 		String username = "nuser";
 		String school = "PIZZA HUT";
 		int expResult = -1;
@@ -607,8 +963,31 @@ public class DatabaseControllerTest {
 	}
 
 	@Test
-	public void testRemoveSchool() {
-		fail("Not yet implemented");
+	public void testRemoveSchoolSuccess() {
+		String userName = "juser";
+		String school = "YALE";
+		db.saveSchool(userName, school);
+		int result = db.removeSchool(userName, school);
+		int expResult = 1;
+		assertEquals("Yale is being removed from juser's saved schools.",expResult,result);	
+	}
+	
+	@Test
+	public void testRemoveSchoolUserFailure() {
+		String userName = "auser";
+		String school = "YALE";
+		int result = db.removeSchool(userName, school);
+		int expResult = 0; //0 entries were removed, so 0 is returned
+		assertEquals("Yale is attempted to be removed from auser's saved schools.",expResult,result);
+	}
+	
+	@Test
+	public void testRemoveSchoolSchoolFailure() {
+		String userName = "juser";
+		String school = "GEORGE WASHINGTON";
+		int result = db.removeSchool(userName, school);
+		int expResult = 0; //0 entries were removed, so 0 is returned
+		assertEquals("George Washington is attempted to be removed from juser's saved schools.",expResult,result);
 	}
 
 	@Ignore

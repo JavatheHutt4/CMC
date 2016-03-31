@@ -152,6 +152,8 @@ public class DatabaseController {
 	 */
 	public int editUser(String firstName, String lastName, String username, String password, char type, char status){
 		usersFromLibrary = databaseLibrary.user_getUsers();
+		if((type != 'a' && type != 'u') || (status != 'Y' && status != 'N'))
+			return -1;
 		for(int i = 0; i < usersFromLibrary.length; i++){
 			if(usersFromLibrary[i][2].equals(username)){
 				return databaseLibrary.user_editUser(username, firstName, lastName, password, type, status);
