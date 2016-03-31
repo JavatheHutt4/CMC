@@ -7,6 +7,7 @@ package CMCPackage;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class DatabaseControllerTest {
@@ -19,11 +20,10 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testAddSchoolSuccess() { //all fields must be valid
-		db.databaseLibrary.university_deleteUniversity("TEST_SCHOOL");
-		String name = "TEST_SCHOOL";
+		String name = "AAATESTSCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
-		String control = "PRIVATE";
+		String control = "STATE";
 		int numStudents = 10000;
 		double perFemale = 51.8;
 		double satVerbal = 750.66;
@@ -37,9 +37,11 @@ public class DatabaseControllerTest {
 		int socialScale = 4;
 		int QOLScale = 5;
 		int expResult = 1;
-		assertEquals("A school is trying to be added. If it succeeds, a 1 will be returned",expResult,db.addSchool(name, state,
-				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
-				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale));
+		int result = db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, 
+				expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		db.databaseLibrary.university_deleteUniversity("AAATESTSCHOOL");
+		assertEquals("A school is trying to be added. If it succeeds, a 1 will be returned",expResult,result);
+		
 		
 	}
 	
@@ -188,7 +190,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure7() {
+	public void testAddSchoolsatMathFailureFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -212,7 +214,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure8() {
+	public void testAddSchoolExpensesFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -236,7 +238,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure9() {
+	public void testAddSchoolPerFinancialFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -260,7 +262,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure10() {
+	public void testAddSchoolNumApplicantsFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -284,7 +286,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure11() {
+	public void testAddSchoolPerAdmittedFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -308,7 +310,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure12() {
+	public void testAddSchoolPerEnrolledFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -332,7 +334,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure13() {
+	public void testAddSchoolAcadScaleFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -356,7 +358,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure14() {
+	public void testAddSchoolSocialScaleFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -380,7 +382,7 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddSchoolFailure15() {
+	public void testAddSchoolQOLScaleFailure() {
 		String name = "TEST SCHOOL";
 		String state = "MINNESOTA";
 		String location = "SUBURBAN";
@@ -422,13 +424,57 @@ public class DatabaseControllerTest {
 		int acadScale = 4; 
 		int socialScale = 4;
 		int QOLScale = 4; 
+		int expResult = 1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited. If the name matches and entry and the paramenters are valid"
+				+ ", a 1 will be returned",expResult,result);
+		state = "DISTRICT OF COLUMBIA";
+		location = "URBAN";
+		control = "PRIVATE";
+		numStudents = 15000;
+		perFemale = 45;
+		satVerbal = 620;
+		satMath = 635;
+		expenses = 27951;
+		perFinancial = 30;
+		numApplicants = 8500;
+		perAdmitted = 30;
+		perEnrolled = 10;
+		acadScale = 4;
+		socialScale = 4;
+		QOLScale = 4;
+		db.editSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
+				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+				
+	}
+
+	@Test
+	public void testEditSchoolLocationFailure() {
+		String name = "GEORGETOWN";
+		String state = "MINNESOTA";
+		String location = "UNDERWATER"; //invalid location
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
 		int expResult = -1;
 		assertEquals("A school is trying to be edited. If the name matches and entry and the paramenters are valid"
 				+ ", a 1 will be returned",expResult,db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale));
 	}
-
+	
 	@Test
 	public void testAddNewMemberSuccess() {
 		String firstName = "Jon";
@@ -439,6 +485,7 @@ public class DatabaseControllerTest {
 		int expResult = 1;
 		assertEquals("A member is trying to be added. If it succeeds, a 1 will be returned",expResult,
 				db.addNewMember(firstName, lastName, username, password, type));
+		db.databaseLibrary.user_deleteUser("jcblomquist");
 		firstName = "Master";
 		lastName = "Yoda";
 		username = "jediYoda";
@@ -446,10 +493,12 @@ public class DatabaseControllerTest {
 		type = 'u';
 		assertEquals("Trying to be added, member is. 1 returned, if succeeds.",expResult,
 				db.addNewMember(firstName, lastName, username, password, type));
+		db.databaseLibrary.user_deleteUser("jediYoda");
+		
 	}
 	
 	@Test
-	public void testAddNewMemberUsernameFailure() {
+	public void testAddNewMemberTypeFailure() {
 		String firstName = "Jon";
 		String lastName = "Blomquist";
 		String username = "jcblomquist";
@@ -461,20 +510,32 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testAddNewMemberTypeFailure() {
+	public void testAddNewMemberUsernameFailure() {
 		String firstName = "Jon";
 		String lastName = "Blomquist";
 		String username = "juser";
 		String password = "user";
 		char type = 'a';
 		int expResult = -1;
-		assertEquals("A member is trying to be added. If the type is invalid, a -1 will be returned",expResult,
+		assertEquals("A member is trying to be added. If the username is already taken, a -1 will be returned",expResult,
 				db.addNewMember(firstName, lastName, username, password, type));
 	}
 
 	@Test
-	public void testEditUser() {
-		fail("Not yet implemented");
+	public void testEditUserSuccess() {
+		String firstName = "Taco";
+		String lastName = "Bell";
+		String username = "juser";
+		String password = "TACOSrGREAT";
+		char type = 'u';
+		char status = 'Y';
+		int expResult = 1;
+		int result = db.editUser(firstName, lastName, username, password, type, status);
+		assertEquals("juser is being edited. A 1 should be returned.", expResult, result);
+		firstName = "John";
+		lastName = "User";
+		password = "user";
+		db.editUser(firstName, lastName, username, password, type, status);
 	}
 
 	@Test
@@ -487,25 +548,62 @@ public class DatabaseControllerTest {
 	@Test
 	public void testGetSchools() {
 		int numberOfSchools = db.getSchools().length;
-		int expResult = 100;
+		int expResult = 182;
 		assertEquals("The number of schools should equal "+expResult,expResult,numberOfSchools);
 	}
 
 	@Test
-	public void testFindByName() {
-		fail("Not yet implemented");
+	public void testFindByNameSuccess() {
+		String userName = "juser";
+		Member member = db.findByName(userName);
+		char typeResult = member.getType();
+		char expResult = 'u';
+		assertEquals("juser is being searched for and a user object should be returned.",expResult,typeResult);
+		userName = "nadmin";
+		member = db.findByName(userName);
+		typeResult = member.getType();
+		expResult = 'a';
+		assertEquals("nadmin is being searched for and an admin object should be returned.",expResult,typeResult);
+	}
+	
+	@Test
+	public void testFindByNameFailure() {
+		String userName = "auser";
+		Member member = db.findByName(userName);
+		Member expResult = null;
+		assertEquals("auser is being searched and doesn't exist.",expResult,member);
 	}
 
 	@Test
 	public void testGetSchoolsWithEmphases() {
 		int schoolsWithEmphases = db.getSchoolsWithEmphases().length;
-		int expResult = 200;
+		int expResult = 566;
 		assertEquals("The number of pairs of schools with emphases should equal "+expResult,expResult,schoolsWithEmphases);
 	}
 
 	@Test
-	public void testSaveSchool() {
-		fail("Not yet implemented");
+	public void testSaveSchoolSuccess() {
+		db.removeSchool("juser", "GEORGETOWN");
+		String username = "juser";
+		String school = "GEORGETOWN";
+		int expResult = 1;
+		assertEquals("A school is being saved to juser's account. 1 should be returned",expResult,db.saveSchool(username, school));
+	}
+	
+	@Test
+	public void testSaveSchoolUsernameFailure() {
+		String username = "apple";
+		String school = "YALE";
+		int expResult = -1;
+		assertEquals("A school is being saved to apple's account. -1 should be returned",expResult,db.saveSchool(username, school));
+	}
+	
+	@Test
+	public void testSaveSchoolUniversityFailure() {
+		String username = "nuser";
+		String school = "PIZZA HUT";
+		int expResult = -1;
+		assertEquals("A school is being saved to nuser's account. -1 should be returned",expResult,db.saveSchool(username, school));
 	}
 
 	@Test
@@ -513,14 +611,38 @@ public class DatabaseControllerTest {
 		fail("Not yet implemented");
 	}
 
+	@Ignore
 	@Test
-	public void testAddUniversityEmphasis() {
-		fail("Not yet implemented");
+	public void testAddUniversityEmphasisSuccess() {
+		//must manually delete emphasis
+		String school = "ADELPHI";
+		String emphasis = "COMPUTER SCIENCE";
+		int expResult = 1;
+		assertEquals("An emphasis is being added to Adelphi. 1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
+	}
+	
+	@Test
+	public void testAddUniversityEmphasisSchoolFailure() {
+		String school = "DISNEYLAND"; //school does not exist
+		String emphasis = "COMPUTER SCIENCE";
+		int expResult = -1;
+		assertEquals("An emphasis is being added to a school that does not exist. -1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
+	}
+	
+	@Test
+	public void testAddUniversityEmphasisEmphasisFailure() {
+		String school = "ADELPHI";
+		String emphasis = "BIOLOGY"; //school already has this emphasis
+		int expResult = -1;
+		assertEquals("An emphasis is being added to Adelphi that already exists. -1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
 	}
 
 	@Test
 	public void testGetUsernamesWithSavedSchools() {
-		fail("Not yet implemented");
+		int usernamesWithSavedSchools = db.getUsernamesWithSavedSchools().length;
+		int expResult = 4;
+		assertEquals("The number of pairs of schools with emphases should equal "+expResult,expResult,usernamesWithSavedSchools);
+
 	}
 
 }
