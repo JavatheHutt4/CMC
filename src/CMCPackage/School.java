@@ -19,21 +19,21 @@ public class School {
 	//Number of students
 	private int numStudents;
 	//Percent of female students
-	private int perFemale;
+	private double perFemale;
 	//Average SAT Verbal score
-	private int satVerbal;
+	private double satVerbal;
 	//Average SAT Math score
-	private int satMath;
+	private double satMath;
 	//Tuition
-	private int expenses;
+	private double expenses;
 	//Percent of students receiving financial aid
-	private int perFinancial;
+	private double perFinancial;
 	//Number of applicants annually
 	private int numApplicants;
 	//Percent of applicants admitted
-	private int perAdmitted;
+	private double perAdmitted;
 	//Percent of applicants enrolled
-	private int perEnrolled;
+	private double perEnrolled;
 	//Academic scale 1-5 (5 is best)
 	private int acadScale;
 	//Social life scale 1-5
@@ -64,8 +64,8 @@ public class School {
 	 * @param emphasis
 	 */
 	public School(String name, String state, String location, String control, int numStudents,
-			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
-			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale, String[] emphasis){
+			double perFemale, double satVerbal, double satMath, double expenses, double perFinancial, int numApplicants,  
+			double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale, String[] emphasis){
 		this.name = name;
 		this.state = state;
 		this.location = location;
@@ -77,6 +77,7 @@ public class School {
 		this.expenses = expenses;
 		this.perFinancial = perFinancial;
 		this.numApplicants = numApplicants;
+		this.perAdmitted = perAdmitted;
 		this.perEnrolled = perEnrolled;
 		this.acadScale = acadScale;
 		this.socialScale = socialScale;
@@ -105,8 +106,8 @@ public class School {
 	 * @param emphasis
 	 */
 	public void setInformation(String name, String state, String location, String control, int numStudents,
-			int perFemale, int satVerbal, int satMath, int expenses, int perFinancial, int numApplicants,  
-			int perAdmitted, int perEnrolled, int acadScale, int socialScale, int QOLScale, String[] emphasis){
+			double perFemale, double satVerbal, double satMath, double expenses, double perFinancial, int numApplicants,  
+			double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale, String[] emphasis){
 		this.name = name;
 		this.state = state;
 		this.location = location;

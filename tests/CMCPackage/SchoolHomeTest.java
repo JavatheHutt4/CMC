@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * @author jrfolkerds
- *
+ * @version 3/30/2016
  */
 public class SchoolHomeTest {
 	private SchoolHome sh;
