@@ -66,17 +66,15 @@ public class DatabaseController {
 	 */
 	public int addSchool(String name, String state, String location, String control, int numStudents, double perFemale, double satVerbal, double satMath, 
 			double expenses, double perFinancial, int numApplicants, double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale){
-		schoolsFromLibrary = databaseLibrary.university_getUniversities();
-		for(int i = 0; i < schoolsFromLibrary.length; i++){
-			String schoolName = schoolsFromLibrary[i][0];
-			if(name.equals(schoolName))
-				return -1;
-			else
-				continue;
-		}
-		int result = databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
+//		schoolsFromLibrary = databaseLibrary.university_getUniversities();
+//		for(int i = 0; i < schoolsFromLibrary.length; i++){
+//			String schoolName = schoolsFromLibrary[i][0];
+//			if(name.equals(schoolName))
+//				return -1;
+//		}
+		return databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		return result;
+		//return result;
 	}
 	/**
 	 * editSchool checks to see that a school exists within the database, then updates its information when

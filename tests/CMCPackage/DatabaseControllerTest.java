@@ -41,10 +41,10 @@ public class DatabaseControllerTest {
 		int expResult = 1;
 		int result = db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, 
 				expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		db.databaseLibrary.university_deleteUniversity("AAATESTSCHOOL");
+		System.out.println("add:" + result);
+		int newresult = db.databaseLibrary.university_deleteUniversity("AAATESTSCHOOL");
+		System.out.println("deleted:" + newresult);
 		assertEquals("A school is trying to be added. If it succeeds, a 1 will be returned",expResult,result);
-		
-		
 	}
 	
 	@Test
