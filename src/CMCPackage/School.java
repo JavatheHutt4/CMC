@@ -268,7 +268,7 @@ public class School {
 	 * @return the school name, date, and location
 	 */
 	public String viewSchoolDetails(){
-		return "Name: " + name + "\tState:"+ state +"\tLocation"+location;
+		return "Name: " + name + "\tState: "+ state +"\tLocation: "+location;
 	}
 
 	/* (non-Javadoc)

@@ -154,7 +154,7 @@ public class SchoolTest {
 	
 	@Test
 	public void testViewSchoolDetails() {
-		String expResult = "Name: Test" + "\tState:MN" +"\tLocationUrban";
+		String expResult = "Name: Test" + "\tState: MN" +"\tLocation: Urban";
 		String result = s.viewSchoolDetails();
 		assertEquals("School details are " + expResult,expResult, result);
 	}
