@@ -54,22 +54,6 @@ public class UserTest {
 	}
 
 	/**
-	 * Test method for {@link CMCPackage.User#getSavedSchools()}.
-	 */
-	@Test
-	public void testGetSavedSchools() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link CMCPackage.User#viewSavedSchool(CMCPackage.School)}.
-	 */
-	@Test
-	public void testViewSavedSchool() {
-		fail("Not yet implemented");
-	}
-
-	/**
 	 * Test method for {@link CMCPackage.Member#getFirstName()}.
 	 */
 	@Test
