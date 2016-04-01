@@ -113,9 +113,9 @@ public class SearchController {
 		count = 0;
 		for(int i = 0; i < schoolsInLibrary.length; i++){
 			if(schoolsInLibrary[i][0].contains(name) || name.equals(""))
-				if(schoolsInLibrary[i][1].contains(state) || state == null)
-					if(schoolsInLibrary[i][2].equals(location) || location == null)
-						if(schoolsInLibrary[i][3].equals(control) || control == null)
+				if(schoolsInLibrary[i][1].contains(state) || state.equals(""))
+					if(schoolsInLibrary[i][2].equals(location) || location.equals(""))
+						if(schoolsInLibrary[i][3].equals(control) || control.equals(""))
 							if(lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && Integer.parseInt(schoolsInLibrary[i][4]) <= highNumStudents || 
 							lowNumStudents <= Integer.parseInt(schoolsInLibrary[i][4]) && highNumStudents == -1 ||
 							highNumStudents >= Integer.parseInt(schoolsInLibrary[i][4]) && lowNumStudents == -1 || 
@@ -203,7 +203,7 @@ public class SearchController {
 	 * @return the maximum value of the attribute
 	 */
 	public double getMax(int i){
-		if((i < 4 )|| (i >= 15))
+		if((i < 4 )|| (i > 15))
 			return -1.0;
 		schoolsInLibrary = db.getSchools();
 		max = Double.parseDouble(schoolsInLibrary[0][i]);
@@ -220,13 +220,20 @@ public class SearchController {
 	 * @return the minimum value of the attribute
 	 */
 	public double getMin(int i){
-		if((i < 4 )|| (i >= 15))
+		if((i < 4 )|| (i > 15))
 			return -1;
 		schoolsInLibrary = db.getSchools();
-		min = Double.parseDouble(schoolsInLibrary[0][i]);
+		min = -1;
+		int k = 0;
+		while(min == -1){
+			min = Double.parseDouble(schoolsInLibrary[k][i]);
+			k++;
+		}
 		for(int j = 0; j < schoolsInLibrary.length; j++){
 			tempDouble = Double.parseDouble(schoolsInLibrary[j][i]);
-			if(tempDouble < max)
+			if(tempDouble == -1)
+				continue;
+			if(tempDouble < min)
 				min = tempDouble;
 		}
 		return min;
