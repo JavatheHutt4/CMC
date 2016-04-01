@@ -175,24 +175,25 @@ public class SearchController {
 																					listofSchoolsWithEmphasis[m][1].equals(emph5) ||
 																					((emph1 == null) && (emph2 == null) && (emph3 == null) && (emph4 == null) && (emph5 == null))){
 																						emphasisFound = true;
+																						break;
 																					}
 											
 																					}
 																				}
-																			temp = matchingSchools;
-																			matchingSchools = new String[count+1][18];
-																			for(int k = 0; k < count; k++){
-																				for(int l = 0; l < 18; l++){
-																					matchingSchools[k][l] = temp[k][l];
+																			if(emphasisFound){
+																				temp = matchingSchools;
+																				matchingSchools = new String[count+1][18];
+																				for(int k = 0; k < count; k++){
+																					for(int l = 0; l < 18; l++){
+																						matchingSchools[k][l] = temp[k][l];
+																					}
+																				}
+																				for(int j = 0; j < schoolsInLibrary[i].length; j++)
+																					matchingSchools[count][j] = schoolsInLibrary[i][j];
+																				count++;
 																				}
 																			}
-																			for(int j = 0; j < schoolsInLibrary[i].length; j++)
-																				matchingSchools[count][j] = schoolsInLibrary[i][j];
-																			count++;
-																				// must resolve the emphases issues
-																			}
 																		}
-		}
 		return matchingSchools;
 		}
 	
