@@ -32,10 +32,11 @@ public class UserHome {
 	public UserHome(){
 		db = new DatabaseController();
 		sc = new SearchController();
+//		user = new User("","","","",'n');
 	}
 	
 	/**
-	 * Uses the db to get all of the users and there information returned un a 2-D 
+	 * Uses the db to get all of the users and there information returned in a 2-D 
 	 * array of strings 
 	 * @return 2-d array of the user and there info
 	 */
@@ -57,10 +58,11 @@ public class UserHome {
 	/**
 	 * Runs the viewSavedSchool method from User class
 	 * @param School object that is being searched for
+	 * @return the school toString() from user
 	 */
-	public void viewSavedSchool(School s)
+	public String viewSavedSchool(School s)
 	{
-		user.viewSavedSchool(s);
+		return user.viewSavedSchool(s);
 	}
 	
 	/**
