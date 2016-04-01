@@ -460,7 +460,7 @@ public class DatabaseControllerTest {
 	public void testEditSchoolLocationFailure() {
 		String name = "GEORGETOWN";
 		String state = "MINNESOTA";
-		String location = "URBAN";
+		String location = "UNDERWATER"; //invalid location
 		String control = "PRIVATE";
 		int numStudents = 10000;
 		double perFemale = 51.8;
@@ -478,7 +478,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -503,7 +503,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -512,7 +512,7 @@ public class DatabaseControllerTest {
 		String state = "MINNESOTA";
 		String location = "URBAN";
 		String control = "PRIVATE";
-		int numStudents = -1; //invalid number of students
+		int numStudents = -2; //invalid number of students
 		double perFemale = 51.8;
 		double satVerbal = 750.66;
 		double satMath = 730.23;
@@ -528,7 +528,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -553,7 +553,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -578,7 +578,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -603,7 +603,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -628,7 +628,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -653,7 +653,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -678,12 +678,11 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
-	@Ignore
 	@Test
-	public void testEditSchoolPerAdmittedFailure() { //NOT REGISTERING AS A FAILURE PROPERLY - STILL CHANGES DATA
+	public void testEditSchoolPerAdmittedFailure() { 
 		String name = "GEORGETOWN";
 		String state = "MINNESOTA";
 		String location = "URBAN";
@@ -704,7 +703,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -729,7 +728,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -754,7 +753,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -779,7 +778,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	@Test
@@ -804,7 +803,7 @@ public class DatabaseControllerTest {
 		int result = db.editSchool(name, state,
 				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
 				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		assertEquals("A school is trying to be edited improperly--a 1 will be returned",expResult,result);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
 	}
 	
 	//ADDNEWMEMBER TESTS

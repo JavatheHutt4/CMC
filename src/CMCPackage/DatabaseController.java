@@ -66,15 +66,48 @@ public class DatabaseController {
 	 */
 	public int addSchool(String name, String state, String location, String control, int numStudents, double perFemale, double satVerbal, double satMath, 
 			double expenses, double perFinancial, int numApplicants, double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale){
-//		schoolsFromLibrary = databaseLibrary.university_getUniversities();
-//		for(int i = 0; i < schoolsFromLibrary.length; i++){
-//			String schoolName = schoolsFromLibrary[i][0];
-//			if(name.equals(schoolName))
-//				return -1;
-//		}
+		if(!(state.equals("ALABAMA") || state.equals("ALASKA") || state.equals("ARIZONA") || state.equals("ARKANSAS") || state.equals("CALIFORNIA") ||
+				state.equals("COLORADO") || state.equals("CONNECTICUT") || state.equals("DELAWARE") || state.equals("FLORIDA") || state.equals("GEORGIA") || 
+				state.equals("HAWAII") || state.equals("IDAHO") || state.equals("ILLINOIS") || state.equals("INDIANA") || state.equals("IOWA") || 
+				state.equals("KANSAS") || state.equals("KENTUCKY") || state.equals("LOUISIANA") || state.equals("MAINE") || state.equals("MARYLAND") || 
+				state.equals("MASSACHUSETTS") || state.equals("MICHIGAN") || state.equals("MINNESOTA") || state.equals("MISSISSIPPI") || state.equals("MISSOURI") || 
+				state.equals("MONTANA") || state.equals("NEBRASKA") || state.equals("NEVADA") || state.equals("NEW HAMPSHIRE") || state.equals("NEW JERSEY") || 
+				state.equals("NEW MEXICO") || state.equals("NEW YORK") || state.equals("NORTH CAROLINA") || state.equals("NORTH DAKOTA") || state.equals("OHIO") || 
+				state.equals("OKLAHOMA") || state.equals("OREGON") || state.equals("PENNSYLVANIA") || state.equals("RHODE ISLAND") || state.equals("SOUTH CAROLINA") || 
+				state.equals("SOUTH DAKOTA") || state.equals("TENNESSEE") || state.equals("TEXAS") || state.equals("UTAH") || state.equals("VERMONT") || 
+				state.equals("VIRGINIA") || state.equals("WASHINGTON") || state.equals("WEST VIRGINIA") || state.equals("WISCONSIN") || state.equals("WYOMING") || 
+				state.equals("DISTRICT OF COLUMBIA") || state.equals("FOREIGN") || state.equals("-1")))
+			return -1;
+		if(!(location.equals("SUBURBAN") || location.equals("URBAN") || location.equals("SMALL-CITY") || location.equals("-1")))
+			return -1;
+		if(!(control.equals("PRIVATE") || control.equals("STATE") || control.equals("CITY") || control.equals("-1")))
+			return -1;
+		if(numStudents < -1)
+			return -1;
+		if((perFemale < 0 || perFemale > 100) && perFemale != -1)
+			return -1;
+		if((satVerbal > 800) || (satVerbal < -1))
+			return -1;
+		if((satMath > 800) || (satMath < -1))
+			return -1;
+		if(expenses < -1)
+			return -1;
+		if((perFinancial < 0 || perFinancial > 100) && perFinancial != -1)
+			return -1;
+		if(numApplicants < -1)
+			return -1;
+		if((perAdmitted < 0 || perAdmitted > 100) && perAdmitted != -1)
+			return -1;
+		if((perEnrolled < 0 || perEnrolled > 100) && perEnrolled != -1)
+			return -1;
+		if((acadScale > 5) || ((acadScale < 1) && (acadScale != -1)))
+			return -1;
+		if((socialScale > 5) || ((socialScale < 1) && (socialScale != -1)))
+			return -1;
+		if((QOLScale > 5) || ((QOLScale < 1) && (QOLScale != -1)))
+			return -1;
 		return databaseLibrary.university_addUniversity(name, state, location, control, numStudents, perFemale, satVerbal, satMath, expenses,
 				perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		//return result;
 	}
 	/**
 	 * editSchool checks to see that a school exists within the database, then updates its information when
@@ -101,6 +134,46 @@ public class DatabaseController {
 	public int editSchool(String name, String state, String location, String control, int numStudents, double perFemale, double satVerbal, double satMath, 
 			double expenses, double perFinancial, int numApplicants, double perAdmitted, double perEnrolled, int acadScale, int socialScale, int QOLScale){
 		schoolsFromLibrary = databaseLibrary.university_getUniversities();
+		if(!(state.equals("ALABAMA") || state.equals("ALASKA") || state.equals("ARIZONA") || state.equals("ARKANSAS") || state.equals("CALIFORNIA") ||
+				state.equals("COLORADO") || state.equals("CONNECTICUT") || state.equals("DELAWARE") || state.equals("FLORIDA") || state.equals("GEORGIA") || 
+				state.equals("HAWAII") || state.equals("IDAHO") || state.equals("ILLINOIS") || state.equals("INDIANA") || state.equals("IOWA") || 
+				state.equals("KANSAS") || state.equals("KENTUCKY") || state.equals("LOUISIANA") || state.equals("MAINE") || state.equals("MARYLAND") || 
+				state.equals("MASSACHUSETTS") || state.equals("MICHIGAN") || state.equals("MINNESOTA") || state.equals("MISSISSIPPI") || state.equals("MISSOURI") || 
+				state.equals("MONTANA") || state.equals("NEBRASKA") || state.equals("NEVADA") || state.equals("NEW HAMPSHIRE") || state.equals("NEW JERSEY") || 
+				state.equals("NEW MEXICO") || state.equals("NEW YORK") || state.equals("NORTH CAROLINA") || state.equals("NORTH DAKOTA") || state.equals("OHIO") || 
+				state.equals("OKLAHOMA") || state.equals("OREGON") || state.equals("PENNSYLVANIA") || state.equals("RHODE ISLAND") || state.equals("SOUTH CAROLINA") || 
+				state.equals("SOUTH DAKOTA") || state.equals("TENNESSEE") || state.equals("TEXAS") || state.equals("UTAH") || state.equals("VERMONT") || 
+				state.equals("VIRGINIA") || state.equals("WASHINGTON") || state.equals("WEST VIRGINIA") || state.equals("WISCONSIN") || state.equals("WYOMING") || 
+				state.equals("DISTRICT OF COLUMBIA") || state.equals("FOREIGN") || state.equals("-1")))
+			return -1;
+		if(!(location.equals("SUBURBAN") || location.equals("URBAN") || location.equals("SMALL-CITY") || location.equals("-1")))
+			return -1;
+		if(!(control.equals("PRIVATE") || control.equals("STATE") || control.equals("CITY") || control.equals("-1")))
+			return -1;
+		if(numStudents < -1)
+			return -1;
+		if((perFemale < 0 || perFemale > 100) && perFemale != -1)
+			return -1;
+		if((satVerbal > 800) || (satVerbal < -1))
+			return -1;
+		if((satMath > 800) || (satMath < -1))
+			return -1;
+		if(expenses < -1)
+			return -1;
+		if((perFinancial < 0 || perFinancial > 100) && perFinancial != -1)
+			return -1;
+		if(numApplicants < -1)
+			return -1;
+		if((perAdmitted < 0 || perAdmitted > 100) && perAdmitted != -1)
+			return -1;
+		if((perEnrolled < 0 || perEnrolled > 100) && perEnrolled != -1)
+			return -1;
+		if((acadScale > 5) || ((acadScale < 1) && (acadScale != -1)))
+			return -1;
+		if((socialScale > 5) || ((socialScale < 1) && (socialScale != -1)))
+			return -1;
+		if((QOLScale > 5) || ((QOLScale < 1) && (QOLScale != -1)))
+			return -1;
 		for(int i = 0; i < schoolsFromLibrary.length; i++){
 			if(schoolsFromLibrary[i][0].equals(name)){
 				return databaseLibrary.university_editUniversity(name, state, location, control, numStudents, perFemale, 
@@ -255,6 +328,15 @@ public class DatabaseController {
 		return databaseLibrary.university_addUniversityEmphasis(school, emphasis);
 	}
 	
+//	public int deleteUniversityEmphasis(String school, String emphasis){
+//		schoolsWithEmphasis = databaseLibrary.university_getNamesWithEmphases();
+//		for(int i = 0; i < schoolsWithEmphasis.length; i++){
+//			if(schoolsWithEmphasis[i][0].equals(school) && schoolsWithEmphasis[i][1].equals(emphasis)){
+//				return -1;
+//			} 
+//		}
+//		return databaseLibrary.university_addUniversityEmphasis(school, emphasis);
+//	}
 	
 	/**
 	 * getUsernamesWithSavedSchools fetches a 2d array of the users with their saved schools from the database

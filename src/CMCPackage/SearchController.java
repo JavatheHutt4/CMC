@@ -164,6 +164,7 @@ public class SearchController {
 																		lowQOLScale <= Integer.parseInt(schoolsInLibrary[i][15]) && highQOLScale == -1 ||
 																		highQOLScale >= Integer.parseInt(schoolsInLibrary[i][15]) && lowQOLScale == -1 || 
 																		lowQOLScale == -1 && highQOLScale == -1){
+																			boolean emphasisFound = false;
 																			listofSchoolsWithEmphasis = db.getSchoolsWithEmphases();
 																			for(int m = 0; m < listofSchoolsWithEmphasis.length; m++){
 																				if(listofSchoolsWithEmphasis[m][0].equals(schoolsInLibrary[i][0])){
@@ -173,18 +174,21 @@ public class SearchController {
 																					listofSchoolsWithEmphasis[m][1].equals(emph4) ||
 																					listofSchoolsWithEmphasis[m][1].equals(emph5) ||
 																					((emph1 == null) && (emph2 == null) && (emph3 == null) && (emph4 == null) && (emph5 == null))){
-																						temp = matchingSchools;
-																						matchingSchools = new String[count+1][18];
-																						for(int k = 0; k < count; k++){
-																							for(int l = 0; l < 18; l++){
-																								matchingSchools[k][l] = temp[k][l];
-																							}
-																						}
-																						for(int j = 0; j < schoolsInLibrary[i].length; j++)
-																							matchingSchools[count][j] = schoolsInLibrary[i][j];
-																						count++;
+																						emphasisFound = true;
+																					}
+											
 																					}
 																				}
+																			temp = matchingSchools;
+																			matchingSchools = new String[count+1][18];
+																			for(int k = 0; k < count; k++){
+																				for(int l = 0; l < 18; l++){
+																					matchingSchools[k][l] = temp[k][l];
+																				}
+																			}
+																			for(int j = 0; j < schoolsInLibrary[i].length; j++)
+																				matchingSchools[count][j] = schoolsInLibrary[i][j];
+																			count++;
 																				// must resolve the emphases issues
 																			}
 																		}

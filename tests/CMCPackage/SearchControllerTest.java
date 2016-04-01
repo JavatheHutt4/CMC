@@ -13,11 +13,7 @@ public class SearchControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@Test
-	public void testSearchController() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
