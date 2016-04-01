@@ -203,6 +203,8 @@ public class SearchController {
 	 * @return the maximum value of the attribute
 	 */
 	public double getMax(int i){
+		if((i < 4 )|| (i >= 15))
+			return -1.0;
 		schoolsInLibrary = db.getSchools();
 		max = Double.parseDouble(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){
@@ -218,6 +220,8 @@ public class SearchController {
 	 * @return the minimum value of the attribute
 	 */
 	public double getMin(int i){
+		if((i < 4 )|| (i >= 15))
+			return -1;
 		schoolsInLibrary = db.getSchools();
 		min = Double.parseDouble(schoolsInLibrary[0][i]);
 		for(int j = 0; j < schoolsInLibrary.length; j++){

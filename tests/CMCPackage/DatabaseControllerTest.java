@@ -7,7 +7,7 @@ package CMCPackage;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Ignore;
+//import org.junit.Ignore;
 import org.junit.Test;
 
 public class DatabaseControllerTest {
@@ -913,7 +913,7 @@ public class DatabaseControllerTest {
 	@Test
 	public void testGetSchools() {
 		int numberOfSchools = db.getSchools().length;
-		int expResult = 182;
+		int expResult = 180;
 		assertEquals("The number of schools should equal "+expResult,expResult,numberOfSchools);
 	}
 
@@ -1009,14 +1009,13 @@ public class DatabaseControllerTest {
 
 	//ADDUNIVERSITYEMPHASIS TESTS
 	
-	@Ignore
 	@Test
 	public void testAddUniversityEmphasisSuccess() {
-		//must manually delete emphasis
 		String school = "ADELPHI";
 		String emphasis = "COMPUTER SCIENCE";
 		int expResult = 1;
 		assertEquals("An emphasis is being added to Adelphi. 1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
+		db.databaseLibrary.university_removeUniversityEmphasis(school, emphasis);
 	}
 	
 	@Test
