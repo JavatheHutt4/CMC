@@ -23,6 +23,10 @@ public class SchoolTest {
 		s = new School("Test","MN","Urban","Private",5000,50.00,800.00,800.00,10000.00,75.00,5000,50.00,50.00,5,5,5,emphasis);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#setInformation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, double, 
+	 * double, double, double, double, int, double, double, int, java.lang.Array)}.
+	 */
 	@Test
 	public void testSetInformation() {
 		String expResult = "Name";
@@ -33,6 +37,9 @@ public class SchoolTest {
 		assertEquals("Name is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getFirstName()}.
+	 */
 	@Test
 	public void testGetName() {
 		String expResult = "Test";
@@ -40,6 +47,9 @@ public class SchoolTest {
 		assertEquals("Name is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getState()}.
+	 */
 	@Test
 	public void testGetState() {
 		String expResult = "MN";
@@ -47,6 +57,9 @@ public class SchoolTest {
 		assertEquals("State is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getLocation()}.
+	 */
 	@Test
 	public void testGetLocation() {
 		String expResult = "Urban";
@@ -54,6 +67,9 @@ public class SchoolTest {
 		assertEquals("Location is " + expResult,expResult, result);
 	}
 
+	/**
+	 * Test method for {@link CMCPackage.School#getControl()}.
+	 */
 	@Test
 	public void testGetControl() {
 		String expResult = "Private";
@@ -61,6 +77,9 @@ public class SchoolTest {
 		assertEquals("Control is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getNumStudents()}.
+	 */
 	@Test
 	public void testGetNumStudents() {
 		int expResult = 5000;
@@ -68,6 +87,9 @@ public class SchoolTest {
 		assertEquals("Number of students is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getPerFemale()}.
+	 */
 	@Test
 	public void testGetPerFemale() {
 		double expResult = 50.00;
@@ -75,6 +97,9 @@ public class SchoolTest {
 		assertTrue("Percentage of female students is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getSatVerbal()}.
+	 */
 	@Test
 	public void testGetSatVerbal() {
 		double expResult = 800.00;
@@ -82,6 +107,9 @@ public class SchoolTest {
 		assertTrue("Average SAT Verbal score is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getSatMath()}.
+	 */
 	@Test
 	public void testGetSatMath() {
 		double expResult = 800.00;
@@ -89,6 +117,9 @@ public class SchoolTest {
 		assertTrue("Average SAT Math score is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getExpenses()}.
+	 */
 	@Test
 	public void testGetExpenses() {
 		double expResult = 10000.00;
@@ -96,6 +127,9 @@ public class SchoolTest {
 		assertTrue("Average tuition is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getPerFinancial()}.
+	 */
 	@Test
 	public void testGetPerFinancial() {
 		double expResult = 75.00;
@@ -103,6 +137,9 @@ public class SchoolTest {
 		assertTrue("Percent of students on financial aid is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getNumApplicants()}.
+	 */
 	@Test
 	public void testGetNumApplicants() {
 		int expResult = 5000;
@@ -110,6 +147,9 @@ public class SchoolTest {
 		assertEquals("Number of applicants is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getPerAdmitted()}.
+	 */
 	@Test
 	public void testGetPerAdmitted() {
 		double expResult = 50.00;
@@ -117,6 +157,9 @@ public class SchoolTest {
 		assertTrue("Percent of students admitted is " + expResult, expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getPerEnrolled()}.
+	 */
 	@Test
 	public void testGetPerEnrolled() {
 		double expResult = 50.00;
@@ -124,6 +167,9 @@ public class SchoolTest {
 		assertTrue("Percent of students admitted that are enrolled is " + expResult,expResult==result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getAcadScale()}.
+	 */
 	@Test
 	public void testGetAcadScale() {
 		int expResult = 5;
@@ -131,6 +177,9 @@ public class SchoolTest {
 		assertEquals("Academic scale is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getSocialScale()}.
+	 */
 	@Test
 	public void testGetSocialScale() {
 		int expResult = 5;
@@ -138,6 +187,9 @@ public class SchoolTest {
 		assertEquals("Social scale is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getQOLScale()}.
+	 */
 	@Test
 	public void testGetQOLScale() {
 		int expResult = 5;
@@ -145,6 +197,9 @@ public class SchoolTest {
 		assertEquals("Quality of Life scale is " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#getEmphasis()}.
+	 */
 	@Test
 	public void testGetEmphasis() {
 		String[] expResult = {"Science","Math"};
@@ -152,6 +207,9 @@ public class SchoolTest {
 		assertTrue("Emphasis is " + expResult,Arrays.equals(expResult,result));
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#viewSchoolDetails()}.
+	 */
 	@Test
 	public void testViewSchoolDetails() {
 		String expResult = "Name: Test" + "\tState: MN" +"\tLocation: Urban";
@@ -159,6 +217,9 @@ public class SchoolTest {
 		assertEquals("School details are " + expResult,expResult, result);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.School#toString()}.
+	 */
 	@Test
 	public void testToString() {
 		String expResult = "School [name=Test, state=MN, location=Urban, control=Private, numStudents=5000, "

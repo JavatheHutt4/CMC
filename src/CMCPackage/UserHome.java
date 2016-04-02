@@ -24,15 +24,12 @@ public class UserHome {
 	public DatabaseController db;
 	
 	
-	//private UserUI userUI;
-	
 	/**
 	 * Constructor for UserHome object which instantiates database
 	 */
 	public UserHome(){
 		db = new DatabaseController();
 		sc = new SearchController();
-//		user = new User("","","","",'n');
 	}
 	
 	/**
@@ -180,10 +177,19 @@ public class UserHome {
 		this.user = (User) member;
 	}
 	
+	/**
+	 * gets the instance of the logged on user
+	 */
 	public User getMember(){
 		return user;
 	}
 	
+	/**
+	 * Allows the user to change their first name, last name, or password
+	 * @param f the first name to be changed
+	 * @param l the last name to be changed
+	 * @param p the password to be changed
+	 */
 	public void editUserInfo(String f, String l, String p){
 		db.editUser(f, l, user.getUserName(), p, user.getType(), user.getStatus());
 		user.updateInformation(f,l,p);

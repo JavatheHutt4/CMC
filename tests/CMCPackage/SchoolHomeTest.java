@@ -23,6 +23,9 @@ public class SchoolHomeTest {
 		sh = new SchoolHome();
 	}
 
+	/**
+	 * Test method for {@link CMCPackage.SchoolHome#findByName(java.lang.String)}.
+	 */
 	@Test
 	public void testFindByNameSuccess() {
 		String expResult = "Name: AUGSBURG" + "\tState: MINNESOTA" +"\tLocation: SMALL-CITY";
@@ -31,12 +34,18 @@ public class SchoolHomeTest {
 		assertTrue("School details are: " + expResult, expResult.equals(result));
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.SchoolHome#findByName(java.lang.String)}.
+	 */
 	@Test
 	public void testFindByNameFailure() {
 		School s = sh.findByName("Augsburg");
 		assertNull("School should be null: " + s, s);
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.SchoolHome#getSchoolEmphases(java.lang.String)}.
+	 */
 	@Test
 	public void testGetSchoolEmphases() {
 		String[] expResult = {"ART-HISTORY","BIOLOGY","ECONOMICS","LIBERAL-ARTS",null};
@@ -44,6 +53,9 @@ public class SchoolHomeTest {
 		assertTrue("Emphases are " + Arrays.toString(result),Arrays.equals(expResult,result));
 	}
 	
+	/**
+	 * Test method for {@link CMCPackage.SchoolHome#getAllUniversities()}.
+	 */
 	@Test
 	public void testGetAllUniversities() {
 		String[][] result = sh.getAllUniversities();
