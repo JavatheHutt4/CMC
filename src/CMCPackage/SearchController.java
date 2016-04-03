@@ -1,4 +1,7 @@
 package CMCPackage;
+
+import java.io.IOException;
+
 /**
  * SearchController is a class that has two primary uses:
  * 1. Returning a list of schools that match search criteria from a user
@@ -60,6 +63,9 @@ public class SearchController {
 	 */
 	public double tempDouble;
 	
+	
+	IOException InvalidSearchException = new IOException();
+	
 	/**
 	 * Constructor for a SearchController object
 	 */
@@ -110,6 +116,32 @@ public class SearchController {
 			int lowAcadScale, int highAcadScale, int lowSocialScale, int highSocialScale, int lowQOLScale, int highQOLScale,
 			String emph1, String emph2, String emph3, String emph4, String emph5){
 		schoolsInLibrary = db.getSchools();
+		String[][] invalidSearchString = new String[1][1];
+		invalidSearchString[0][0] = "Invalid Search Parameters";
+		if((lowNumStudents > highNumStudents) && (highNumStudents != -1))
+			return invalidSearchString;
+		if((lowPerFemale > highPerFemale) && (highPerFemale != -1))
+			return invalidSearchString;
+		if((lowSatVerbal > highSatVerbal) && (highSatVerbal != -1))
+			return invalidSearchString;
+		if((lowSatMath > highSatMath) && (highSatMath != -1))
+			return invalidSearchString;
+		if((lowExpenses > highExpenses) && (highExpenses != -1))
+			return invalidSearchString;
+		if((lowPerFinancial > highPerFinancial) && (highPerFinancial != -1))
+			return invalidSearchString;
+		if((lowNumApplicants > highNumApplicants) && (highNumApplicants != -1))
+			return invalidSearchString;
+		if((lowPerAdmitted > highPerAdmitted) && (highPerAdmitted != -1))
+			return invalidSearchString;
+		if((lowPerEnrolled > highPerEnrolled) && (highPerEnrolled != -1))
+			return invalidSearchString;
+		if((lowAcadScale > highAcadScale) && (highAcadScale != -1))
+			return invalidSearchString;
+		if((lowSocialScale > highSocialScale) && (highSocialScale != -1))
+			return invalidSearchString;
+		if((lowQOLScale > highQOLScale) && (highQOLScale != -1))
+			return invalidSearchString;
 		count = 0;
 		for(int i = 0; i < schoolsInLibrary.length; i++){
 			if(schoolsInLibrary[i][0].contains(name) || name.equals(""))

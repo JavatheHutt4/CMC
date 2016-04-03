@@ -899,7 +899,7 @@ public class DatabaseControllerTest {
 		assertEquals("juser is being edited improperly. A -1 should be returned.", expResult, result);
 	}
 
-	//GETUSER TEST
+	//GETUSER TEST ***DONE***
 	
 	@Test
 	public void testGetUsers() {
@@ -908,12 +908,12 @@ public class DatabaseControllerTest {
 		assertEquals("The number of users should equal "+expResult,expResult,numberOfUsers);
 	}
 
-	//GETSCHOOLS TEST
+	//GETSCHOOLS TEST ***DONE***
 	
 	@Test
 	public void testGetSchools() {
 		int numberOfSchools = db.getSchools().length;
-		int expResult = 180;
+		int expResult = 178;
 		assertEquals("The number of schools should equal "+expResult,expResult,numberOfSchools);
 	}
 
@@ -941,9 +941,9 @@ public class DatabaseControllerTest {
 		assertEquals("auser is being searched and doesn't exist.",expResult,member);
 	}
 
-	//GETSCHOOLSWITHEMPHASES TEST
+	//GETSCHOOLSWITHEMPHASES TEST ***DONE***
 	
-	@Test
+	@Test 
 	public void testGetSchoolsWithEmphases() {
 		int schoolsWithEmphases = db.getSchoolsWithEmphases().length;
 		int expResult = 566;
@@ -1034,9 +1034,9 @@ public class DatabaseControllerTest {
 		assertEquals("An emphasis is being added to Adelphi that already exists. -1 should be returned",expResult,db.addUniversityEmphasis(school, emphasis));
 	}
 
-	//GETUSERNAMESWITHSAVEDSCHOOLS TESTS
+	//GETUSERNAMESWITHSAVEDSCHOOLS TESTS ***DONE***
 	
-	@Test
+	@Test //DONE
 	public void testGetUsernamesWithSavedSchools() {
 		int usernamesWithSavedSchools = db.getUsernamesWithSavedSchools().length;
 		int expResult = 4;
