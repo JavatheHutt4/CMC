@@ -96,7 +96,7 @@ public class UserHomeTest {
 	public void testGetSavedSchoolsFailure() {
 		ArrayList<String> schools = uh.getSavedSchools("fakeUser");
 		ArrayList<String> expSchools = new ArrayList<String>();
-		assertTrue("fakeUser's saved schools are: " + schools,schools.equals(expSchools));
+		assertTrue("fakeUser's saved schools: " + schools,schools.equals(expSchools));
 	}
 	
 	/**
