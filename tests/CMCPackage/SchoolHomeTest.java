@@ -54,6 +54,16 @@ public class SchoolHomeTest {
 	}
 	
 	/**
+	 * Test method for {@link CMCPackage.SchoolHome#getSchoolEmphases(java.lang.String)}.
+	 */
+	@Test
+	public void testGetSchoolEmphasesFailure() {
+		String[] expResult = {null,null,null,null,null};
+		String[] result = sh.getSchoolEmphases("Augsburg");
+		assertTrue("Emphases are " + Arrays.toString(result),Arrays.equals(expResult,result));
+	}
+	
+	/**
 	 * Test method for {@link CMCPackage.SchoolHome#getAllUniversities()}.
 	 */
 	@Test

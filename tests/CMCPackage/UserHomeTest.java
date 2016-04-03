@@ -90,6 +90,16 @@ public class UserHomeTest {
 	}
 	
 	/**
+	 * Test method for {@link CMCPackage.UserHome#getSavedSchools(java.lang.String)}.
+	 */
+	@Test
+	public void testGetSavedSchoolsFailure() {
+		ArrayList<String> schools = uh.getSavedSchools("fakeUser");
+		ArrayList<String> expSchools = new ArrayList<String>();
+		assertTrue("fakeUser's saved schools are: " + schools,schools.equals(expSchools));
+	}
+	
+	/**
 	 * Test method for {@link CMCPackage.UserHome#search(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, double, 
 	 * double, double, double, double, int, double, double, int, java.lang.Array)}.
 	 */
