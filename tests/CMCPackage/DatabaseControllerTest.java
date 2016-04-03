@@ -18,7 +18,7 @@ public class DatabaseControllerTest {
 		db = new DatabaseController();
 	}
 
-	//ADDSCHOOL TESTS
+	//ADDSCHOOL TESTS ***DONE***
 	
 	@Test
 	public void testAddSchoolSuccess() { //all fields must be valid
@@ -41,9 +41,7 @@ public class DatabaseControllerTest {
 		int expResult = 1;
 		int result = db.addSchool(name, state, location, control, numStudents, perFemale, satVerbal, satMath, 
 				expenses, perFinancial, numApplicants, perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
-		System.out.println("add:" + result);
-		int newresult = db.databaseLibrary.university_deleteUniversity("AAATESTSCHOOL");
-		System.out.println("deleted:" + newresult);
+		db.databaseLibrary.university_deleteUniversity("AAATESTSCHOOL");
 		assertEquals("A school is trying to be added. If it succeeds, a 1 will be returned",expResult,result);
 	}
 	
@@ -51,6 +49,30 @@ public class DatabaseControllerTest {
 	public void testAddSchoolNameFailure() {
 		String name = "GEORGETOWN"; //school name is already used
 		String state = "MINNESOTA";
+		String location = "SUBURBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 5;
+		int expResult = -1;
+		assertEquals("A school is trying to be added. If it fails, a -1 will be returned",expResult,db.addSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale));
+	}
+	
+	@Test
+	public void testAddSchoolStateFailure() {
+		String name = "TEST SCHOOL";
+		String state = "MANITOBA"; //school state is invalid
 		String location = "SUBURBAN";
 		String control = "PRIVATE";
 		int numStudents = 10000;
@@ -456,6 +478,32 @@ public class DatabaseControllerTest {
 				
 	}
 
+	
+	@Test
+	public void testEditSchoolStateFailure() {
+		String name = "GEORGETOWN";
+		String state = "MANITOBA"; //invalid state
+		String location = "URBAN";
+		String control = "PRIVATE";
+		int numStudents = 10000;
+		double perFemale = 51.8;
+		double satVerbal = 750.66;
+		double satMath = 730.23;
+		double expenses = 63456.78;
+		double perFinancial = 92.8;
+		int numApplicants = 38000;
+		double perAdmitted = 15.6;
+		double perEnrolled = 7.8;
+		int acadScale = 4; 
+		int socialScale = 4;
+		int QOLScale = 4; 
+		int expResult = -1;
+		int result = db.editSchool(name, state,
+				location, control, numStudents, perFemale, satVerbal, satMath, expenses, perFinancial, numApplicants,
+				perAdmitted, perEnrolled, acadScale, socialScale, QOLScale);
+		assertEquals("A school is trying to be edited improperly--a -1 will be returned",expResult,result);
+	}
+	
 	@Test
 	public void testEditSchoolLocationFailure() {
 		String name = "GEORGETOWN";
@@ -871,6 +919,19 @@ public class DatabaseControllerTest {
 		lastName = "User";
 		password = "user";
 		db.editUser(firstName, lastName, username, password, type, status);
+	}
+	
+	@Test
+	public void testEditUserUsernameNotFoundFailure() {
+		String firstName = "Taco";
+		String lastName = "Bell";
+		String username = "21user";
+		String password = "TACOSrGREAT";
+		char type = 'u';
+		char status = 'Y';
+		int expResult = -1;
+		int result = db.editUser(firstName, lastName, username, password, type, status);
+		assertEquals("juser is being edited improperly. A -1 should be returned.", expResult, result);
 	}
 	
 	@Test

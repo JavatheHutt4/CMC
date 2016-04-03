@@ -21,7 +21,7 @@ public class SearchControllerTest {
 		sh = new SchoolHome();
 	}
  
-	//SEARCH TESTS
+	//SEARCH TESTS ***DONE***
 	
 	@Test
 	public void testSearchOneSchool() {
@@ -32,7 +32,7 @@ public class SearchControllerTest {
 	}
 
 	@Test
-	public void testSearchMultipleSchool() {
+	public void testSearchMultipleSchools() {
 		String[][] search = sc.search("", "", "", "", 10000, -1, 40, 50, -1, -1, -1, -1, -1, 30000, -1, -1,
 				-1, -1, -1, -1, -1, -1, 4, -1, -1, 4, 3, -1, null, null, null, null, null);
 		int expNumberOfSchools = 23;
@@ -44,7 +44,7 @@ public class SearchControllerTest {
 	}
 	
 	@Test
-	public void testSearchInvalidSearch() {
+	public void testSearchInvalidSearchParameters() {
 		String[][] search = sc.search("", "", "", "", 20000, 15000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
 		String[] expString = {"Invalid Search Parameters"};
 		assertTrue("Search results are: " + Arrays.toString(search[0]),Arrays.equals(expString, search[0]));
@@ -72,7 +72,7 @@ public class SearchControllerTest {
 		assertTrue("Search results are: " + Arrays.toString(search[0]),Arrays.equals(expString, search[0]));
 	}
 	
-	//GETMAX TESTS
+	//GETMAX TESTS ***DONE***
 	
 	@Test
 	public void testGetMaxSuccess() {
@@ -104,9 +104,11 @@ public class SearchControllerTest {
 		assertTrue(result==expResult);
 		result = sc.getMax(16);
 		assertTrue(result==expResult);
+		result = sc.getMax(25);
+		assertTrue(result==expResult);
 	}
 
-	//GETMIN TESTS
+	//GETMIN TESTS ***DONE***
 	
 	@Test
 	public void testGetMinSuccess() {
@@ -138,9 +140,11 @@ public class SearchControllerTest {
 		assertTrue(result==expResult);
 		result = sc.getMin(16);
 		assertTrue(result==expResult);
+		result = sc.getMin(25);
+		assertTrue(result==expResult);
 	}
 
-	//GETRECOMMENDEDSCHOOLS TEST
+	//GETRECOMMENDEDSCHOOLS TEST 
 	
 	@Test
 	public void testGetRecommendedSchools() {
