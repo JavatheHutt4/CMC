@@ -232,8 +232,7 @@ public class DatabaseController {
 			else
 				continue;
 		}
-		return -1;
-				
+		return -1;	
 	}
 	
 	/**
