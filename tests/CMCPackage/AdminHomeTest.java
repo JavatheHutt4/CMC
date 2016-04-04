@@ -1,4 +1,4 @@
-package CMCPackage;
+package CMCPackage; 
 
 import static org.junit.Assert.*;
 
