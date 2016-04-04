@@ -115,7 +115,7 @@ public class LogonControllerTest {
 		expResult = "No member is currently logged on.";
 		result = lc2.toString();
 		assertEquals("Return message should be: " + expResult,expResult, result);
-		expResult = "The Member currently logged in is user " +lc3.getMember().getUserName() + " of type user.";;
+		expResult = "The Member currently logged in is user " +lc3.getMember().getUserName() + " of type user.";
 		result = lc3.toString();
 		assertEquals("Return message should be: " + expResult,expResult, result);
 	}
