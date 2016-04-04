@@ -978,7 +978,7 @@ public class DatabaseControllerTest {
 		assertEquals("The number of schools should equal "+expResult,expResult,numberOfSchools);
 	}
 
-	//FINDBYNAME TESTS
+	//FINDBYNAME TESTS ***DONE***
 	
 	@Test
 	public void testFindByNameSuccess() {

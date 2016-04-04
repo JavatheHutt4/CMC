@@ -262,12 +262,12 @@ public class DatabaseController {
 	 * @param user representing userName to search for
 	 * @return Member object of the user found, or null if no member exists
 	 */
-	public Member findByName(String user){
+	public Member findByName(String username){
 		usersFromLibrary = databaseLibrary.user_getUsers();
 		
 		for(int i = 0; i < usersFromLibrary.length; i++){
-			if(usersFromLibrary[i][2].equals(user)){
-				if (usersFromLibrary[i][4].charAt(0) == 'a')
+			if(usersFromLibrary[i][2].equals(username)){
+				if(usersFromLibrary[i][4].charAt(0) == 'a')
 					return new Admin( usersFromLibrary[i][0], usersFromLibrary[i][1], usersFromLibrary[i][2], 
 							usersFromLibrary[i][3],usersFromLibrary[i][5].charAt(0));
 				else
