@@ -32,7 +32,7 @@ public class CMCDriver {
 		userUI.manageMyProfile("John", "User", "user");
 		//tests search method for BARUCH college
 		System.out.println("\nSearching for college BARUCH in NEW YORK...");
-		School[] searchResults = userUI.search("BARUCH", "NEW YORK", null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
+		String[][] searchResults = userUI.search("BARUCH", "NEW YORK", null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
 		for(int i =0; i < searchResults.length;i++){
 			System.out.println(searchResults[i]);
 		}
