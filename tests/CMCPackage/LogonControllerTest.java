@@ -38,14 +38,6 @@ public class LogonControllerTest {
 		lc.changePassword("admin");
 	}
 
-//	/**
-//	 * Test method for {@link CMCPackage.LogonController#LogonController()}.
-//	 */
-//	@Test
-//	public void testLogonController() {
-//		fail("Not yet implemented");
-//	}
-
 	/**
 	 * Test method for {@link CMCPackage.LogonController#changePassword(java.lang.String)}.
 	 */
@@ -127,5 +119,4 @@ public class LogonControllerTest {
 		result = lc3.toString();
 		assertEquals("Return message should be: " + expResult,expResult, result);
 	}
-
 }

@@ -25,14 +25,6 @@ public class AdminTest {
 		admin2 = new Admin("first2", "last2", "user2", "password2", 'N');
 	}
 
-//	/**
-//	 * Test method for {@link CMCPackage.Admin#Admin(java.lang.String, java.lang.String, java.lang.String, java.lang.String, char)}.
-//	 */
-//	@Test
-//	public void testAdmin() {
-//		fail("Not yet implemented");
-//	}
-
 	/**
 	 * Test method for {@link CMCPackage.Member#getFirstName()}.
 	 */

@@ -28,14 +28,6 @@ public class UserTest {
 		lc.logon("juser", "user");
 	}
 
-//	/**
-//	 * Test method for {@link CMCPackage.User#User(java.lang.String, java.lang.String, java.lang.String, java.lang.String, char)}.
-//	 */
-//	@Test
-//	public void testUser() {
-//		fail("Not yet implemented");
-//	}
-
 	/**
 	 * Test method for {@link CMCPackage.User#updateInformation(java.lang.String, java.lang.String, java.lang.String)}.
 	 */
