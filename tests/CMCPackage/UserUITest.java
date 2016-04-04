@@ -52,32 +52,6 @@ public class UserUITest {
 	}
 
 	/**
-	 * Test method for {@link CMCPackage.UserUI#manageMyProfile(java.lang.String, java.lang.String, java.lang.String)}.
-	 */
-	@Test
-	public void testManageMyProfile() {
-		Member m = uh.findByName("juser");
-		uh.setMember(m);
-		String expResult = "jim";
-		ui.manageMyProfile("jim", "user", "user");
-		String result = uh.findByName("user").getFirstName();
-		assertEquals("First name changed to" + result ,result,expResult);
-		ui.manageMyProfile("john", "user", "user");
-		
-	}
-	/**
-	 * Test method for {@link CMCPackage.UserUI#viewSavedSchools()}.
-	 */
-	@Test
-	public void testViewSavedSchools() {
-		Member m = uh.findByName("juser");
-		uh.setMember(m);
-		ui.logon("juser", "password");
-		ArrayList<String> result = ui.viewSavedSchools();
-		assertNotNull("viewSavedSchools returns a not null value",result);
-	}
-
-	/**
 	 * Test method for {@link CMCPackage.UserUI#saveSchool(java.lang.String)}.
 	 */
 	@Test
@@ -146,17 +120,7 @@ public class UserUITest {
 		assertNotNull("It got user home", result);
 	}
 
-	/**
-	 * Test method for {@link CMCPackage.UserUI#viewMemberInfo()}.
-	 */
-	@Test
-	public void testViewMemberInfo() {
-		Member m = uh.findByName("juser");
-		uh.setMember(m);
-		ui.logon("juser", "password");
-		String result = ui.viewMemberInfo();
-		assertNotNull("seabass",result);
-	}
+
 }
 
 
