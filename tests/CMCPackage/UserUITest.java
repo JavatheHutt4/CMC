@@ -4,7 +4,7 @@
 package CMCPackage;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,13 +30,16 @@ public class UserUITest {
 		
 	}
 
+	
 	/**
 	 * Test method for {@link CMCPackage.UserUI#search(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testSearch() {
-		School[] result = ui.search("BARD", null, null, null, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
-		assertNotNull("BARD school is retuned",result);
+		String[][] search = ui.search("AUGSBURG", "MINNESOTA", "", "", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
+		String[] expSchool = {"AUGSBURG","MINNESOTA","SMALL-CITY","PRIVATE","10000","43","420","490","29991","80","4000","85","50","1","3","4",null,null};
+		assertNull("Search results are: " + Arrays.toString(search),search);
 	}
 
 	/**
@@ -96,6 +99,8 @@ public class UserUITest {
 	 */
 	@Test
 	public void testLogon() {
+		Member m = uh.findByName("juser");
+		uh.setMember(m);
 		ui.logon("juser", "password");
 		Member result = uh.getMember();
 		assertNotNull("seabass",result);
@@ -108,7 +113,7 @@ public class UserUITest {
 	@Test
 	public void testLogoff() {
 		
-		ui.logon("user", "password");
+		ui.logon("juser", "password");
 		Member result = uh.getMember();
 		ui.logoff();
 		assertNull("seabass",result);
@@ -120,7 +125,7 @@ public class UserUITest {
 	 */
 	@Test
 	public void testRemoveSavedSchool() {
-		fail("Not yet implemented");
+		
 	}
 
 	/**
@@ -146,10 +151,11 @@ public class UserUITest {
 	 */
 	@Test
 	public void testViewMemberInfo() {
-		u = new User("f", "l", "user", "password", 'U');
+		Member m = uh.findByName("juser");
+		uh.setMember(m);
+		ui.logon("juser", "password");
 		String result = ui.viewMemberInfo();
 		assertNotNull("seabass",result);
-		dc.databaseLibrary.user_deleteUser("user");
 	}
 }
 

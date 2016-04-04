@@ -43,10 +43,18 @@ public class AdminHomeTest {
 		ah.addNewMember("user", "first", "last", "password", 'u');
 		ah.editMemberInformation("f", "last", "user", "password", 'u', 'Y');
 		String result = ah.findByName("user").getFirstName();
-		assertEquals("First name changed to "+expResult, result, expResult);
+		assertEquals("First name changed to "+ expResult, result, expResult);
 		dc.databaseLibrary.user_deleteUser("user");
 	}
-
+	@Test
+	public void testEditMemberInformationInvalid() {
+		String expResult = "f";
+		ah.addNewMember("user", "first", "last", "password", 'u');
+		ah.editMemberInformation("f", "last", "user", "password", 'd', 'o');
+		String result = ah.findByName("user").getFirstName();
+		assertEquals("First name changed to "+ expResult, result, expResult);
+		dc.databaseLibrary.user_deleteUser("user");
+	}
 	@Test
 	public void testAddUniversity() {
 		ah.addUniversity("name", "state", "location", "control", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
