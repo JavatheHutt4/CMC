@@ -41,20 +41,20 @@ public class AdminHomeTest {
 	}
 	@Test
 	public void testEditMemberInformationInvalid() {
-		String expResult = "f";
+		char expResult = 'd';
 		ah.addNewMember("user", "first", "last", "password", 'u');
 		ah.editMemberInformation("f", "last", "user", "password", 'd', 'o');
-		String result = ah.findByName("user").getFirstName();
-		assertEquals("First name changed to "+ expResult, result, expResult);
+		char result = ah.findByName("user").getType();
+		assertFalse("First name changed to "+ expResult, result==expResult);
 		dc.databaseLibrary.user_deleteUser("user");
 	}
 
 	
 	@Test
 	public void testEditUniversity() {
-		ah.addUniversity("name", "state", "location", "control", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-		ah.editUniversity("name", "notstate", "location", "control", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-		String expResult = "notstate";
+		ah.addUniversity("name", "MINNESOTA", "URBAN", "PRIVATE", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+		ah.editUniversity("name", "OREGON", "URBAN", "PRIVATE", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+		String expResult = "OREGON";
 		School s = sh.findByName("name");
 		String result = s.getState();
 		assertEquals("School state equals" + expResult, result, expResult);

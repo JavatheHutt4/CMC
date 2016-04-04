@@ -3,11 +3,9 @@
  */
 package CMCPackage;
 import static org.junit.Assert.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
-
 /**
  * @author jffritz
  *
@@ -39,7 +37,7 @@ public class UserUITest {
 		String[][] search = ui.search("AUGSBURG", "MINNESOTA", "", "", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, null, null, null, null, null);
 		String[] expSchool = {"AUGSBURG","MINNESOTA","SMALL-CITY","PRIVATE","10000","43","420","490","29991","80","4000","85","50","1","3","4",null,null};
-		assertNull("Search results are: " + Arrays.toString(search),search);
+		assertTrue("Search results are: " + Arrays.toString(search[0]),Arrays.equals(search[0], expSchool));
 	}
 
 	/**
