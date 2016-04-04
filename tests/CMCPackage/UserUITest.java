@@ -51,14 +51,7 @@ public class UserUITest {
 		assertNotNull("Related Schools to BARD",result);
 	}
 
-	/**
-	 * Test method for {@link CMCPackage.UserUI#saveSchool(java.lang.String)}.
-	 */
-	@Test
-	public void testSaveSchool() {
-		
-	}
-
+	
 	/**
 	 * Test method for {@link CMCPackage.UserUI#viewSpecificSchool(java.lang.String)}.
 	 */
@@ -94,14 +87,7 @@ public class UserUITest {
 		
 	}
 
-	/**
-	 * Test method for {@link CMCPackage.UserUI#removeSavedSchool(java.lang.String)}.
-	 */
-	@Test
-	public void testRemoveSavedSchool() {
-		
-	}
-
+	
 	/**
 	 * Test method for {@link CMCPackage.UserUI#getLog()}.
 	 */

@@ -1,4 +1,4 @@
-package CMCPackage; 
+package CMCPackage;
 
 import static org.junit.Assert.*;
 
@@ -29,16 +29,9 @@ public class AdminHomeTest {
 		dc.databaseLibrary.user_deleteUser("user");
 	}
 
+	
 	@Test
 	public void testAddNewMember() {
-		ah.addNewMember("user2", "first", "last", "password", 'u');
-		Member expResult = ah.findByName("user2");
-		assertNotNull("Member exists", expResult);
-		dc.databaseLibrary.user_deleteUser("user2");
-		}
-
-	@Test
-	public void testEditMemberInformation() {
 		String expResult = "f";
 		ah.addNewMember("user", "first", "last", "password", 'u');
 		ah.editMemberInformation("f", "last", "user", "password", 'u', 'Y');
@@ -55,14 +48,8 @@ public class AdminHomeTest {
 		assertEquals("First name changed to "+ expResult, result, expResult);
 		dc.databaseLibrary.user_deleteUser("user");
 	}
-	@Test
-	public void testAddUniversity() {
-		ah.addUniversity("name", "state", "location", "control", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-		School expResult = sh.findByName("name");
-		assertNotNull("School exists", expResult);
-		dc.databaseLibrary.university_deleteUniversity("name");
-	}
 
+	
 	@Test
 	public void testEditUniversity() {
 		ah.addUniversity("name", "state", "location", "control", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
