@@ -16,12 +16,14 @@ public class AdminHome {
 	 * DatabaseController object to access the database
 	 */
 	public DatabaseController db;
+	public SchoolHome sh;
 	
 	/**
 	 * Constructor for AdminHome object which instantiates database
 	 */
 	public AdminHome(){
 		db = new DatabaseController();
+		sh = new SchoolHome();
 	}
 	/**
 	 * Deactivates the member by setting its type to "N"
@@ -66,7 +68,7 @@ public class AdminHome {
 	
 	/**
 	 * adds university to database using DatabaseController object
-	 * * @param name
+	 * @param name
 	 * @param state
 	 * @param location
 	 * @param control
@@ -97,6 +99,18 @@ public class AdminHome {
 	 */
 	public void addUniversityEmphasis(String school, String emphasis){
 		db.addUniversityEmphasis(school, emphasis);
+	}
+	
+	/**
+	 * Delete all emphases for a school
+	 * @param school
+	 */
+	public void deleteUniversityEmphases(String school){
+		School s = sh.findByName(school);
+		String[] emphases = s.getEmphasis();
+		for(int i=0;i<emphases.length;i++){
+			db.deleteUniversityEmphasis(school, emphases[i]);
+		}
 	}
 	
 	/**

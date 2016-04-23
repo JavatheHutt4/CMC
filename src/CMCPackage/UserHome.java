@@ -33,6 +33,15 @@ public class UserHome {
 	}
 	
 	/**
+	 * Constructor for UserHome object which instantiates the user
+	 */
+	public UserHome(User u){
+		db = new DatabaseController();
+		sc = new SearchController();
+		user = u;
+	}
+	
+	/**
 	 * Uses the db to get all of the users and there information returned in a 2-D 
 	 * array of strings 
 	 * @return 2-d array of the user and there info
